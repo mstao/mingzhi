@@ -17,6 +17,7 @@ class TopicController extends HomeController {
     /**
      * 
      * 渲染页面
+     * 
      */
     
      public function index(){
@@ -44,7 +45,9 @@ class TopicController extends HomeController {
              //获取问题数量  ，问题分页也要用
              $question_count=$BaseTopicInfo['question_count'];
              $topic_focus_count=$BaseTopicInfo['topic_focus_count'];
-              
+             
+             
+             
              $topic_relation=M('topic_relation');
              //向分页封装函数传入参数
              $p=getpage($topic_relation,$question_count,10);
@@ -66,7 +69,11 @@ class TopicController extends HomeController {
              $BaseTopicInfo=$this->getBaseTopicInfo($tid);
              $topicinfo=$BaseTopicInfo['topicinfo']; 
              $question_count=$BaseTopicInfo['question_count'];
-             $topic_focus_count=$BaseTopicInfo['topic_focus_count'];
+             $topic_focus_count=$BaseTopicInfo['topic_focus_count'];  
+             
+             //获取当前用户对话题的关注状态
+             $focus_status=D('Topic')->getFocusTopicStatus($this->uid,$tid);
+             
              $topic_relation=M('topic_relation');
              //根据话题id获取获取回答信息
              $new_trends_answer_info=D('Topic')->getTopicTrendsByTid($this->uid,$tid);
@@ -80,6 +87,8 @@ class TopicController extends HomeController {
              $topicinfo['question_count']=$question_count;
              $topicinfo['topic_focus_count']=$topic_focus_count;
              $this->assign("topic_info",$topicinfo);
+             $this->assign("focus_status",$focus_status);
+             $this->assign("tid",$tid);
              $this->display('trends');
          }else if( !empty($tid) && $sel=='hot'){
              
@@ -88,6 +97,8 @@ class TopicController extends HomeController {
              $topicinfo=$BaseTopicInfo['topicinfo'];
              $question_count=$BaseTopicInfo['question_count'];
              $topic_focus_count=$BaseTopicInfo['topic_focus_count'];
+             //获取当前用户对话题的关注状态
+             $focus_status=D('Topic')->getFocusTopicStatus($this->uid,$tid);
              
              $topic_relation=M('topic_relation');
              //获取热门问题的信息
@@ -103,7 +114,8 @@ class TopicController extends HomeController {
              $topicinfo['question_count']=$question_count;
              $topicinfo['topic_focus_count']=$topic_focus_count;
              $this->assign("topic_info",$topicinfo);
-            
+             $this->assign("focus_status",$focus_status);
+             $this->assign("tid",$tid);
              $this->display('hot');
          }else if( !empty($tid) && $sel=='unanswered'){
              
@@ -113,6 +125,8 @@ class TopicController extends HomeController {
              //获取问题数量  ，问题分页也要用
              $question_count=$BaseTopicInfo['question_count'];
              $topic_focus_count=$BaseTopicInfo['topic_focus_count'];
+             //获取当前用户对话题的关注状态
+             $focus_status=D('Topic')->getFocusTopicStatus($this->uid,$tid);
              
              $topic_relation=M('topic_relation');           
              //向分页封装函数传入参数   
@@ -126,7 +140,8 @@ class TopicController extends HomeController {
              $topicinfo['question_count']=$question_count;
              $topicinfo['topic_focus_count']=$topic_focus_count;
              $this->assign("topic_info",$topicinfo);
-             //$this->assign("unanswer_question",$unanswer_question);
+             $this->assign("focus_status",$focus_status);
+             $this->assign("tid",$tid);
              $this->display('unanswered');
          }
          

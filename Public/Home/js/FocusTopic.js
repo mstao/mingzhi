@@ -6,7 +6,7 @@ $(function(){
 	$(document).on('click','.topic-focus-btn',function(){
 		
 		//获取当前话题的id
-		var topic_id=$(this).closest('.topicopinfooperation').find('.hidden-topic-id').val();
+		var topic_id=$(this).attr('data-topic-id');
 		var mythis=$(this);
 		$.ajax({
 			type:'post',
@@ -28,10 +28,10 @@ $(function(){
 					//状态为1，代表话题已关注，做取消关注操作
 					if(data.content==1){
 						
-						mythis.text('取消关注');
+						mythis.html('取消关注');
 						
 					}else if(data.content==0){
-						mythis.text('关注话题');
+						mythis.html("<img src='"+HOME_IMAGES+"/add.png'/>关注");
 						
 					}
 					

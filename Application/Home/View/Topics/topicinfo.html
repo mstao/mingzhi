@@ -6,7 +6,8 @@
 <img src="<{$all_topic.topic_pic}>" width="40" height="40"/></a>
 </div>
 <div class="onetopicinfo-rightcontent">
-<div class="onetopicinfo-topicfirst"><a href="<{:U('Home/Topic/index',array('tid'=>$all_topic['tid'],'sel'=>'trends'))}>" class="onetopicinfo-topicname"><{$all_topic.topic_name}></a><a href="#" class="onetopicinfo-tianjiafocus">
+<div class="onetopicinfo-topicfirst"><a href="<{:U('Home/Topic/index',array('tid'=>$all_topic['tid'],'sel'=>'trends'))}>" class="onetopicinfo-topicname"><{$all_topic.topic_name}></a>
+<a href="javascript:void(0);" class="onetopicinfo-tianjiafocus topic-focus-btn" data-topic-id="$all_topic.tid">
 <if condition="$all_topic['focus_id'] eq ''">
 <img src="__HOME_IMAGES__/add.png"/>关注
 <else/>

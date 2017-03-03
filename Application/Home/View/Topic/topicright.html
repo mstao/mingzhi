@@ -16,7 +16,7 @@
 	<img src="<{$hot_topic.topic_pic}>" width="40" height="40"/></a>
 	</div>
 	<div class="hottopicsss-rightcontent">
-	<a href="<{:U('Home/Topic/index',array('tid'=>$hot_topic['id'],'sel'=>'trends'))}>" class="hottopicsss-topicname"><{$hot_topic.topic_name}></a><a href="javascript:void(0);" class="hottopicsss-tianjiafocus">
+	<a href="<{:U('Home/Topic/index',array('tid'=>$hot_topic['id'],'sel'=>'trends'))}>" class="hottopicsss-topicname"><{$hot_topic.topic_name}></a><a href="javascript:void(0);" class="hottopicsss-tianjiafocus topic-focus-btn" data-topic-id="<{$hot_topic.id}>">
 	<if condition="$hot_topic['focus_id'] eq ''">
 	<img src="__HOME_IMAGES__/add.png"/>关注
 	<else/>

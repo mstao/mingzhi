@@ -38,7 +38,7 @@ $(function(){
 					
 					//根据当前用户对该话题的关注状态进行渲染
 					if(data.content.focus_status==0){
-						mythis2.find('.topic-focus-btn').text('关注话题');
+						mythis2.find('.topic-focus-btn').html("<img src='"+HOME_IMAGES+"/add.png' style='position:relative;top:3px;'/>关注");
 
 					}else if(data.content.focus_status==1){
 						mythis2.find('.topic-focus-btn').text('取消关注');

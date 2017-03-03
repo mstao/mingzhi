@@ -1,6 +1,12 @@
 <div id="topicmainright">
 <div class="focus_topic_button_div">
-  <a href="javascript:void(0)" class="focus_topic_button"> <span>关注话题</span></a><br>
+  <a href="javascript:void(0)" class="topic-focus-btn  only-topic-focus-btn" data-topic-id="<{$tid}>"> 
+  <if condition="$focus_status eq 1">
+  取消关注
+  <elseif condition="$focus_status eq 0"/>
+  关注话题
+  </if>
+  </a><br>
 </div>
 
 <div class="focus_topic_desc_div">

@@ -13,11 +13,7 @@
 <div id="topicinformation">
 <div id="topicinfo"></div>
 <div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
-<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$topicinfo['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
-
-<{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
-
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn" data-topic-id="<{$topicinfo.id}>"><if condition="$topicinfo['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
 
 </div>
 

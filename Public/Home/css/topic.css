@@ -307,10 +307,8 @@ text-decoration:none;
 	margin-top:0px;
 	border-bottom:1px solid #ccc;
 }
-.focus_topic_button {
-	
-}
-.focus_topic_button span{
+
+.only-topic-focus-btn{
 	margin-bottom:20px;
 	display:inline-block;
 	color:#fff;
@@ -322,7 +320,7 @@ text-decoration:none;
 	padding-right:10px;
 	padding-left:10px;
 	text-decoration: none;
-	border-radius:6px;
+	border-radius:3px;
 }
 .focus_topic_count{
 	display:inline-block;
@@ -673,12 +671,14 @@ text-decoration:none;
 .topicopinfooperation a:hover{
     text-decoration:underline;
 }
+
 .topicinfoquxiao {
-   font-size:16px;
-}
-.topicinfoquxiao {
-	color:#06F;
+	
 	float:right;
+	font-size:16px;
+    display: inline;
+	background: #ffffff;
+    
 }
 
 .topic_new_question_tag{

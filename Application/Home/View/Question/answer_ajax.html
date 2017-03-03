@@ -49,7 +49,7 @@
 </span>
 <a href="javascript:void(0);">反对</a>
 
-<if condition="$answer_info['comment_count'] eq ''">
+<if condition="$answer_info['comment_count'] eq 0">
 <a href="javascript:void(0);" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>添加评论</a>
 <else/>
 <a href="javascript:void(0);" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>评论</a><span class="shoucangnumber"><{$answer_info.comment_count}></span>
