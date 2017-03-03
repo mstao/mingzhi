@@ -5,15 +5,21 @@
 	<include file="./Application/Home/View/Public/headerinfo.html"/>
 	<title><{$Think.session.username}>-<{$Think.config.WEB_NAME}></title>
 	<script type="text/javascript">
-	var MODULE="__MODULE__";
-	var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
-	var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
+	var MODULE='__MODULE__';
+	var HOME_IMAGES='__HOME_IMAGES__';
+	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+    var AJAX_ERROR='<{:C("AJAX_ERROR_TIPS")}>';
+    var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+    var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+    var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+	var default_question_desc='<{:C("DEFAULT_QUESTION_DESC")}>';
 	</script>
 <css file="__HOME_CSS__/indexheader.css" />
 <css file="__HOME_CSS__/topic.css" />
 <css file="__HOME_CSS__/answer_topic_question.css"/>
 <css file="__HOME_CSS__/footer.css" />
 <css file="__HOME_CSS__/fenye.css" />
+<css file="__HOME_CSS__/common.css"/>
 <css file="__PUBLIC__/static/lightBox/css/jquery.lightbox-0.5.css"/>
 <css file="__PUBLIC__/static/wangEditor/dist/css/wangEditor.min.css"/>
 <js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
@@ -23,6 +29,14 @@
 <js file="__PUBLIC__/static/layer-2.4/layer.js" />
 <js file="__HOME_JS__/js.js" />
 <js file="__HOME_JS__/header.js"/>
+<js file="__HOME_JS__/report.js"/>
+<js file="__HOME_JS__/upvoteso.js"/>
+<js file="__HOME_JS__/CommentAnswer.js"/>
+<js file="__HOME_JS__/LoadAnswerComments.js"/>
+<js file="__HOME_JS__/ReplayComment.js"/>
+<js file="__HOME_JS__/CommentOperate.js"/>
+<js file="__HOME_JS__/LoadCollectionInfo.js"/>
+<js file="__HOME_JS__/AddCollection.js"/>
 </head>
 <body> 
 
@@ -50,15 +64,17 @@
 <!-- 主体内容结束 -->
 
 
-<!--S 回答  弹出-->
-<include file="Index/writeAnswer"/>
-<!--E 回答  弹出-->
-
-
 <!--弹窗开始-->
 <include file="Index/openModal"/>
 <!--弹窗结束  -->
 
+<{/*S 收藏夹*/}>
+<include file="Index/collection"/>
+<{/*E 收藏夹*/}>
+
+<{/*S 添加收藏夹*/}>
+<include file="Index/Create_Collection"/>
+<{/*E 添加收藏夹*/}>
 </body>
 </html>
 

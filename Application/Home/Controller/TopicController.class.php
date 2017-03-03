@@ -6,7 +6,7 @@ namespace Home\Controller;
 use Common\Controller\HomeController;
 
 class TopicController extends HomeController {
-    public  $uid;
+    protected  $uid;
     public function _initialize(){
         parent::_initialize();
         $this->uid=session('uid');
@@ -69,11 +69,11 @@ class TopicController extends HomeController {
              $topic_focus_count=$BaseTopicInfo['topic_focus_count'];
              $topic_relation=M('topic_relation');
              //根据话题id获取获取回答信息
-             $new_trends_answer_info=D('Topic')->getTopicTrendsByTid($tid);
+             $new_trends_answer_info=D('Topic')->getTopicTrendsByTid($this->uid,$tid);
              //计算最新问题回答数量
              $new_trends_answer_count=count($new_trends_answer_info);
              //向分页封装函数传入参数
-             $p=getpage($topic_relation,$new_trends_answer_count,4);
+             $p=getpage($topic_relation,$new_trends_answer_count,10);
              $this->new_trends_answer= $new_trends_answer_info;
              $this->page=$p->show();
              
@@ -83,7 +83,7 @@ class TopicController extends HomeController {
              $this->display('trends');
          }else if( !empty($tid) && $sel=='hot'){
              
-             //获取话题的热门回答
+             //获取话题的热门问题
              $BaseTopicInfo=$this->getBaseTopicInfo($tid);
              $topicinfo=$BaseTopicInfo['topicinfo'];
              $question_count=$BaseTopicInfo['question_count'];

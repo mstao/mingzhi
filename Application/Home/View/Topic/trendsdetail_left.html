@@ -16,44 +16,9 @@
     
   <!-- 回答问题内容开始 -->
 <div class="index-sss">
-<div class="touxiang">
 
-<img src="<{$topic_info['topic_pic']}>" width="40" height="40"/>
+<div class="topic-rightcontent">
 
-</div>
-<div class="index-rightcontent">
-<div class="where">
-
- <ul  class="bubblemenu"> 
-    <li>
-            来自&nbsp;&nbsp; <a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['id'],'sel'=>'trends'))}>"><{$topic_info.topic_name}></a>
-        <div>
-        <div id="topicinformation">
-<div id="topicinfo">
-<div class="topicinfomytouxiang"><a href="#">
-<img src="<{$topic_info['topic_pic']}>" width="40" height="40"/></a>
-</div>
-<div class="topicinforightcontent">
-<div class="topicinfoname"><a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['id'],'sel'=>'trends'))}>"><{$topic_info.topic_name}></a></div>
-<div class="topicinfonameanswer"><{$topic_info.topic_desc}></div>
- 
-
-
-</div>
-</div>
-<div class="topicopinfooperation">问题：<a href="#"><{$topic_info.question_count}></a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#"><{$topic_info.topic_focus_count}></a><a href="#" class="topicinfoquxiao">取消关注</a></div>
-
-
-</div>
-             
-</div>
-</li>
-</ul>
-
-
-
-
-</div>
 <div class="answer"><a href="<{:U('Home/Question/qindex',array('qid'=>$trend_info['question_id']))}>" ><{$trend_info.question_name}></a></div>
 <!-- 回答开始 -->
 <div class="answer-info">
@@ -79,23 +44,50 @@
 <div class="edittime">发表于 <span><{$trend_info.create_time|time2Units}></span></div>
 </div>
 <!-- 回答结束 -->
-<div class="index_my_left_category">
 
-<span class="upvote"><a href="javascript:void(0);">赞同 <if condition="$feeds_info_detail['upvote_content'] eq ''"><else/> |<{$trend_info.upvote_content}></if></a> </span><a href="javascript:void(0);">反对</a><a href="javascript:void(0);"><img src="__HOME_IMAGES__/add.png"/>关注问题</a>
-<if condition="$feeds_info_detail['comment_content'] eq ''">
-<a href="javascript:void(0)" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>添加评论</a>
+<!--S 操作   -->
+<div class="index_my_left_category  answer-operate">
+<input type="hidden" class="hide_question_id" value="<{$trend_info.qid}>">
+<input type="hidden" class="hide_answer_id" value="<{$trend_info.aid}>">
+
+<span class="upvote answer-upvote">
+
+<if condition="$trend_info['vote_value'] eq 1 ">
+<a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><{$trend_info.upvote_count}></i></a>
 <else/>
-<a href="javascript:void(0)" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>评论</a><span class="shoucangnumber"><{$trend_info.comment_content}></span>
+<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$trend_info.upvote_count}></i></a>
+</if>
+
+</span>
+<a href="javascript:void(0);">反对</a>
+<a href="javascript:void(0);" class="focus-question-btn">
+<if condition="$trend_info['focus_id'] eq ''">
+<img src="__HOME_IMAGES__/add.png"/>关注问题
+<else/>
+<img src="__HOME_IMAGES__/nofocus.png"/>取消关注
+</if>
+</a>
+<if condition="$trend_info['comment_count'] eq 0">
+<a href="javascript:void(0);" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>添加评论</a>
+<else/>
+<a href="javascript:void(0);" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>评论</a><span class="shoucangnumber"><{$trend_info.comment_count}></span>
 </if>
 
 <span class="shadow_border">
-<a href="#"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
-<a href="#"><img src="__HOME_IMAGES__/report.png"/> 举报</a>
+<a href="javascript:void(0);" class="answer-collection-btn"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="javascript:void(0);" class="report-answer-btn">
+<if condition="$trend_info['report_id'] eq ''">
+<img src="__HOME_IMAGES__/report.png"/> 举报
+<else/>
+<img src="__HOME_IMAGES__/report_blue.png" /><font style="color:#0F88EB;">已举报</font>
+</if>
+</a>
 </span>
 
 </div>
+<!--E 操作 -->
 
-<!--评论内容 开始 -->
+<{/*评论内容 开始 */}>
 <div class="commentbox">
 			<div class="arrow-range">
 				<b class="arrow-outer"></b>
@@ -104,121 +96,34 @@
 			<div class="commentcon">
 					 
 					 
-					 <!--我的回复开始  -->
+					 <{/*我的回复开始  */}>
 				<div class="othercomment_mycomment">
 				    <div>
 						<img src="<{$Think.session.avatar_file}>" class="mycommen_touxiang" >
-						<!-- 回复内容 -->
+						<{/* 回复内容 */}>
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>
-					<div >
-						<form action="" method="">
-						    <div class="replay-other-btn-div">
-						    <input type="submit" value="评论" class="replay-other-btn">
-						    </div>
-						</form>
+					<div>				
+						<div class="replay-other-btn-div">
+						    <input type="submit" value="评论" class="replay-other-btn" data-answer-id="<{$trend_info.aid}>"/>
+
+					    </div>
 					</div>
 				</div>
 				
-				<!--我的回复结束  -->
+				<{/*我的回复结束  */}>
 				
 				
-				        <!--其他人评论开始  -->	
-				        <div class="othercomment_info">
-				  
-				   
-				   
-						 <!-- 其他人评论内容开始 -->
-						<div class="othercomment_info_div">
-						<div class="othercomment_user_touxiang">
-						<img src="__PUBLIC__/Home/images/yingxiong.jpg" />
-						</div>
-						<div class="replay-rightcontent">
-										
-						<div class="othercomment_info_message"><a href="#" >当时明月</a>:<span>这种游戏就是这个样子呀，上号这种游戏就是这个样子呀，上号号这种游戏就是这个样子呀，上号</span> </div>
-						<div class="othercomment_replay_time"><span class="replay_time">·2天前</span> 
-						<!-- 操作开始 -->
-						<div class="othercomment_replay_operate">
-						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/upvote.png"> 赞</a>
-						<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
-						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/report.png"> 举报</a>
-						</div>
-						
-						<!-- 操作结束 -->
-						<span class="replay-upvote-num">3 赞</span>
-						</div> 
-						<!-- 隐藏评论开始 -->
-						<div class="replay-other-input-div">
-						    <div>
-					
-								<!-- 回复内容 -->
-								<div class="replay-other-input" contenteditable="true"></div>
-							</div>
-							<div >
-								<form action="" method="">
-								 
-								    <div class="replay-other-btn-div">
-								  
-								    <input type="submit" value="回复" class="replay-person-btn">
-								    </div>
-								</form>
-							</div>
-						</div>	
-					    <!--隐藏评论结束  -->
-									
-						</div>
-						</div>
-						<!-- 其他人评论内容结束 -->
-				   
-				         <!-- 其他人评论内容开始 -->
-						<div class="othercomment_info_div">
-						<div class="othercomment_user_touxiang">
-						<img src="__PUBLIC__/Home/images/yingxiong.jpg" />
-						</div>
-						<div class="replay-rightcontent">
-										
-						<div class="othercomment_info_message"><a href="#" >当时明月</a>:<span>这种游戏就是这个样子呀，上号这种游戏就是这个样子呀，上号号这种游戏就是这个样子呀，上号</span> </div>
-						<div class="othercomment_replay_time"><span class="replay_time">·2天前</span> 
-						<!-- 操作开始 -->
-						<div class="othercomment_replay_operate">
-						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/upvote.png"> 赞</a>
-						<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
-						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/report.png"> 举报</a>
-						</div>
-						
-						<!-- 操作结束 -->
-						<span class="replay-upvote-num">3 赞</span>
-						</div> 
-						<!-- 隐藏评论开始 -->
-						<div class="replay-other-input-div">
-						    <div>
-					
-								<!-- 回复内容 -->
-								<div class="replay-other-input" contenteditable="true"></div>
-							</div>
-							<div >
-								<form action="" method="">
-								 
-								    <div class="replay-other-btn-div">
-								  
-								    <input type="submit" value="回复" class="replay-person-btn">
-								    </div>
-								</form>
-							</div>
-						</div>	
-					    <!--隐藏评论结束  -->
-									
-						</div>
-						</div>
-						<!-- 其他人评论内容结束 -->
-				   
-				    
-				   
+				<{/*其他人评论开始  */}>	
+				<div class="othercomment_info">
+				  <{/*引入加载评论重用模板*/}>		   
+                   <include file="Index/Answer_Comment_Ajax"/>
 			    </div>
-			    <!--其他人评论结束 -->
+			    <{/*其他人评论结束 */}>
 			</div>
 </div> 
-<!--评论内容结束  -->
+<{/*评论内容结束  */}>
+
 
 </div>
 </div>

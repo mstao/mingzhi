@@ -195,15 +195,6 @@ $(function () {
 	});
 	*/
 	
-	//对回答的赞同状态进行处理  渲染赞同按钮
-	$(".answer-operate").each(function(){
-		var upvote_status=$(this).find('.hide_upvote_status').val();
-		if(upvote_status==1){			
-		  $(this).find('.answer-upvote > a').css('color','#666').css('background','#F6F6F6');
-		  $(this).find('.answer-upvote > a >b').text('已赞');
-		}
-		
-	});
 	
 	
 	//首页摘要处理    2

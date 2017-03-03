@@ -29,7 +29,11 @@
 	margin-left:50px;
 }
 
-
+.topic-rightcontent{
+	font-size:14px;
+	color:#666666;
+	margin-left:0px;
+}
 .where{
 	
 	
@@ -47,7 +51,7 @@
 }
 .answer a{
 	 font-size:16px;
-	color:#225599;
+	color:#0F88EB;
 	font-weight:bold;
 	text-decoration:none;
 }
@@ -375,8 +379,9 @@
 	    left:10px;
 	    position:relative;
 	    top:-10px;
-	    margin-left:200px;
+	    margin-left:220px;
 }
+
 .arrow-outer{ 
 		width:0px;height:0px;display:block;
 		border-bottom:10px solid #AFAFAF;

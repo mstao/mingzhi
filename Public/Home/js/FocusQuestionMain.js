@@ -4,7 +4,7 @@
 $(function(){
 	$(document).on('click','.focus-question-btn',function(){
 		//获取当前问题id
-		var qid=$(this).prev('.hide_question_id').val();
+		var qid=$(this).attr('data-question-id');
 		var mythis = $(this);
 		$.ajax({
 				type:'post',

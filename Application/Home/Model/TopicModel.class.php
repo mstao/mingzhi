@@ -235,13 +235,17 @@ class TopicModel extends Model{
     * @param unknown $tid
     * @return unknown
     */
-   function getTopicTrendsByTid($tid){
+   function getTopicTrendsByTid($uid,$tid){
        $info=M('topic_relation')
                      ->alias('tr')
-                     ->field('u.username,u.tag,q.*,a.*')
+                     //->field('u.username,u.tag,q.*,a.*')
+                     ->field(array('q.id'=>'qid','a.id'=>'aid','a.uid','a.isname','a.upvote_count','a.comment_count','a.create_time','a.answer_content','q.question_name','u.username','u.tag','qf.focus_id','av.vote_value','ar.report_id'))
                      ->join('__QUESTION__ q ON q.id=tr.item_id')
                      ->join('__ANSWER__ a ON a.question_id=q.id')
                      ->join('__USER__ u ON u.id=a.uid')
+                     ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=tr.item_id and qf.uid='.$uid)
+                     ->join('LEFT JOIN __ANSWER_REPORT__ ar ON ar.answer_id=a.id and ar.uid='.$uid)
+                     ->join('LEFT JOIN __ANSWER_VOTE__ av ON av.answer_id=a.id and av.vote_uid='.$uid)
                      ->where('tr.topic_id='.$tid)
                      ->order('a.create_time desc')
                      ->select();
