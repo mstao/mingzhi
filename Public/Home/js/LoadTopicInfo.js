@@ -1,7 +1,7 @@
 $(function(){
 	$(document).on('mouseenter','.enter-topicname',function(){
 		//获取当前topic id
-		var topic_id=$(this).prev('.hidden-topic-id').val();
+		var topic_id=$(this).attr('data-topic-id');
 		
 		var mythis=$('+div>div>div:nth-child(1)',this);
 		var mythis2=$('+div>div>div:nth-child(2)',this);

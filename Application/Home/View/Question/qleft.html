@@ -6,9 +6,8 @@
 <volist  name="topicinfo" id="topicinfo">
 
 <li>
-<{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
-<a href="<{:U('Home/Topic/index',array('tid'=>$topicinfo['id'],'sel'=>'trends'))}>"  class="nav_topicname enter-topicname"><{$topicinfo.topic_name}></a> 
+
+<a href="<{:U('Home/Topic/index',array('tid'=>$topicinfo['id'],'sel'=>'trends'))}>"  class="nav_topicname enter-topicname"  data-topic-id="<{$topicinfo.id}>"><{$topicinfo.topic_name}></a> 
 
 <div>
 <div id="topicinformation">

@@ -12,9 +12,7 @@
 <volist name="focus_topic" id="focus_topic"  empty="还没有关注话题哦">  
 
 <li>
-<{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$focus_topic.id}>">
-<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="enter-topicname"><{$focus_topic.topic_name}></a>
+<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="enter-topicname" data-topic-id="<{$focus_topic.id}>"><{$focus_topic.topic_name}></a>
 <div>
 <div id="topicinformation">
 <div id="topicinfo"></div>

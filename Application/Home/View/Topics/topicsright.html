@@ -14,23 +14,17 @@
  <ul  class="bubblemenu"> 
            
 <li>
-<a href="#"><{$commend_topic.topic_name}></a>
+<a href="<{:U('Home/Topic/index',array('tid'=>$commend_topic['tid'],'sel'=>'trends'))}>" class="enter-topicname"  data-topic-id="<{$commend_topic.tid}>"><{$commend_topic.topic_name}></a>
  <div>
 <div id="topicinformation">
-<div id="topicinfo">
-<div class="topicinfomytouxiang"><a href="#">
-<img src="<{$commend_topic.topic_pic}> width="40" height="40"/></a>
-</div>
-<div class="topicinforightcontent">
-<div class="topicinfoname">英雄联盟</div>
-<div class="topicinfonameanswer">《英雄联盟》（简称lol）是由美国Riot Games开发，腾讯游戏运营的英雄对战网游。《英雄联盟》除了即时战略、团队作战外，还拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素。 </div>
- 
+<div id="topicinfo"></div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$hottopic['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
 
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$commend_topic.tid}>">
 
 </div>
-</div>
-<div class="topicopinfooperation">问题：<a href="#">30</a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#">17</a><a href="#" class="topicinfoquxiao"><img src="__HOME_IMAGES__/add.png"/>关注</a></div>
-
 
 </div>
              

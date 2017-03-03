@@ -198,9 +198,7 @@
 
 <?php if(is_array($focus_topic)): $i = 0; $__LIST__ = $focus_topic;if( count($__LIST__)==0 ) : echo "还没有关注话题哦" ;else: foreach($__LIST__ as $key=>$focus_topic): $mod = ($i % 2 );++$i;?><li>
 
-
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'));?>" class="nav_topicname enter-topicname"><img alt="" src="/mytest/mingzhi/Public/Home/images/dot.png" class="dot"><?php echo ($focus_topic["topic_name"]); ?></a>
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'));?>" class="nav_topicname enter-topicname" data-topic-id="<?php echo ($focus_topic["id"]); ?>"><img alt="" src="/mytest/mingzhi/Public/Home/images/dot.png" class="dot"><?php echo ($focus_topic["topic_name"]); ?></a>
 
 <div>
 <div class="topicinformation">
@@ -236,9 +234,7 @@
 
 <?php if(is_array($hottopic)): $i = 0; $__LIST__ = $hottopic;if( count($__LIST__)==0 ) : echo "没有热门话题了^_^" ;else: foreach($__LIST__ as $key=>$hottopic): $mod = ($i % 2 );++$i;?><li>
 
-
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($hottopic["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('tid'=>$hottopic['id'],'sel'=>'trends'));?>" class="nav_topicname enter-topicname"><img alt="" src="/mytest/mingzhi/Public/Home/images/dot.png" class="dot"/><?php echo ($hottopic["topic_name"]); ?></a>
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$hottopic['id'],'sel'=>'trends'));?>" class="nav_topicname enter-topicname"  data-topic-id="<?php echo ($hottopic["id"]); ?>"><img alt="" src="/mytest/mingzhi/Public/Home/images/dot.png" class="dot"/><?php echo ($hottopic["topic_name"]); ?></a>
 <div>
 <div class="topicinformation">
 <div class="topicinfo"></div>
@@ -294,9 +290,7 @@
 <?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i;?><ul  class="bubblemenu"> 
     <li>
             来自&nbsp;&nbsp; 
-  
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic_info["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname"><?php echo ($focus_topic_info["topic_name"]); ?></a>
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname"  data-topic-id="<?php echo ($focus_topic_info["id"]); ?>"><?php echo ($focus_topic_info["topic_name"]); ?></a>
 <div>
 <div class="topicinformation">
 <div class="topicinfo"></div>
@@ -373,11 +367,10 @@
  <?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i;?><ul  class="bubblemenu"> 
     <li>
             来自&nbsp;&nbsp; 
-
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic_info["id"]); ?>">       
-   <a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname"><?php echo ($focus_topic_info["topic_name"]); ?></a>
-        <div>
-        <div class="topicinformation">
+     
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname" data-topic-id="<?php echo ($focus_topic_info["id"]); ?>"><?php echo ($focus_topic_info["topic_name"]); ?></a>
+<div>
+<div class="topicinformation">
 <div class="topicinfo"></div>
 <div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
 <a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><?php if($focus_topic_info['focus_id'] == ''): ?>关注话题<?php else: ?>取消关注<?php endif; ?></a>

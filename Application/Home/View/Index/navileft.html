@@ -12,9 +12,7 @@
 
 <li>
 
-<{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$focus_topic.id}>">
-<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"><{$focus_topic.topic_name}></a>
+<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname" data-topic-id="<{$focus_topic.id}>"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"><{$focus_topic.topic_name}></a>
 
 <div>
 <div class="topicinformation">
@@ -55,9 +53,7 @@
 
 <li>
 
-<{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$hottopic.id}>">
-<a href="<{:U('Home/Topic/index',array('tid'=>$hottopic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"/><{$hottopic.topic_name}></a>
+<a href="<{:U('Home/Topic/index',array('tid'=>$hottopic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname"  data-topic-id="<{$hottopic.id}>"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"/><{$hottopic.topic_name}></a>
 <div>
 <div class="topicinformation">
 <div class="topicinfo"></div>

@@ -177,8 +177,8 @@
     
 <ul  class="bubblemenu"> 
 <?php if(is_array($all_focus_topic)): $i = 0; $__LIST__ = $all_focus_topic;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$topicinfo): $mod = ($i % 2 );++$i;?><li>
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($topicinfo["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('idt'=>$topicinfo['id']));?>"  class="nav_topicname enter-topicname"><?php echo ($topicinfo["topic_name"]); ?></a> 
+
+<a href="<?php echo U('Home/Topic/index',array('idt'=>$topicinfo['id']));?>"  class="nav_topicname enter-topicname"  data-topic-id="<?php echo ($topicinfo["id"]); ?>"><?php echo ($topicinfo["topic_name"]); ?></a> 
 
 <div>
 <div id="topicinformation">

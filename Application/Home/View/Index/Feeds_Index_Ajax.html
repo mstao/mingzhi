@@ -21,9 +21,7 @@
  <ul  class="bubblemenu"> 
     <li>
             来自&nbsp;&nbsp; 
-  <{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$focus_topic_info.id}>">
-<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'))}>" class="enter-topicname"><{$focus_topic_info.topic_name}></a>
+<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'))}>" class="enter-topicname"  data-topic-id="<{$focus_topic_info.id}>"><{$focus_topic_info.topic_name}></a>
 <div>
 <div class="topicinformation">
 <div class="topicinfo"></div>
@@ -116,11 +114,10 @@
  <ul  class="bubblemenu"> 
     <li>
             来自&nbsp;&nbsp; 
-<{/*隐藏话题id*/}>
-<input type="hidden" class="hidden-topic-id" value="<{$focus_topic_info.id}>">       
-   <a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'))}>" class="enter-topicname"><{$focus_topic_info.topic_name}></a>
-        <div>
-        <div class="topicinformation">
+     
+<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'))}>" class="enter-topicname" data-topic-id="<{$focus_topic_info.id}>"><{$focus_topic_info.topic_name}></a>
+<div>
+<div class="topicinformation">
 <div class="topicinfo"></div>
 <div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
 <a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$focus_topic_info['focus_id'] eq ''">关注话题<else/>取消关注</if></a>

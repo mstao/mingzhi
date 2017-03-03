@@ -6,7 +6,9 @@
 	<title><{$Think.session.username}>-<{$Think.config.WEB_NAME}></title>
 	<script type="text/javascript">
 	var MODULE="__MODULE__";
-	
+	var HOME_IMAGES='__HOME_IMAGES__';
+	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+    var AJAX_ERROR='<{:C("AJAX_ERROR_TIPS")}>';
 	var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
     var mp=<{$mp}>;
     var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
@@ -20,7 +22,8 @@
 <js file="__PUBLIC__/static/layer-2.4/layer.js" />
 <js file="__HOME_JS__/js.js" />
 <js file="__HOME_JS__/header.js"/>
-
+<js file="__HOME_JS__/FocusTopic.js"/>
+<js file="__HOME_JS__/LoadTopicInfo.js"/>
 </head>
 <body> 
 

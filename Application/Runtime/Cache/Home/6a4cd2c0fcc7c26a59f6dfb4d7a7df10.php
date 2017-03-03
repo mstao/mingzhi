@@ -9,7 +9,9 @@
 	<title><?php echo (session('username')); ?>-<?php echo (C("WEB_NAME")); ?></title>
 	<script type="text/javascript">
 	var MODULE="/mytest/mingzhi/index.php/Home";
-	
+	var HOME_IMAGES='/mytest/mingzhi/Public/Home/images';
+	var PUBLIC_PATH='<?php echo C("PUBLIC_PATH");?>';
+    var AJAX_ERROR='<?php echo C("AJAX_ERROR_TIPS");?>';
 	var default_question_desc="<?php echo (C("DEFAULT_QUESTION_DESC")); ?>";
     var mp=<?php echo ($mp); ?>;
     var PUBLIC_PATH='<?php echo C("PUBLIC_PATH");?>';
@@ -23,7 +25,8 @@
 <script type="text/javascript" src="/mytest/mingzhi/Public/static/layer-2.4/layer.js"></script>
 <script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
 <script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/header.js"></script>
-
+<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/FocusTopic.js"></script>
+<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/LoadTopicInfo.js"></script>
 </head>
 <body> 
 
@@ -172,8 +175,8 @@
 
 <ul  class="bubblemenu"> 
 <?php if(is_array($all_focus_topic)): $i = 0; $__LIST__ = $all_focus_topic;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$topicinfo): $mod = ($i % 2 );++$i;?><li>
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($topicinfo["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('idt'=>$topicinfo['id']));?>"  class="nav_topicname enter-topicname"><?php echo ($topicinfo["topic_name"]); ?></a> 
+
+<a href="<?php echo U('Home/Topic/index',array('idt'=>$topicinfo['id']));?>"  class="nav_topicname enter-topicname"  data-topic-id="<?php echo ($topicinfo["id"]); ?>"><?php echo ($topicinfo["topic_name"]); ?></a> 
 
 <div>
 <div id="topicinformation">
@@ -241,23 +244,17 @@
  <ul  class="bubblemenu"> 
            
 <li>
-<a href="#"><?php echo ($commend_topic["topic_name"]); ?></a>
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$commend_topic['tid'],'sel'=>'trends'));?>" class="enter-topicname"  data-topic-id="<?php echo ($commend_topic["tid"]); ?>"><?php echo ($commend_topic["topic_name"]); ?></a>
  <div>
 <div id="topicinformation">
-<div id="topicinfo">
-<div class="topicinfomytouxiang"><a href="#">
-<img src="<?php echo ($commend_topic["topic_pic"]); ?> width="40" height="40"/></a>
-</div>
-<div class="topicinforightcontent">
-<div class="topicinfoname">英雄联盟</div>
-<div class="topicinfonameanswer">《英雄联盟》（简称lol）是由美国Riot Games开发，腾讯游戏运营的英雄对战网游。《英雄联盟》除了即时战略、团队作战外，还拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素。 </div>
- 
+<div id="topicinfo"></div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><?php if($hottopic['focus_id'] == ''): ?>关注话题<?php else: ?>取消关注<?php endif; ?></a>
 
 
-</div>
-</div>
-<div class="topicopinfooperation">问题：<a href="#">30</a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#">17</a><a href="#" class="topicinfoquxiao"><img src="/mytest/mingzhi/Public/Home/images/add.png"/>关注</a></div>
+<input type="hidden" class="hidden-topic-id" value="<?php echo ($commend_topic["tid"]); ?>">
 
+</div>
 
 </div>
              

@@ -10,8 +10,8 @@
 
 
 <li>
-<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
-<a href="<{:U('Home/Topic/index',array('idt'=>$topicinfo['id']))}>"  class="nav_topicname enter-topicname"><{$topicinfo.topic_name}></a> 
+
+<a href="<{:U('Home/Topic/index',array('idt'=>$topicinfo['id']))}>"  class="nav_topicname enter-topicname"  data-topic-id="<{$topicinfo.id}>"><{$topicinfo.topic_name}></a> 
 
 <div>
 <div id="topicinformation">

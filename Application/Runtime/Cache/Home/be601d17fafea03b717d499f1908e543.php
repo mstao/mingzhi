@@ -642,7 +642,7 @@ E 我擅长的话题  -->
 <?php if(is_array($focus_topic)): $i = 0; $__LIST__ = $focus_topic;if( count($__LIST__)==0 ) : echo "还没有关注话题哦" ;else: foreach($__LIST__ as $key=>$focus_topic): $mod = ($i % 2 );++$i;?><li>
 
 <input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'));?>" class="enter-topicname"><?php echo ($focus_topic["topic_name"]); ?></a>
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'));?>" class="enter-topicname" data-topic-id="<?php echo ($focus_topic["id"]); ?>"><?php echo ($focus_topic["topic_name"]); ?></a>
 <div>
 <div id="topicinformation">
 <div id="topicinfo"></div>
