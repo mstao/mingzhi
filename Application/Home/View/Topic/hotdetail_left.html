@@ -1,0 +1,50 @@
+<div id="topicleftcontent">
+<div  class="topic_detail_info">
+<img src="<{$topic_info.topic_pic}>" /> 
+<span class="topic_detail_info_name"><{$topic_info.topic_name}></span>
+</div>
+
+<div class="topic_detail_info_operate">
+  <a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'trends'))}>" class="operate_info_span">动态</a>
+  <a href="javascript:void(0);" class="operate_info_span" id="topic_hot_link">热门问题</a>&nbsp;
+  <a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'unanswered'))}>" class="operate_info_span">等待回答</a>
+</div>
+
+
+<volist name="hot_question" id="hot_question" empty="热门问题哪里去了？？">
+
+<div class="unanswered_question_div">
+<div class="unanswered_question_from">
+来自 · <span><a href="#"><{$topic_info.topic_name}></a></span> · <{$hot_question.create_time|time2Units}>
+</div>
+
+<div class="unanswered_question_content">
+<div class="unanswered_question_name">
+<a href="<{:U('Home/Question/qindex',array('qid'=>$hot_question['id']))}>"><{$hot_question.question_name}></a>
+</div>
+<div class="unanswered_question_count">
+<span><{$hot_question.answer_count}>个回答</span>&nbsp; <span><{$hot_question.focus_count}>次关注</span>
+</div>
+</div>
+
+<div class="index_my_left_category">
+<input type="hidden" class="hide_question_name" value="<{$hot_question.question_name}>">
+<input type="hidden" class="hide_question_id" value="<{$hot_question.id}>">
+<span class="answer-toquestion upvote"><a href="javascript:void(0);"><img src="__HOME_IMAGES__/answerquestion.png">&nbsp;回答  &nbsp;</a> </span><a href="#"><img src="__HOME_IMAGES__/add.png"/>关注问题</a><a href="javascript:void(0)" class="pass">不感兴趣</a>
+<span class="shadow_border">
+<a href="#"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="#"><img src="__HOME_IMAGES__/report.png"/> 举报</a>
+</span>
+
+</div>
+
+</div>
+
+
+</volist>
+
+<br>
+<div class="pagelist"><{$page}></div> 
+<br><br>
+
+</div>

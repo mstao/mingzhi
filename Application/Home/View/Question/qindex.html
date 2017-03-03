@@ -1,0 +1,104 @@
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title><{$Think.session.username}>-<{$Think.config.WEB_NAME}></title>	
+	<script type="text/javascript">
+	var MODULE="__MODULE__";
+	var HOME_IMAGES='__HOME_IMAGES__';
+	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+	var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+	var AJAX_ERROR='<{:C("AJAX_ERROR_TIPS")}>';
+	var Q=<{$q}>;
+	var a_all_page=<{$all_page}>;
+	</script>
+	<css file="__HOME_CSS__/indexheader.css" />
+	<css file="__HOME_CSS__/answer_topic_question.css"/>
+	<css file="__HOME_CSS__/question.css" />
+	<css file="__HOME_CSS__/footer.css" />
+	<css file="__HOME_CSS__/share.css"/>
+	<css file="__HOME_CSS__/common.css"/>
+	<css file="__PUBLIC__/static/wangEditor/dist/css/wangEditor.min.css"/>
+	<css file="__PUBLIC__/static/lightBox/css/jquery.lightbox-0.5.css"/>
+	
+	<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+	<js file="__PUBLIC__/static/js/jQuery.tween.js" />
+	<js file="__PUBLIC__/static/js/truncaString.js" />
+	<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+	<js file="__PUBLIC__/static/lightBox/js/jquery.lightbox-0.5.js"/>
+	<js file="__HOME_JS__/GetAnswers.js"/>
+	<js file="__HOME_JS__/js.js" />
+	<js file="__HOME_JS__/summary.js"/>
+	<js file="__HOME_JS__/upvoteso.js"/>
+	<js file="__HOME_JS__/share/ZeroClipboard.js"/>
+	<js file="__HOME_JS__/FocusTopic.js"/>
+	<js file="__HOME_JS__/LoadTopicInfo.js"/>
+	<js file="__HOME_JS__/FocusQuestionMain.js"/>
+	<js file="__HOME_JS__/CommentAnswer.js"/>
+	<js file="__HOME_JS__/LoadAnswerComments.js"/>
+	<js file="__HOME_JS__/ReplayComment.js"/>
+	<js file="__HOME_JS__/CommentOperate.js"/>
+	<js file="__HOME_JS__/LoadCollectionInfo.js"/>
+	<js file="__HOME_JS__/AddCollection.js"/>
+</head>
+<body> 
+
+<!--导航栏开始-->
+<include  file="Public/header"/>                  
+<!--导航结束  -->
+
+
+<!--主体内容开始-->
+
+<div id="question">
+
+
+<!--问题信息开始-->
+<include file="Question/qleft"/>
+<!--问题信息结束-->
+
+
+<!--右边内容开始-->
+<include file="Question/qright"/>
+<!--右边内容结束-->
+
+</div>
+
+<!-- 页脚开始 -->
+
+<include file="Public/footer"/>
+<!-- 页脚结束 -->
+
+
+<!--提问  弹窗开始-->
+<include file="Index/openModal"/>
+<!--提问  弹窗结束  -->
+
+<!--分享弹窗 开始 -->
+<include file="Public/share"/>
+<!--分享弹窗结束  -->
+
+<{/*S 收藏夹*/}>
+<include file="Index/collection"/>
+<{/*E 收藏夹*/}>
+
+<{/*S 添加收藏夹*/}>
+<include file="Index/Create_Collection"/>
+<{/*E 添加收藏夹*/}>
+<script>
+
+window._bd_share_config = {"common": {"bdSnsKey": {}, "bdText": "分享到微博","bdDesc":"lalalalala","bdPic":"__PUBLIC__/Home/images/wowowo.jpg", "bdMini": "1", "bdMiniList": ["weixin","tsina","sqq","qzone"], "bdPic": "", "bdStyle": "1", "bdSize": "32"}, "share": {}};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+
+var g_url = window.location.href;
+$('.share-copy-c input').val(g_url);
+var clip = new ZeroClipboard(document.getElementById("btnCopy")); 
+</script>
+
+</body>
+</html>
+
+<js file="__PUBLIC__/static/wangEditor/dist/js/wangEditor.js"/>	
+<js file="__HOME_JS__/Editor.js" />

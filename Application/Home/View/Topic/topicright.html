@@ -1,0 +1,42 @@
+<div id="topicmainright">
+
+
+<div class="gotopicquare">
+<a href="__MODULE__/Topics/index" class="gototopic">话题广场</a>
+</div>
+
+<!--热门话题开始  -->
+<div class="hottopicview">
+   <span class="hottop-title">热门话题</span>
+   
+   <!--热门话题内容开始  -->
+   <volist name="hot_topic" id="hot_topic">
+    <div class="hottopicsss">
+	<div class="hottopicsss-touxiang"><a href="<{:U('Home/Topic/index',array('tid'=>$hot_topic['id'],'sel'=>'trends'))}>">
+	<img src="<{$hot_topic.topic_pic}>" width="40" height="40"/></a>
+	</div>
+	<div class="hottopicsss-rightcontent">
+	<a href="<{:U('Home/Topic/index',array('tid'=>$hot_topic['id'],'sel'=>'trends'))}>" class="hottopicsss-topicname"><{$hot_topic.topic_name}></a><a href="javascript:void(0);" class="hottopicsss-tianjiafocus">
+	<if condition="$hot_topic['focus_id'] eq ''">
+	<img src="__HOME_IMAGES__/add.png"/>关注
+	<else/>
+	取消关注
+	</if>
+	</a>
+	
+	</div>
+	</div>
+   </volist>
+   
+   
+   
+    
+   <!--热门话题内容结束  -->
+   
+</div>
+<!--热门话题结束 -->
+<div class="footer">
+<include file="Public/minifooter"/>
+</div>
+
+</div>

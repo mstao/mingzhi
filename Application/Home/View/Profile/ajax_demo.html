@@ -1,0 +1,19 @@
+<volist name="record_info" id="record_content">
+
+<if condition="$record_content['record_flag'] eq 'fq'">
+发起了问题
+<elseif condition="$record_info['record_flag'] eq 'za'"/>
+赞同了回答
+<elseif condition="$record_info['record_flag'] eq 'aq'"/>
+回答了问题
+<elseif condition="$record_info['record_flag'] eq 'gq'"/>
+关注了问题
+<elseif condition="$record_info['record_flag'] eq 'gt'"/>
+关注了话题
+<elseif condition="$record_info['record_flag'] eq 'sq'"/>
+收藏了问题
+<elseif condition="$record_info['record_flag'] eq 'sa'"/>
+</if>
+
+
+</volist>

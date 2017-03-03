@@ -1,0 +1,256 @@
+@CHARSET "UTF-8";
+/*sixin*/
+#inboxmain{
+   margin:90px auto;
+   width:960px;
+}
+#inboxleftcontent{
+     float:left;
+	 width:630px;
+	 
+}
+#inboxmainright{
+	
+	float:left;
+	margin-left:80px;
+	width:250px;
+	
+}
+.inboxleft-nav{
+	border-bottom:1px solid #CCC;
+	padding-top:10px;
+	padding-bottom:10px;
+	
+	
+}
+.inboxleft-nav span{
+ float:right;
+}
+.inboxleft-nav a{
+    display:inline-block;
+	color:#fff;
+	background-color:#446CB3;
+	height:22px;
+	width:65px;
+	padding-left:12px;
+	text-decoration: none;
+	border:1px solid #446CB3;
+	border-radius:9px;
+}
+.inboxleft-nav a:hover{ 
+   text-decoration:underline;
+}
+
+
+.inboxleft-info{
+    width:630px;	
+}
+
+
+.sss{
+	width:630px;
+	margin-top:20px;
+	border-bottom:1px double #eaeada;
+	padding-bottom:20px;   
+	margin-bottom:20px;                         
+}
+.sss a:hover{
+    color:#09F;
+ 
+}
+
+.touxiang{
+	width:40px;
+	height:40px;
+	display:inline;
+	
+	color:#666666;
+}
+
+ .touxiang img{
+	float:left;
+}
+
+.rightcontent{
+	font-size:14px;
+	left:right;
+	color:#666666;
+	margin-left:50px;
+	
+}
+
+
+.answer{
+    margin-top:10px;
+  
+}
+.answer a{
+	font-size:16px;
+	color:#446CB3;
+	font-weight:bold;
+	text-decoration:none;
+}
+.user{
+	margin-top:10px;
+	
+}
+.user a{
+	color:#446CB3;
+	text-decoration:none;
+}
+
+.answercon{
+	margin-top:10px;
+	color:#000;
+	display:inline;
+	font-size:1em;
+	margin-left:0px;
+}
+
+.my_left_category {
+	float:right;
+	
+	
+}
+.my_left_category span{
+	width:15px;
+	padding:0 7px;
+	background-color:#F6F6F6;
+	border:1px solid #ECECEC;
+	border-radius:60px;
+	display:inline;
+	margin-left:5px;
+}
+.my_left_category a{
+	color:#446CB3;
+	text-decoration: none;
+}
+
+ .tips{
+	display: inline-block;
+	margin-bottom:20px;
+}
+.footer{
+	border-top:1px solid #ccc;
+	margin-top:20px;
+}
+
+/*写私信弹出*/
+.theme-popbod{
+	margin-top:-20px;
+}
+.openModal-sixin{
+	margin-top:0px;
+	width:400px;		
+	color:#666666;
+	font-size:15px;
+	margin-left:10px;
+}
+.openModal-sixin-content{
+	display:inline-block;
+	margin-top:20px;
+	border:1px solid #ccc;
+	border-radius:6px;
+	height:30px;
+	width:430px;
+	padding-left:5px;
+	padding-top:3px;
+	overflow: auto;
+	background-color:#fff;
+}
+.openModal-sixin-desc{
+	display:inline-block;
+	border:1px solid #ccc;
+	border-radius:6px;
+	margin-top:10px;
+	width:430px;
+	height:80px;
+	padding-left:5px;
+	padding-top:3px;
+	overflow: auto;
+	background-color:#fff;
+}
+
+.openModal-sixin-desc:focus,.openModal-sixin-content:focus{
+    border-color: #30A5FF;
+    outline-color: #dceefc;
+    outline-offset: 0;
+}
+.openModal-sixin-opr{
+	float:right;
+	margin-top:10px;	
+	margin-right:15px;
+	margin-bottom: 20px;
+}
+.letter_submit{
+	padding: 0 18px;
+  height: 29px;
+  line-height: 29px;
+  font-size: 15px;
+  color: #ffffff;
+  background: #446CB3;
+  border: 1px solid;
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-image: -webkit-linear-gradient(top, #446CB3, #446CB3);
+  background-image: -moz-linear-gradient(top, #446CB3, #446CB3);
+  background-image: -o-linear-gradient(top, #446CB3, #446CB3);
+  background-image: linear-gradient(to bottom, #446CB3, #446CB3);
+}
+.letter_reset{
+	color:#666;
+	text-decoration: none;
+	margin-right:10px;
+}
+.letter_reset:hover{
+	color:#09F;
+}
+/**写私信弹窗***/
+.mark{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: .4;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    z-index: 1001;
+}
+.letter-dialog{
+	display:none;
+	border-radius:6px;
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    width: 500px;
+    margin:-135px 0 0 -250px;
+    background: #fff;
+    z-index: 1002;
+}
+.letter-dialog .letter-close{
+    position: absolute;
+    right: 7px;
+    top: 10px;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    cursor: pointer;
+    background: url("../images/close.png") no-repeat;
+}
+.letter-dialog .letter-dialog-title{
+    height: 45px;
+	color:#fff;
+	border-radius:6px 6px 0px 0px;
+    line-height: 45px;
+    text-indent: 15px;
+    background: #446CB3;
+}
+.letter-dialog .letter-dialog-cont{
+    padding:38px 20px;
+    font-size: 14px;
+}

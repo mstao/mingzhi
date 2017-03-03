@@ -1,0 +1,15 @@
+<div id="topicleftcontent">
+<div  class="topic_detail_info">
+<img src="<{$topic_info.topic_pic}>" /> 
+<span class="topic_detail_info_name"><{$topic_info.topic_name}></span>
+</div>
+
+<div class="topic_detail_info_operate">
+  <a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'trends'))}>" class="operate_info_span ">动态</a>
+  <a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'hot'))}>" class="operate_info_span">热门问题</a>&nbsp;
+  <a href="javascript:void(0);" class="operate_info_span"  id="topic_unanswered_link" >等待回答</a>
+</div>
+
+<include file="Topic/unanswereddetailsdiv"/>
+
+</div>

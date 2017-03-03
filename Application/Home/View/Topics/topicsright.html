@@ -1,0 +1,58 @@
+<div class="rightcontent">
+<span>推荐话题</span>
+
+<div class="tuijiantopic">
+
+<volist name="commend_topic" id="commend_topic"> 
+<!-- 话题内容开始 -->
+<div class="tui-sss">
+<div class="tui-touxiang">
+<img src="<{$commend_topic.topic_pic}>" width="40" height="40"/>
+</div>
+<div class="tui-rightcontent">
+<div class="where">
+ <ul  class="bubblemenu"> 
+           
+<li>
+<a href="#"><{$commend_topic.topic_name}></a>
+ <div>
+<div id="topicinformation">
+<div id="topicinfo">
+<div class="topicinfomytouxiang"><a href="#">
+<img src="<{$commend_topic.topic_pic}> width="40" height="40"/></a>
+</div>
+<div class="topicinforightcontent">
+<div class="topicinfoname">英雄联盟</div>
+<div class="topicinfonameanswer">《英雄联盟》（简称lol）是由美国Riot Games开发，腾讯游戏运营的英雄对战网游。《英雄联盟》除了即时战略、团队作战外，还拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素。 </div>
+ 
+
+
+</div>
+</div>
+<div class="topicopinfooperation">问题：<a href="#">30</a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#">17</a><a href="#" class="topicinfoquxiao"><img src="__HOME_IMAGES__/add.png"/>关注</a></div>
+
+
+</div>
+             
+</div>
+</li>
+</ul>
+
+
+</div>
+<div class="foucus-number"><{$commend_topic.topic_focus_count}> 人关注</div>
+
+</div>
+
+<div class="tui-answer"><a href="__MODULE__/Question/qindex" >你为什么喜欢英雄联盟，你最喜欢英雄联盟里的哪个英雄? </a></div>
+</div>
+<!-- 话题内容结束 -->
+
+</volist>
+
+
+
+</div>
+
+<include file="Public/minifooter"/>
+</div>

@@ -1,0 +1,56 @@
+
+<!-- 我的主页信息 -->
+<div class="mything">
+<div class="allguanzhu"><div class="guanzhule">关注了:<a href="#"><{$umsg.focus_person}>人</a></div><div class="beiguanzhu">粉丝量:<a href="#"><{$umsg.fans_count}>人</a></div></div>
+
+<div class="guanzhutopic">关注了<a href="<{:U('Home/Topic/index')}>"><{$umsg.focus_topic_count}></a>个话题</div>
+<div class="guanzhutopiccontent">
+
+<!-- S topicinfo -->
+<ul  class="bubblemenu"> 
+
+<volist name="focus_topic" id="focus_topic"  empty="还没有关注话题哦">  
+
+<li>
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$focus_topic.id}>">
+<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="enter-topicname"><{$focus_topic.topic_name}></a>
+<div>
+<div id="topicinformation">
+<div id="topicinfo"></div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$focus_topic['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$focus_topic.id}>">
+<{/*隐藏话题关注状态*/}>
+<if condition="$focus_topic['focus_id'] eq ''">
+<input type="hidden" class="hidden-topic-focus-status" value="0">
+<else/>
+<input type="hidden" class="hidden-topic-focus-status" value="1">
+</if>
+</div>
+
+
+</div>
+             
+</div>
+</li>
+
+
+</volist>
+ 
+</ul>
+<!-- E topicinfo -->
+
+
+
+
+</div>
+<div class="zhuyeliulanzhe">主页浏览量:<a href="#"><{$umsg.u_view_count}>人</a></div>
+<div class="xinxi">
+
+<a href="#">©2016 明之</a><a href="#">声明</a><a href="#">明之协议</a><br/><a href="#">联系我们</a>
+</div>
+
+</div>

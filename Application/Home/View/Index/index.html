@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title>首页-<{$Think.config.WEB_NAME}></title>
+	<script type="text/javascript">
+	var MODULE='__MODULE__';
+	var HOME_IMAGES='__HOME_IMAGES__';
+	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+    var AJAX_ERROR='<{:C("AJAX_ERROR_TIPS")}>';
+    var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+    var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+    var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+	var default_question_desc='<{:C("DEFAULT_QUESTION_DESC")}>';
+	var feed_all_page=<{$feedallpage}>;
+	</script>
+	
+	<css file="__HOME_CSS__/index.css" />
+	<css file="__HOME_CSS__/indexheader.css" />
+	<css file="__HOME_CSS__/footer.css" />
+	<css file="__HOME_CSS__/common.css" />
+	<css file="__PUBLIC__/static/lightBox/css/jquery.lightbox-0.5.css"/>
+	<css file="__PUBLIC__/static/wangEditor/dist/css/wangEditor.min.css"/>
+	<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+	<js file="__PUBLIC__/static/js/jQuery.tween.js" />
+	<js file="__PUBLIC__/static/js/truncaString.js" />
+	<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+	<js file="__PUBLIC__/static/lightBox/js/jquery.lightbox-0.5.js"/>
+	<js file="__HOME_JS__/publish/publish.js" />
+	<js file="__HOME_JS__/js.js" />
+	<js file="__HOME_JS__/GetFeeds.js" />
+	<js file="__HOME_JS__/summary.js"/>
+	<js file="__HOME_JS__/upvoteso.js"/>
+	<js file="__HOME_JS__/FocusTopic.js"/>
+	<js file="__HOME_JS__/LoadTopicInfo.js"/>
+	<js file="__HOME_JS__/FocusQuestion.js"/>
+	<js file="__HOME_JS__/report.js"/>
+	<js file="__HOME_JS__/CommentAnswer.js"/>
+	<js file="__HOME_JS__/LoadAnswerComments.js"/>
+	<js file="__HOME_JS__/ReplayComment.js"/>
+	<js file="__HOME_JS__/CommentOperate.js"/>
+	<js file="__HOME_JS__/LoadCollectionInfo.js"/>
+	<js file="__HOME_JS__/AddCollection.js"/>
+	<js file="__HOME_JS__/Suggest.js"/>
+</head>
+<body> 
+
+<{/*S header */ }>
+<include  file="Public/header"/>
+<{/*E header */ }>
+
+<{/*S 主体 */ }>
+
+<div id="wrapper">
+
+<{/*S 左边导航*/ }>
+<include file="Index/navileft"/>
+<{/*E 左边导航*/ }>
+      
+        
+<{/*S 右边内容*/}>
+<include file="Index/trends"/>
+<{/*E 右边内容*/}>             
+
+
+</div>
+<{/*E 主体 */ }>
+
+<{/*S 提问弹窗*/}>
+<include file="Index/openModal"/>
+<{/*E 提问弹窗*/}>
+
+
+<{/*S 回答  弹出*/}>
+<include file="Index/writeAnswer"/>
+<{/*E 回答  弹出*/}>
+
+<{/*S 收藏夹*/}>
+<include file="Index/collection"/>
+<{/*E 收藏夹*/}>
+
+<{/*S 添加收藏夹*/}>
+<include file="Index/Create_Collection"/>
+<{/*E 添加收藏夹*/}>
+</body>
+</html>
+
+<js file="__PUBLIC__/static/wangEditor/dist/js/wangEditor.js"/>	
+<js file="__HOME_JS__/Editor.js" />

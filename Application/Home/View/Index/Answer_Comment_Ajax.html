@@ -1,0 +1,64 @@
+ <{/* 其他人评论内容开始 */}>
+ 
+<volist name="comment_info" id="comment_info" empty="还没有评论哦，赶紧来抢沙发吧:)">
+ 
+<div class="othercomment_info_div">
+<div class="othercomment_user_touxiang">
+<img src="<{$comment_info.avatar_file}>" />
+</div>
+<div class="replay-rightcontent">
+				
+<div class="othercomment_info_message">
+<if condition="$comment_info['ruid'] eq ''">
+<a href="#" ><{$comment_info.s_username}></a>:<span><{$comment_info.message}></span> 
+<else/>
+<a href="#" ><{$comment_info.s_username}></a> <span>回复</span> <a href="#" ><{$comment_info.r_username}></a>:<span><{$comment_info.message}></span> 
+</if>
+</div>
+<div class="othercomment_replay_time"><span class="replay_time">·<{$comment_info.add_time|time2Units}></span> 
+<{/* 操作开始*/}>
+<div class="othercomment_replay_operate">
+<a href="javascript:void(0)" class="vote-comment-btn">
+<if condition="$comment_info['vote_id'] eq ''">
+<img  src="__HOME_IMAGES__/upvote.png"> 赞
+<else/>
+<img  src="__HOME_IMAGES__/zan_blue.png"> <font style="color:#0F88EB;">取消赞</font>
+</if>
+</a>
+<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
+<a href="javascript:void(0)" class="comment-report-btn">
+<if condition="$comment_info['report_id'] eq ''">
+<img  src="__HOME_IMAGES__/report.png"> 举报
+<else/>
+<img src="__HOME_IMAGES__/report_blue.png" /><font style="color:#0F88EB;">已举报</font>
+</if>
+</a>
+<input type="hidden" class="hide-comment-id" value="<{$comment_info.id}>">
+
+</div>
+
+<{/* 操作结束 */}>
+<span class="replay-upvote-num"><i><{$comment_info.upvote_count}></i>  赞</span>
+</div> 
+<{/* 隐藏评论开始 */}>
+<div class="replay-other-input-div">
+    <div>
+
+		<{/* 回复内容 */}>
+		<div class="replay-other-input" contenteditable="true" ></div>
+	</div>
+	<div >
+            <div class="replay-other-btn-div">
+           
+		    <input type="submit" value="回复" class="replay-person-btn"  data-replay-suid="<{$comment_info.suid}>"  data-answer-id="<{$comment_info.answer_id}>"  data-comment-id="<{$comment_info.id}>">
+		    
+		    </div>
+	</div>
+</div>	
+   <{/*隐藏评论结束  */}>
+			
+</div>
+</div>
+
+</volist>
+<{/* 其他人评论内容结束 */}>

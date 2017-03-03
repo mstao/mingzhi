@@ -1,0 +1,6 @@
+[ 2016-11-05T20:22:44+08:00 ] ::1 /mytest/mingzhi/Public/static/js/jquery-1.10.2.min.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载模块:Public
+

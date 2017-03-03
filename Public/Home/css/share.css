@@ -1,0 +1,117 @@
+.mark{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: .4;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    z-index: 1001;
+}
+.share-dialog{
+	display:none;
+	border-radius:6px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 270px;
+    margin:-135px 0 0 -250px;
+    background: #fff;
+    z-index: 1002;
+}
+.share-dialog .share-close{
+    position: absolute;
+    right: 7px;
+    top: 10px;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    cursor: pointer;
+    background: url("../images/close.png") no-repeat;
+}
+.share-dialog .share-dialog-title{
+    height: 45px;
+	color:#fff;
+	border-radius:6px 6px 0px 0px;
+    line-height: 45px;
+    text-indent: 15px;
+    background: #446CB3;
+}
+.share-dialog .share-dialog-cont{
+    padding:38px 20px;
+    font-size: 14px;
+}
+.share-dialog .share-copy-l{
+    float: left;
+    width: 77px;
+    margin-top: 8px;
+}
+.share-dialog .share-copy-c{
+    float: left;
+    width: 307px;
+}
+.share-dialog .share-copy-c input{
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 7px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 1.2;
+    color: #555;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+.share-dialog .share-copy-c input:focus{
+    border-color: #333;
+    outline: 0;
+}
+.share-dialog .share-copy-r{
+    float: left;
+    width: 76px;
+    text-align: right;
+    color: #f37b1d;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.share-platform{
+    clear: both;
+    margin-top: 10px;
+}
+.share-platform .share-platform-l{
+    float: left;
+    width: 77px;
+    margin-top: 8px;
+}
+.share-platform .share-platform-r{
+    float: left;
+    width: 310px;
+}
+.share-platform .bds_weixin{
+    background-image: url('../images/css-bg.png');
+    background-position: -13px -7px !important;
+}
+.share-platform .bds_tsina{
+    background-image: url('../images/css-bg.png');
+    background-position: -57px -7px !important;
+}
+.share-platform .bds_sqq{
+    background-image: url('../images/css-bg.png');
+    background-position: -101px -7px !important;
+}
+.share-platform .bds_qzone{
+    background-image: url('../images/css-bg.png');
+    background-position: -146px -7px !important;
+}
+.share-platform .share-platform-text{
+    color: #aaa;
+    margin-top: 5px;
+}

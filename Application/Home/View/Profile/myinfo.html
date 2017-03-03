@@ -1,0 +1,104 @@
+<!-- 个人资料 -->
+<div class="gerenzhiliao">
+<div class="myhonetouxiang">
+
+<img src="<{$umsg.avatar_file}>"  class="mytouxiangimg" width="100" height="100" />
+<if condition="$umsg['uid'] eq $umsg['session_id']">
+<div class="mytouxiang_upload_div">
+<form id="myupload" enctype="multipart/form-data" method="post">
+ <input type="file" name="myavatar" id="myavatar" class="checkmyavatar"> 
+</form>
+</div>
+<else/>
+</if>
+</div>
+
+<div class="myhomecontentmyzhiliaoright">
+<!--S myusername  -->
+<div class="myname"><span class="myname_con"><{$umsg.username}></span>
+<if condition="$umsg['uid'] eq $umsg['session_id']">
+<span class="myname_edit_span_tag myright_edit_span"><img src="__HOME_IMAGES__/edit.png"><a href="javascript:void(0)">编辑</a></span>
+<else/>
+</if>
+<div class="myname_tag_hidd">
+<div class="myname_tag_hidd_edit" contenteditable="true"></div>
+<div class="myname_tag_hide_oper"><input type="button" class="add_button_name add_button" value="修改"/>&nbsp;<a href="javascript:void(0)" class="myname_tag_reset myright_reset">取消</a></div>
+</div> 
+<!--E myusername  -->
+</div>   
+<!-- 一句话描述开始 -->           
+<div class="biaoqian">
+<span class="biaoqian_con">
+<if condition="$umsg['tag'] eq ''">
+写句话介绍一下自己
+<else/>
+<{$umsg.tag}>
+</if>
+
+</span>
+<if condition="$umsg['uid'] eq $umsg['session_id']">
+<span class="mybiaoqian_edit_span_tag myright_edit_span"><img src="__HOME_IMAGES__/edit.png"><a href="javascript:void(0)">编辑</a></span>
+<else/>
+</if>
+<div class="mybiaoqian_tag_hidd">
+<div class="mybiaoqian_tag_hidd_edit" contenteditable="true"></div>
+<div class="mybiaoqian_tag_hide_oper"><input type="button" class="add_button_biaoqian add_button" value="修改"/>&nbsp;<a href="javascript:void(0)" class="mybiaoqian_tag_reset myright_reset">取消</a></div>
+</div> 
+
+</div>
+
+<!-- 一句话描述结束 -->   
+
+<!-- S city job sex  -->
+<div class="myinfo_address_work_sex">
+<span><img src="__HOME_IMAGES__/address.png"/> 
+<if condition="$umsg['city'] eq ''">
+暂无地址信息
+<else/>
+<{$umsg.city}>
+</if></span>&nbsp;
+<span><img src="__HOME_IMAGES__/work.png"/>
+<if condition="$umsg['job'] eq ''">
+暂无工作信息
+<else/>
+<{$umsg.job}>
+</if> </span>&nbsp;
+<span>
+<if condition="$umsg['sex'] eq '男'">
+   <img src="__HOME_IMAGES__/man.png"/>
+<elseif condition="$umsg['sex'] eq '女'"/>
+   <img src="__HOME_IMAGES__/woman.png"/>
+<else/>
+性别暂无
+</if>
+</span>
+</div>
+<!-- E city job sex  -->
+
+<!--S myweb  -->
+<div class="myweb"><span class="myweb_con"><img src="__HOME_IMAGES__/myweb.png"/>&nbsp;
+<if condition="$umsg['myweb'] eq ''">
+暂无个人网站
+<else/>
+<a href="http://<{$umsg.myweb}>"><{$umsg.myweb}></a>
+</if>
+</span>
+</div>
+
+<!--E myweb  -->
+
+ <!--S 我擅长的话题  -->
+<!--
+<div  class="mygoodat_topic">
+</div>
+E 我擅长的话题  -->
+
+<!--S editlink  -->
+<if condition="$umsg['uid'] eq $umsg['session_id']">
+<div class="bianjimycontent"><a href="__MODULE__/Profile/edit/u/<{$Think.session.uid}>"><img src="__HOME_IMAGES__/edit.png" class="image_edit" />编辑我的资料</a></div>
+<else/>
+</if>
+<!--E editlink  -->
+</div>
+
+</div>

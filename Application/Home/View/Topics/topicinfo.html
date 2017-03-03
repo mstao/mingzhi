@@ -1,0 +1,23 @@
+<volist name="all_topic" id="all_topic">
+ 
+<!--一个话题div开始  -->
+<div class="onetopicinfo grid-item">
+<div class="onetopicinfo-touxiang"><a href="<{:U('Home/Topic/index',array('tid'=>$all_topic['tid'],'sel'=>'trends'))}>">
+<img src="<{$all_topic.topic_pic}>" width="40" height="40"/></a>
+</div>
+<div class="onetopicinfo-rightcontent">
+<div class="onetopicinfo-topicfirst"><a href="<{:U('Home/Topic/index',array('tid'=>$all_topic['tid'],'sel'=>'trends'))}>" class="onetopicinfo-topicname"><{$all_topic.topic_name}></a><a href="#" class="onetopicinfo-tianjiafocus">
+<if condition="$all_topic['focus_id'] eq ''">
+<img src="__HOME_IMAGES__/add.png"/>关注
+<else/>
+<span style="color:#666666;">取消关注</span>
+</if>
+</a></div>
+<div class="onetopicinfo-topicdesc"><{$all_topic.topic_desc|msubstr}> </div>
+
+
+</div>
+</div>
+<!--一个话题div结束  -->
+
+</volist>

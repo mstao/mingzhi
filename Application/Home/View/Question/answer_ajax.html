@@ -1,0 +1,111 @@
+<!--S 回答循环渲染页面  -->
+<volist name="answer_info" id="answer_info"  empty="此问题还没有人回答哦，来写下你的答案吧">
+    
+  <!-- 回答问题内容开始 -->
+<div class="index-sss">
+<div class="touxiang">
+
+<img src="<{$answer_info['avatar_file']}>" width="40" height="40"/>
+
+</div>
+<div class="index-rightcontent">
+
+
+<!-- 回答开始 -->
+<div class="answer-info">
+
+<div class="user">
+<if condition="$answer_info['isname'] eq 0">
+<a href="<{:U('Home/Profile/index',array('u'=>$answer_info['uid']))}>" ><{$answer_info.username}></a> ，<p class="biaoqian"><{$answer_info.tag}></p>
+<else/>
+<p class="biaoqian">匿名用户</p>
+</if>
+</div>
+
+<div class="summary">
+
+<div class="summary_text"></div>
+<a href="javascript:void(0);" class="showhide">显示全部</a>
+</div> 
+<div class="describe  Editor-txt ">
+
+<{$answer_info.answer_content}>
+</div>
+<a href="javascript:void(0);" class="showhide_hide">隐藏</a>
+<div class="edittime">发表于 <span><{$answer_info.create_time|time2Units}></span></div>
+</div>
+<!-- 回答结束 -->
+<div class="index_my_left_category  answer-operate">
+
+<input type="hidden" class="hide_answer_id" value="<{$answer_info.id}>">
+
+<span class="upvote answer-upvote">
+<if condition="$answer_info['vote_value'] eq 1 ">
+<a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><{$answer_info.upvote_count}></i></a>
+<else/>
+<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$answer_info.upvote_count}></i></a>
+</if>
+
+</span>
+<a href="javascript:void(0);">反对</a>
+
+<if condition="$answer_info['comment_count'] eq ''">
+<a href="javascript:void(0);" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>添加评论</a>
+<else/>
+<a href="javascript:void(0);" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>评论</a><span class="shoucangnumber"><{$answer_info.comment_count}></span>
+</if>
+
+<span class="shadow_border">
+<a href="javascript:void(0);" class="answer-collection-btn"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="javascript:void(0);" class="report-answer-btn">
+<if condition="$answer_info['report_id'] eq ''">
+<img src="__HOME_IMAGES__/report.png"/> 举报
+<else/>
+<img src="__HOME_IMAGES__/report_blue.png" /><font style="color:#0F88EB;">已举报</font>
+</if>
+</a>
+</span>
+
+</div>
+
+<!--评论内容 开始 -->
+<div class="commentbox">
+	<div class="arrow-range answer-range">
+		<b class="arrow-outer answer-outer"></b>
+		<b class="arrow-inner answer-inner"></b>				
+	</div>
+		<div class="commentcon">		 
+			<!--我的回复开始  -->
+				<div class="othercomment_mycomment">
+				    <div>
+						<img src="<{$Think.session.avatar_file}>" class="mycommen_touxiang" >
+						<!-- 回复内容 -->
+						<div class="mycomment_input" contenteditable="true"></div>
+					</div>
+					<div >
+						<form action="" method="">
+						    <div class="replay-other-btn-div">
+						    <input type="submit" value="评论" class="replay-other-btn">
+						    </div>
+						</form>
+					</div>
+				</div>
+				
+				<!--我的回复结束  -->
+				        <!--其他人评论开始  -->	
+				        <div class="othercomment_info">
+					      <{/*引入加载评论重用模板*/}>		   
+		                  <include file="Index/Answer_Comment_Ajax"/>
+			            </div>
+			    <!--其他人评论结束 -->
+			</div>
+</div> 
+<!--评论内容结束  -->
+
+</div>
+</div>
+<!-- 回答问题内容结束 -->
+
+
+</volist>
+<!--E 回答循环渲染页面  -->   

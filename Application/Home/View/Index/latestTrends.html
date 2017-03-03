@@ -1,0 +1,509 @@
+<!-- 右边内容开始 -->        
+<div id="col1">
+<div class="newdongtai"><h1>最新动态</h1></div>
+<!--主体内容开始-->
+<div class="maincontent">
+
+
+<volist name="feeds_info" id="feeds_info_all" >
+<if condition="$feeds_info_all['feed_flag']  eq 'q'">
+    
+<volist name="feeds_info_all['question']" id="feeds_info_detail">
+
+
+<!--提出问题模块开始  -->
+<div class="index-sss">
+<div class="touxiang">
+<volist name="feeds_info_detail['topic']"  id="focus_topic_info">
+<img src="<{$focus_topic_info['topic_pic']}>" width="40" height="40"/>
+</volist>
+</div>
+<div class="index-rightcontent">
+
+<!-- 问题来自的话题开始 -->
+
+<div class="where">
+<volist name="feeds_info_detail['topic']"  id="focus_topic_info">
+ <ul  class="bubblemenu"> 
+    <li>
+            来自&nbsp;&nbsp; <a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'))}>"><{$focus_topic_info.topic_name}></a>
+        <div>
+        <div id="topicinformation">
+<div id="topicinfo">
+<div class="topicinfomytouxiang"><a href="#">
+<img src="<{$focus_topic_info.topic_pic}>" width="40" height="40"/></a>
+</div>
+<div class="topicinforightcontent">
+<div class="topicinfoname"><a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'))}>"><{$focus_topic_info.topic_name}></a></div>
+<div class="topicinfonameanswer"><{$focus_topic_info.topic_desc}></div>
+ 
+
+
+</div>
+</div>
+<div class="topicopinfooperation">问题：<a href="#"><{$focus_topic_info.question_count}></a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#"><{$focus_topic_info.topic_focus_count}></a><a href="#" class="topicinfoquxiao">取消关注</a></div>
+
+
+</div>
+             
+</div>
+</li>
+</ul>
+
+
+
+</volist>
+</div>
+
+
+<!-- 问题来自的话题结束 -->
+<div class="answer"><a href="<{:U('Home/Question/qindex',array('qid'=>$feeds_info_detail['id']))}>" ><{$feeds_info_detail.question_name}></a></div>
+<!-- 问题内容开始 -->
+<div class="answer-info">
+<div class="describe">
+<{$feeds_info_detail.question_desc}>
+</div> 
+<div class="edittime"> <span class="publish_username"><a href="#"><{$feeds_info_detail.username}></a></span> 发起于 <span><{$feeds_info_detail.create_time|time2Units}></span></div>
+</div>
+
+<div class="index_my_left_category">
+<input type="hidden" class="hide_question_name" value="<{$feeds_info_detail.question_name}>">
+<input type="hidden" class="hide_question_id" value="<{$feeds_info_detail.id}>">
+<span class="answer-toquestion upvote"><a href="javascript:void(0);"><img src="__HOME_IMAGES__/answerquestion.png">&nbsp;回答  &nbsp;</a> </span><a href="#"><img src="__HOME_IMAGES__/add.png"/>关注问题</a><a href="javascript:void(0)" class="pass">不感兴趣</a>
+<span class="shadow_border">
+<a href="#"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="#"><img src="__HOME_IMAGES__/report.png"/> 举报</a>
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+<!--提出问题模块结束  -->
+    
+    
+</volist>
+<elseif condition="$feeds_info_all['feed_flag'] eq 'a'"/> 
+    <span>我是回答</span>
+<else/>
+    <span>啥也煤油</span>
+</if>
+</volist> 
+
+
+
+
+<!-- 回答问题内容开始 -->
+<div class="index-sss">
+<div class="touxiang">
+<img src="__PUBLIC__/Home/images/yingxiong.jpg" width="40" height="40"/>
+</div>
+<div class="index-rightcontent">
+<div class="where">
+ <ul  class="bubblemenu">          
+     <li>
+                来自&nbsp;&nbsp; <a href="#">英雄联盟</a>
+<div>
+<div id="topicinformation">
+<div id="topicinfo">
+<div class="topicinfomytouxiang"><a href="#">
+<img src="__PUBLIC__/Home/images/yingxiong.jpg" width="40" height="40"/></a>
+</div>
+<div class="topicinforightcontent">
+<div class="topicinfoname">英雄联盟</div>
+<div class="topicinfonameanswer">《英雄联盟》（简称lol）是由美国Riot Games开发，腾讯游戏运营的英雄对战网游。《英雄联盟》除了即时战略、团队作战外，还拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素。 </div>
+ 
+
+
+</div>
+</div>
+<div class="topicopinfooperation">问题：<a href="#">30</a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#">17</a><a href="#" class="topicinfoquxiao">取消关注</a></div>
+
+
+</div>
+             
+</div>
+</li>
+</ul>
+
+
+</div>
+<div class="answer"><a href="__MODULE__/Question/qindex/qid/3" >英雄联盟里有哪些趣味小知识？ </a></div>
+<!-- 回答开始 -->
+<div class="answer-info">
+
+<div class="user"><a href="#" >当时明月</a> ，<p class="biaoqian">喜欢玩游戏</p></div>
+
+<div class="describe">
+<img src="__HOME_IMAGES__/yasuo.jpg" width="520px" height="250px"/>
+在英雄联盟中，英雄们的背景故事其实比大多数人想象的要丰富很多，以下是国外网站的一些资料，由我翻译整理。按英雄更新，有些英雄没什么值得提的，就略过了。
+
+暗裔剑魔-亚托克斯
+亚托克斯属于一个叫做“暗裔”的古老种族，这个种族目前还有五个幸存者，而亚托克斯是唯一一个人们知道姓名的。除了他之外，还有两名暗裔在历史上有过记载，剩下的则全无消息。
+在联盟中，还有一名英雄很可能也属于暗裔，这里先卖个关子，写到这名英雄时再说。
+亚托克斯是杀害泰达米尔族人的凶手，而他这样做似乎就是为了激怒泰达米尔，让他成为一名嗜血的战士。如果一局游戏里亚托克斯和泰达米尔敌对，那么当亚托克斯第一次接近泰达米尔一定距离时，他会说出一句台词：“泰达米尔，我最伟大的作品。”一局只会触发一次。
+答题者碎碎念：其实剑魔对蛮王还有一句特殊台词，英文是“This one's rage will shape the world.”我玩剑魔也有很多场了，遇见蛮王也有不少次，但从来没听到过，因此既不知道触发条件，也不知道中文版本是什么。
+
+暗影之拳-阿卡丽
+阿卡丽的名字“Akali”其实是日语“アカリ”，用汉字写出来就是“明”，什么意思就不用解释了。所以她的名字和她的称号正好是相反的。另外，在锡克教中，“Akali”代表“神圣”。
+作为均衡教派的三忍，阿卡丽、凯南和慎是并肩作战的战友，而他们共同的敌人则是均衡教派的叛忍，影流的创建者——劫。不过在公开的敌对之外，阿卡丽和劫之间似乎还有一些不为人知的私人关系。阿卡丽的称号“暗影之拳”、被动技能“双生戒律（感谢评论区各位抓虫。这是早期的翻译，对应英文名为Twin disciplines，后来大概是在劫登场的版本，所有忍者英雄的技能名都变成了中二风，阿卡丽的被动就成了“忍法！苍绯印”）”以及官方曾经提到劫最欣赏的弟子离开了影流，这些加在一起，可能表示阿卡丽曾经是影流的成员。官方还说，阿卡丽其实比看起来更加的暴力和残忍。在如何看待劫的问题上，三忍各有不同：阿卡丽主张劫必须死，而凯南认为还有回旋的余地，慎则举棋不定。
+
+在此回应一下 @james xu 的质疑。
+首先，我这个答案里所有的故事与人物关系，都来自拳头官方的资料。有些地方官方只提供了线索或者暗示，那么我就会用“可能”“或许”“推测”“似乎”这样的字眼。但不管怎么说，绝对没有“同人设定”。
+其次，@james xu 的答案里强调均衡教派与影流是敌对关系，这自然没错，我的答案里也是这么说的。不过，您的答案在细节上好像有些问题：第一、慎的父亲名字是Master Kusho，而非Kusuo，きんこう（均衡）所对应的也是Kinkou而非Kusuo，发音都不一样怎么联系到一起的？第二、官方只说过Master Kusho是慎和劫的师父，并没有提到他也是阿卡丽和凯南的师父。阿卡丽的母亲就是上一任暗影之拳，她从小就接受母亲的训练；凯南掌控雷电的能力则部分来自于天赋。还有，官方并没有明确指出Master Kusho就是均衡教派的领袖。第三、阿卡丽可能曾经是影流的成员，这在逻辑上没有问题。阿卡丽14岁正式加入均衡教派，在这之前她完全有可能追随劫；再考虑到“暗影之拳”的称号并非甫一入教就能获得，阿卡丽在获得称号之前也有私下向劫学习忍术的可能</div> 
+<div class="edittime">编辑于 <span>昨天 20:00</span></div>
+</div>
+
+<div class="index_my_left_category">
+
+<span class="upvote"><a href="#">赞同 | 5</a> </span><a href="#">反对</a><a href="#"><img src="__HOME_IMAGES__/add.png"/>关注问题</a><a href="javascript:void(0)" class="commentbtn">评论</a><span class="shoucangnumber">15</span>
+<span class="shadow_border">
+<a href="#"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="#"><img src="__HOME_IMAGES__/report.png"/> 举报</a>
+</span>
+
+</div>
+
+<!--评论内容 开始 -->
+<div class="commentbox">
+			<div class="arrow-range">
+				<b class="arrow-outer"></b>
+				<b class="arrow-inner"></b>				
+			</div>
+			<div class="commentcon">
+					 
+					 
+					 <!--我的回复开始  -->
+				<div class="othercomment_mycomment">
+				    <div>
+						<img src="<{$headerinfo.avatar_file}>" class="mycommen_touxiang" >
+						<!-- 回复内容 -->
+						<div class="mycomment_input" contenteditable="true"></div>
+					</div>
+					<div >
+						<form action="" method="">
+						    <div class="replay-other-btn-div">
+						    <input type="submit" value="评论" class="replay-other-btn">
+						    </div>
+						</form>
+					</div>
+				</div>
+				
+				<!--我的回复结束  -->
+				
+				
+				        <!--其他人评论开始  -->	
+				        <div class="othercomment_info">
+				  
+				   
+				   
+						 <!-- 其他人评论内容开始 -->
+						<div class="othercomment_info_div">
+						<div class="othercomment_user_touxiang">
+						<img src="__PUBLIC__/Home/images/yingxiong.jpg" />
+						</div>
+						<div class="replay-rightcontent">
+										
+						<div class="othercomment_info_message"><a href="#" >当时明月</a>:<span>这种游戏就是这个样子呀，上号这种游戏就是这个样子呀，上号号这种游戏就是这个样子呀，上号</span> </div>
+						<div class="othercomment_replay_time"><span class="replay_time">·2天前</span> 
+						<!-- 操作开始 -->
+						<div class="othercomment_replay_operate">
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/upvote.png"> 赞</a>
+						<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/report.png"> 举报</a>
+						</div>
+						
+						<!-- 操作结束 -->
+						<span class="replay-upvote-num">3 赞</span>
+						</div> 
+						<!-- 隐藏评论开始 -->
+						<div class="replay-other-input-div">
+						    <div>
+					
+								<!-- 回复内容 -->
+								<div class="replay-other-input" contenteditable="true"></div>
+							</div>
+							<div >
+								<form action="" method="">
+								 
+								    <div class="replay-other-btn-div">
+								  
+								    <input type="submit" value="回复" class="replay-person-btn">
+								    </div>
+								</form>
+							</div>
+						</div>	
+					    <!--隐藏评论结束  -->
+									
+						</div>
+						</div>
+						<!-- 其他人评论内容结束 -->
+				   
+				         <!-- 其他人评论内容开始 -->
+						<div class="othercomment_info_div">
+						<div class="othercomment_user_touxiang">
+						<img src="__PUBLIC__/Home/images/yingxiong.jpg" />
+						</div>
+						<div class="replay-rightcontent">
+										
+						<div class="othercomment_info_message"><a href="#" >当时明月</a>:<span>这种游戏就是这个样子呀，上号这种游戏就是这个样子呀，上号号这种游戏就是这个样子呀，上号</span> </div>
+						<div class="othercomment_replay_time"><span class="replay_time">·2天前</span> 
+						<!-- 操作开始 -->
+						<div class="othercomment_replay_operate">
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/upvote.png"> 赞</a>
+						<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/report.png"> 举报</a>
+						</div>
+						
+						<!-- 操作结束 -->
+						<span class="replay-upvote-num">3 赞</span>
+						</div> 
+						<!-- 隐藏评论开始 -->
+						<div class="replay-other-input-div">
+						    <div>
+					
+								<!-- 回复内容 -->
+								<div class="replay-other-input" contenteditable="true"></div>
+							</div>
+							<div >
+								<form action="" method="">
+								 
+								    <div class="replay-other-btn-div">
+								  
+								    <input type="submit" value="回复" class="replay-person-btn">
+								    </div>
+								</form>
+							</div>
+						</div>	
+					    <!--隐藏评论结束  -->
+									
+						</div>
+						</div>
+						<!-- 其他人评论内容结束 -->
+				   
+				    
+				   
+			    </div>
+			    <!--其他人评论结束 -->
+			</div>
+</div> 
+<!--评论内容结束  -->
+
+</div>
+</div>
+<!-- 回答问题内容结束 -->
+
+
+
+
+<!-- 问题内容开始 -->
+<div class="index-sss">
+<div class="touxiang">
+<img src="__PUBLIC__/Home/images/yingxiong.jpg" width="40" height="40"/>
+</div>
+<div class="index-rightcontent">
+<div class="where">
+ <ul  class="bubblemenu"> 
+     
+      
+            <li>
+            来自&nbsp;&nbsp; <a href="#">互联网</a>
+            <div>
+              <div id="topicinformation">
+<div id="topicinfo">
+<div class="topicinfomytouxiang"><a href="#">
+<img src="__PUBLIC__/Home/images/yingxiong.jpg" width="40" height="40"/></a>
+</div>
+<div class="topicinforightcontent">
+<div class="topicinfoname">英雄联盟</div>
+<div class="topicinfonameanswer">《英雄联盟》（简称lol）是由美国Riot Games开发，腾讯游戏运营的英雄对战网游。《英雄联盟》除了即时战略、团队作战外，还拥有特色的英雄、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素。 </div>
+ 
+
+
+</div>
+</div>
+<div class="topicopinfooperation">问题：<a href="#">30</a> &nbsp;&nbsp;热点：<a href="#">16</a>&nbsp;&nbsp;关注者:<a href="#">17</a><a href="#" class="topicinfoquxiao">取消关注</a></div>
+
+
+</div>
+             
+</div>
+</li>
+</ul>
+
+
+
+
+</div>
+<div class="answer"><a href="__MODULE__/Question/qindex" >如何看待谷歌、三星加入 .NET 基金会，对 .NET 未来会有什么影响？ </a></div>
+<!-- 回答开始 -->
+<div class="answer-info">
+
+<div class="user"><a href="#" >当时明月</a> ，<p class="biaoqian">喜欢玩游戏</p></div>
+
+<div class="describe">
+目前公布的主要还是Google云平台，现在云这一块Google正全力以赴地支持.Net技术栈——同时包括Windows Server云主机、Google云服务的.Net API和本地Visual Studio支持，以及Linux上的http://ASP.Net Core。现在Google Cloud提供的网页版Terminal上，你什么都不用设置，直接输入dotnet new就可以在Linux远程主机上建立一个新的.Net Core项目。
+
+而从长期来看，对于Android来说，C#+Xamarin十有八九将会开始被Google官方扶正——毕竟继续用JAVA，语言特性落后倒是次要的，主要是只要Google继续用JAVA就几乎不可避免地要被Oracle喂屎。如果用Go的话所有的轮子都得重新造，工作量太大，而其他JVM语言又不可能跟Oracle划清界限，并没有什么卵用……
+http://www.oschina.net/news/78519/oracle-again-appealed-to-google?t=1477728640128
+
+反观C#，它从一开始就是ECMA标准，微软私有的部分都集中在Windows上的.Net Framework上——而它跟Android完全没有任何交集。Xamarin的完成度相对于完全还是空中楼阁的Go for Android显然已经很高了，并且已经有企业APP的一系列解决方案了——Android上使用C#的成功案例有Unity，而在语言方面跟微软合作的成功案例有Angular2（基于TypeScript），选择Xamarin显然是顺理成章的。
+
+Xamarin已经变成了托管在.Net 基金会下面的开源项目，而Google现在是.Net 基金会成员，换句话说Google可以直接干预Xamarin下一步的发展，比起不可控的JAVA明显要好得多。以及，最关键的，微软手上原本就握有一大堆Android基础专利（绕不过去的那种。跟水果的圆角矩形不一样），想喂Google屎的话Google用啥都得一样吃，虱子多了不咬债多了不愁，自然也就没必要再担忧了……
+
+现在回过头来看，Google在云平台对.Net技术栈的几乎跟微软自己同级别的全力支持，似乎对Google并没有什么好处——毕竟按照各位知乎用户的说法，Google显然没有必要支持一个“过时的”，“没人用的”技术栈……仔细想想的话，云平台是微软自己更加看重的部分，而.Net阵营对Google最大的可能有好处的资源也只有Xamarin了，所以“Google通过在云平台支持.Net换取对Xamarin的控制权”这一假设应该是比较合理的。</div> 
+<div class="edittime">编辑于 <span>昨天 20:00</span></div>
+</div>
+
+<div class="index_my_left_category">
+
+<span class="upvote"><a href="#">赞同 | 15</a></span><a href="#">反对</a><a href="#"><img src="__HOME_IMAGES__/add.png"/>关注问题</a><a href="javascript:void(0)" class="commentbtn">评论</a><span class="shoucangnumber">15</span>
+<span class="shadow_border">
+<a href="#"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="#"><img src="__HOME_IMAGES__/report.png"/> 举报</a>
+</span>
+
+</div>
+
+<!--评论内容 开始 -->
+<div class="commentbox">
+			<div class="arrow-range">
+				<b class="arrow-outer"></b>
+				<b class="arrow-inner"></b>				
+			</div>
+			<div class="commentcon">
+					 
+					 
+					 <!--我的回复开始  -->
+				<div class="othercomment_mycomment">
+				    <div>
+						<img src="<{$headerinfo.avatar_file}>" class="mycommen_touxiang" >
+						<!-- 回复内容 -->
+						<div class="mycomment_input" contenteditable="true"></div>
+					</div>
+					<div >
+						<form action="" method="">
+						    <div class="replay-other-btn-div">
+						    <input type="submit" value="评论" class="replay-other-btn">
+						    </div>
+						</form>
+					</div>
+				</div>
+				
+				<!--我的回复结束  -->
+				
+				
+				        <!--其他人评论开始  -->	
+				        <div class="othercomment_info">
+				  
+				   
+				   
+						 <!-- 其他人评论内容开始 -->
+						<div class="othercomment_info_div">
+						<div class="othercomment_user_touxiang">
+						<img src="__PUBLIC__/Home/images/yingxiong.jpg" />
+						</div>
+						<div class="replay-rightcontent">
+										
+						<div class="othercomment_info_message"><a href="#" >当时明月</a>:<span>这种游戏就是这个样子呀，上号这种游戏就是这个样子呀，上号号这种游戏就是这个样子呀，上号</span> </div>
+						<div class="othercomment_replay_time"><span class="replay_time">·2天前</span> 
+						<!-- 操作开始 -->
+						<div class="othercomment_replay_operate">
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/upvote.png"> 赞</a>
+						<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/report.png"> 举报</a>
+						</div>
+						
+						<!-- 操作结束 -->
+						<span class="replay-upvote-num">3 赞</span>
+						</div> 
+						<!-- 隐藏评论开始 -->
+						<div class="replay-other-input-div">
+						    <div>
+					
+								<!-- 回复内容 -->
+								<div class="replay-other-input" contenteditable="true"></div>
+							</div>
+							<div >
+								<form action="" method="">
+								 
+								    <div class="replay-other-btn-div">
+								  
+								    <input type="submit" value="回复" class="replay-person-btn">
+								    </div>
+								</form>
+							</div>
+						</div>	
+					    <!--隐藏评论结束  -->
+									
+						</div>
+						</div>
+						<!-- 其他人评论内容结束 -->
+				   
+				         <!-- 其他人评论内容开始 -->
+						<div class="othercomment_info_div">
+						<div class="othercomment_user_touxiang">
+						<img src="__PUBLIC__/Home/images/yingxiong.jpg" />
+						</div>
+						<div class="replay-rightcontent">
+										
+						<div class="othercomment_info_message"><a href="#" >当时明月</a>:<span>这种游戏就是这个样子呀，上号这种游戏就是这个样子呀，上号号这种游戏就是这个样子呀，上号</span> </div>
+						<div class="othercomment_replay_time"><span class="replay_time">·2天前</span> 
+						<!-- 操作开始 -->
+						<div class="othercomment_replay_operate">
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/upvote.png"> 赞</a>
+						<a href="javascript:void(0)" class="othercomment_replay_btn"><img  src="__HOME_IMAGES__/replay-inner.png"> 回复</a>
+						<a href="javascript:void(0)"><img  src="__HOME_IMAGES__/report.png"> 举报</a>
+						</div>
+						
+						<!-- 操作结束 -->
+						<span class="replay-upvote-num">3 赞</span>
+						</div> 
+						<!-- 隐藏评论开始 -->
+						<div class="replay-other-input-div">
+						    <div>
+					
+								<!-- 回复内容 -->
+								<div class="replay-other-input" contenteditable="true"></div>
+							</div>
+							<div >
+								<form action="" method="">
+								 
+								    <div class="replay-other-btn-div">
+								  
+								    <input type="submit" value="回复" class="replay-person-btn">
+								    </div>
+								</form>
+							</div>
+						</div>	
+					    <!--隐藏评论结束  -->
+									
+						</div>
+						</div>
+						<!-- 其他人评论内容结束 -->
+				   
+				    
+				   
+			    </div>
+			    <!--其他人评论结束 -->
+			</div>
+</div> 
+<!--评论内容结束  -->
+
+</div>
+</div>
+<!-- 问题内容结束 -->
+
+
+</div>
+
+<!--S 点击加载更多 -->
+<div class="js-load-more"><span class="loading_span">加载更多</span><img src="__HOME_IMAGES__/loading.gif" class="loading_image"/></div>
+<!--E 点击加载更多-->
+</div>
+</div>
+<!-- 右边内容结束 -->

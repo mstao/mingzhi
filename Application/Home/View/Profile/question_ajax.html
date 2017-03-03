@@ -1,0 +1,8 @@
+
+<!--发起了问题  -->
+<volist name="record_info" id="record_info" empty="暂无提出问题信息">
+<div class="mydongtai-ua index-rightcontent">
+<div class="mydongtai-ua-tag"><span class="dongtai-type-zan">发起了问题</span><span class="dongtai-time-zan"><{$record_info.create_time|time2Units}></span></div>
+<div class="mydongtai-ua-question"><a href="<{:U('Home/Question/qindex',array('qid'=>$record_info['id']))}>"><{$record_info.question_name}></a></div>
+</div>
+</volist>

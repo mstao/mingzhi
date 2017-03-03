@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title><{$Think.session.username}>-<{$Think.config.WEB_NAME}></title>
+	<script type="text/javascript">
+        var MODULE="__MODULE__";
+        var AJAX_ERROR="<{$Think.config.AJAX_ERROR_TIPS}>";
+        var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+    </script>
+<css file="__HOME_CSS__/indexheader.css" />
+<css file="__HOME_CSS__/profile.css" />
+<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+<js file="__PUBLIC__/static/js/jQuery.tween.js" />
+<js file="__PUBLIC__/static/js/jquery.form.js"/>
+<js file="__PUBLIC__/static/js/truncaString.js" />
+<js file="__PUBLIC__/static/js/placeImage.js"/>
+<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+<js file="__HOME_JS__/profile/profile.js"/>
+<js file="__HOME_JS__/js.js" />
+<js file="__HOME_JS__/header.js"/>
+
+</head>
+<body> 
+
+<!--导航栏开始-->
+<include  file="Public/header"/>
+<!--导航栏结束-->           
+	
+
+<!--主体内容-->
+
+<div id="myhomecontent">
+
+
+
+<div class="myhomecontentleft">
+
+<!-- 加载 编辑个人信息页面 开始 -->
+<include file="Profile/editinfo"/>
+<!-- 加载 编辑个人信息页面 结束 -->
+</div>
+
+<!-- 我的主页信息开始 -->
+<include file="Profile/pageinfo"/>
+<!-- 我的主页信息结束 -->
+
+
+</div>
+
+
+<!--弹窗开始-->
+<include file="Index/openModal"/>
+<!--弹窗结束 -->
+
+<!--选择完图片弹出  -->
+<include file="Profile/checkimage"/>
+<!-- 选择完图片弹出 -->
+
+</body>
+</html>

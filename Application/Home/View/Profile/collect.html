@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title><{$Think.session.username}>-<{$Think.config.WEB_NAME}></title>
+	<script type="text/javascript">
+        var MODULE="__MODULE__";
+        var HOME_IMAGES="__HOME_IMAGES__";
+        var AJAX_ERROR="<{$Think.config.AJAX_ERROR_TIPS}>";
+        var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+    </script>
+<include  file="./Application/Home/View/Profile/common_public.html"/>
+</head>
+<body> 
+
+<!--导航栏开始-->
+<include  file="Public/header"/>
+<!--导航栏结束-->           
+	
+
+<!--主体内容-->
+
+<div id="myhomecontent">
+
+
+
+<div class="myhomecontentleft">
+
+<!-- 个人资料开始 -->
+<include file="Profile/myinfo"/>
+<!-- 个人资料结束 -->
+<!-- 我的动态开始  -->
+<include file="Profile/collect_details"/>
+<!-- 我的动态结束 -->
+
+
+</div>
+
+<!-- 我的主页信息开始 -->
+<include file="Profile/pageinfo"/>
+<!-- 我的主页信息结束 -->
+
+
+</div>
+
+
+<!--弹窗开始-->
+<include file="Index/openModal"/>
+<!--弹窗结束 -->
+
+<!--浏览我的头像  -->
+<include file="Profile/checkimage"/>
+
+
+</body>
+</html>

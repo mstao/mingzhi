@@ -1,0 +1,27 @@
+<!-- 我的个人动态 -->
+<div class="allactivity">
+<div class="ding">我的动态</div>
+<div class="dongtai"><a href="<{:U('Home/Profile/index',array('u'=>$umsg['uid']))}>" >最新动态</a></div>
+<include file="Profile/left_navi"/>
+
+</div>
+
+<div class="newactivity">
+
+<div class="mydongtaibiaoqian"><{$umsg.username}>的赞同</div>
+
+<!--赞同动态-->
+
+<div class="mytrends_content">
+<!--AJAX 加载个人动态  -->
+ <include file="upvote_ajax"/> 
+
+</div>
+
+
+<!--S 点击加载更多 -->
+<div class="js-load-more js-load-more-upvote"><span class="loading_span">加载更多</span><img src="__HOME_IMAGES__/loading.gif" class="loading_image"/></div>
+<!--E 点击加载更多-->
+
+
+</div>

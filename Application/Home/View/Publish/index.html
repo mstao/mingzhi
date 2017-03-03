@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title>发起问题-<{$Think.config.WEB_NAME}></title>
+	<script type="text/javascript">
+	var MODULE="__MODULE__";
+	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+	var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+
+	</script>
+<css file="__HOME_CSS__/indexheader.css" />
+<css file="__HOME_CSS__/publish.css" />
+<css file="__HOME_CSS__/footer.css" />
+<css file="__PUBLIC__/static/wangEditor/dist/css/wangEditor.min.css"/>
+<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+<js file="__PUBLIC__/static/js/jQuery.tween.js" />
+<js file="__HOME_JS__/js.js" />
+</head>
+<body>
+<!-- 导航栏开始 -->
+<include file="Public/header"/>
+<!-- 导航栏结束 -->
+
+<!--主体内容开始-->
+
+
+<div id="maincontent">
+
+<!--左边内容开始  -->
+<include  file="Publish/publishleft"/>
+<!--左边内容结束  -->
+
+
+<!--右边内容开始  -->
+<include  file="Publish/publishright"/>
+<!--右边内容结束  -->
+
+<!-- 页脚开始 -->
+<include file="Public/footer"/>
+<!-- 页脚结束 -->
+
+</div>
+<!--主体内容结束  -->
+
+
+<!--弹窗开始-->
+<include file="Index/openModal"/>
+<!--弹窗结束  -->
+</body>
+</html>
+<js file="__PUBLIC__/static/wangEditor/dist/js/wangEditor.js"/>	
+<js file="__HOME_JS__/Editor.js" />

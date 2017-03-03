@@ -1,0 +1,30 @@
+<div class="mark"></div>
+  <div class="writeanswer-dialog dialog">
+             
+                <div class="writeanswer-close dialog-close" onclick="$('.mark,.writeanswer-dialog').hide();"></div> 
+                <div class="writeanswer-dialog-title dialog-title">
+                                                撰写回答
+                </div> 
+                <div class="writeanswer-dialog-cont dialog-content"> 
+                      <div class="writeanswer-question-content">
+                      <input type="hidden" class="writeanswer-dialog_default_question_id" value="">
+                      <a href="" class="writeanswer-dialog_default_question_name">DEFAULT_NAME</a>
+                      </div>
+                       <!--S 回答者信息  --> 
+                      <div class="writeanswer-user">
+                       <img src="<{$Think.session.avatar_file}>"/> <span><em><{$Think.session.username}></em>&nbsp; , <{$Think.session.tag}></span>
+                      </div>    
+                      <!--E 回答者信息  -->
+                      
+                      <!--S 编辑器 -->              
+                      <div id="editor-container" class="answercontainer"><div id="editor-trigger"></div></div>
+                      <!--E 编辑器  -->
+                      <input type="checkbox" name="isHaveName" id="isHaveName" > <label for="isHaveName">匿名</label>
+                      <div class="writeranswer-function">
+                      <input type="button" class="add_button_answer" value="提交回答"/>&nbsp;<a href="javascript:void(0)" class="answer_reset">取消</a>
+                      
+                      </div>
+                      
+                   
+                </div>
+</div> 

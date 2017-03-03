@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title>私信-<{$Think.config.WEB_NAME}></title>
+	<script type="text/javascript">
+	 var MODULE="__MODULE__";
+     var AJAX_ERROR="<{$Think.config.AJAX_ERROR_TIPS}>";
+     var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+	</script>
+<css file="__HOME_CSS__/indexheader.css" />
+<css file="__HOME_CSS__/inbox.css" />
+<css file="__HOME_CSS__/footer.css" />
+<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+<js file="__PUBLIC__/static/js/jQuery.tween.js" />
+<js file="__PUBLIC__/static/js/truncaString.js" />
+<js file="__HOME_JS__/js.js" />
+<js file="__HOME_JS__/header.js"/>
+</head>
+<body> 
+
+<!--导航栏开始-->
+<include  file="Public/header"/>   
+<!--导航栏结束  -->                      
+
+<!--主体内容开始-->
+
+<div id="inboxmain">                 
+
+<!-- 左边内容开始 -->
+<include  file="Inbox/left"/> 
+<!-- 左边内容结束 -->
+
+
+<!-- 右边部分开始 -->
+<include  file="Inbox/right"/> 
+<!-- 右边部分结束 -->
+
+
+
+</div>
+<!-- 主体内容结束 -->
+
+
+<!-- 写私信弹出开始 -->
+<include file="Inbox/writeletter"/>
+<!-- 写私信弹出结束 -->
+
+
+<!--弹窗开始-->
+<include file="Index/openModal"/>
+<!--弹窗结束  -->
+
+</body>
+</html>

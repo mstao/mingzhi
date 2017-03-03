@@ -1,0 +1,98 @@
+<div class="questioninfo">
+<!--相关话题列表开始-->
+<div class="topiclist">
+
+<ul  class="bubblemenu"> 
+<volist  name="topicinfo" id="topicinfo">
+
+<li>
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
+<a href="<{:U('Home/Topic/index',array('tid'=>$topicinfo['id'],'sel'=>'trends'))}>"  class="nav_topicname enter-topicname"><{$topicinfo.topic_name}></a> 
+
+<div>
+<div id="topicinformation">
+<div id="topicinfo"></div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$topicinfo['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
+
+
+</div>
+
+
+</div>
+             
+</div>
+</li>
+
+
+</volist>
+</ul>
+</div>  
+
+<!--相关话题列表结束-->
+
+
+<!--问题描述开始-->
+<div class="questiondesc">
+<volist name="qinfo" id="qinfo">
+<div class="questiontitle">
+<{$qinfo.question_name}>
+</div>
+<div class="questioncon">
+<div class="questioncontent">
+<{$qinfo.question_desc}>
+</div>
+<div class="questionoprea">
+<span>提问时间： <{$qinfo.create_time|time2Units}> </span>&nbsp;&nbsp;
+<a href="javascript:void(0)"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="javascript:void(0)" onclick="$('.mark,.share-dialog').show();"><img src="__HOME_IMAGES__/share.png"/> 分享</a>
+<a href="javascript:void(0)"><img src="__HOME_IMAGES__/report.png"/> 举报</a>
+</div>
+
+<div class="commentnumber"><{$q_answer_count}>个回答</div>
+</div>
+</volist>
+</div>
+<!--问题描述结束-->
+<!--评论内容开始-->
+<div class="all-answer-info">
+	
+<include file="Question/answer_ajax"/>				
+
+	
+</div>
+<!--评论内容结束-->
+
+<!--S 点击加载更多 -->
+<div class="js-load-more load-more"><span class="loading_span">加载更多</span><img src="__HOME_IMAGES__/loading.gif" class="loading_image"/></div>
+<!--E 点击加载更多-->
+
+<!-- 我的登录信息显示开始 -->
+<div class="mylogininfo">
+<img src="<{$Think.session.avatar_file}>" ><span><em><{$Think.session.username}></em>&nbsp; , <{$Think.session.tag}></span>
+</div>
+<!-- 我的登录信息显示结束-->
+
+
+<!--评论框开始  -->
+<div id="editor-container" class="commentcontainer">
+        <div id="editor-trigger"></div>      
+</div>
+<!--评论框结束  -->
+
+<!--提交信息按钮  -->
+<div class="usercommentcon">
+
+    <input type="checkbox" name="isHaveName" id="isHaveName" value="1"> <label for="isHaveName">匿名</label>
+    <div class="usercommentsubmitbtndiv">
+    <input type="submit" value="提交回答" class="usercommentsubmitbtn  add_button_answer">
+    <input type="hidden" class="writeanswer-dialog_default_question_id" value="<{$q}>">
+    </div>
+
+</div>
+<hr style="margin-top:30px;height:1px;border:none;border-top:1px dashed #0066CC;" />
+</div>

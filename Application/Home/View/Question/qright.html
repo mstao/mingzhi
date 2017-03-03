@@ -1,0 +1,45 @@
+<div class="questionabout">
+
+<!--问题创建人信息开始-->
+<div class="questionfocus_div">
+<input type="hidden" class="hide_question_id" value="<{$q}>">
+<a href="javascript:void(0)" class="questionfocus focus-question-btn">
+<if condition="$focus_question eq 0">
+关注问题
+<else/>
+取消关注
+</if>
+</a>
+</div>
+<div class="founder">
+<span>发起人</span>
+<div class="founderinfo">
+
+	<img src="<{$qinfo.avatar_file}>" width="40" height="40" /> <span class="founderinfo_name"><a href="__MODULE__/Profile/index/u/<{$qinfo.uid}>"><{$qinfo.username}></a></span>
+
+</div>
+</div>
+<!--问题创建人信息结束-->
+
+<!--问题状态开始-->
+<div class="questionstatus">
+	<span>问题状态</span>
+	<div class="questionstatuscon">
+	
+		<span>浏览量：<{$qinfo.q_view_count}></span>
+		<span>关注数：<{$qinfo.focus_count}></span>
+	
+		<!--关注者头像展示开始-->
+		<div class="questionstatusconimg">
+		   <volist name="avatarinfo" id="avatarinfo">
+		   
+			<img src="<{$avatarinfo.avatar_file}>" width="35" height="35"/>
+		   </volist>
+		</div>
+		<!--关注者头像展示结束-->
+	
+	</div>
+	
+</div>
+<!--问题状态结束-->
+</div>

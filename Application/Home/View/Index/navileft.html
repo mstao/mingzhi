@@ -1,0 +1,92 @@
+
+<{/* 左边导航开始 */}>
+<div class="leftbox">                         
+<div class="ding"> <img src="__HOME_IMAGES__/dingyue.png"> 订阅话题<!-- <a href="#" class="edit" >编辑</a> --></div>
+<div class="dongtai"><a href="#">&nbsp;最新动态</a></div>
+<div class="nav">
+
+<{/* S topicinfo */}>
+<ul  class="bubblemenu"> 
+
+<volist name="focus_topic" id="focus_topic"  empty="还没有关注话题哦">  
+
+<li>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$focus_topic.id}>">
+<a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"><{$focus_topic.topic_name}></a>
+
+<div>
+<div class="topicinformation">
+<div class="topicinfo">
+</div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$focus_topic['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$focus_topic.id}>">
+
+
+</div>
+
+
+</div>
+             
+</div>
+</li>
+
+
+</volist>
+ 
+</ul>
+<{/*E topicinfo */}>
+
+</div>
+
+<div class="ding"><img src="__HOME_IMAGES__/trends-gray.png" class="hot-topic-img"/> 热门话题</div>
+
+<div class="nav">
+
+
+<{/* S HOT topicinfo */}>
+<ul  class="bubblemenu"> 
+
+<volist name="hottopic" id="hottopic"  empty="没有热门话题了^_^">  
+
+<li>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$hottopic.id}>">
+<a href="<{:U('Home/Topic/index',array('tid'=>$hottopic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"/><{$hottopic.topic_name}></a>
+<div>
+<div class="topicinformation">
+<div class="topicinfo"></div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$hottopic['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$hottopic.id}>">
+
+
+</div>
+
+
+</div>
+             
+</div>
+</li>
+
+
+</volist>
+ 
+</ul>
+<{/* E HOT topicinfo */}>
+
+
+</div> 
+<{/*S 底部信息 */}>
+<include file="Public/minifooter"/>
+<{/*E 底部信息 */}>
+
+</div>  
+<{/* 左边导航结束 */}>

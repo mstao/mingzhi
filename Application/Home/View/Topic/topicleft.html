@@ -1,0 +1,58 @@
+<div id="topicleftcontent">
+
+
+<div class="topicguangchang">关注的话题<span>已关注<a href="javascript:void(0)"><{$focus_topic_count}></a>个话题</span></div>
+
+<div class="topicconcernlist">
+    
+<ul  class="bubblemenu"> 
+<volist  name="all_focus_topic" id="topicinfo">
+
+
+<li>
+<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
+<a href="<{:U('Home/Topic/index',array('idt'=>$topicinfo['id']))}>"  class="nav_topicname enter-topicname"><{$topicinfo.topic_name}></a> 
+
+<div>
+<div id="topicinformation">
+<div id="topicinfo"></div>
+<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
+<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><if condition="$hottopic['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
+
+<{/*隐藏话题id*/}>
+<input type="hidden" class="hidden-topic-id" value="<{$topicinfo.id}>">
+
+</div>
+
+
+</div>
+             
+</div>
+</li>
+
+
+</volist>
+</ul>
+    
+	</div>
+
+<div class="topicallcontent">
+<div class="topic_new_question_tag">
+<span>话题最新问题</span>
+</div>
+
+<div  class="topic_detail_info topic-selected-div">
+<img src="<{$topic_info.topic_pic}>" /> 
+<a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'trends'))}>" class="topic_detail_info_name"><{$topic_info.topic_name}></a>
+</div>
+
+<include file="Topic/unanswereddetailsdiv"/>
+
+</div>
+
+
+
+
+
+
+</div>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<include file="./Application/Home/View/Public/headerinfo.html"/>
+	<title><{$Think.session.username}>-<{$Think.config.WEB_NAME}></title>
+	<script type="text/javascript">
+	var MODULE="__MODULE__";
+	
+	var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+    var mp=<{$mp}>;
+    var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+	</script>
+<css file="__HOME_CSS__/indexheader.css" />
+<css file="__HOME_CSS__/topics.css" />
+<css file="__HOME_CSS__/footer.css" />
+<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+<js file="__PUBLIC__/static/js/jQuery.tween.js" />
+<js file="__PUBLIC__/static/js/truncaString.js" />
+<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+<js file="__HOME_JS__/js.js" />
+<js file="__HOME_JS__/header.js"/>
+
+</head>
+<body> 
+
+<!--导航栏开始-->
+<include  file="Public/header"/>                    
+<!--导航栏结束  -->
+
+<!--主体内容-->
+
+
+<div id="maincontent">
+
+<!--左边内容开始  -->
+<include  file="Topics/topicsleft"/>
+<!--左边内容结束  -->
+
+
+<!--右边内容开始  -->
+<include  file="Topics/topicsright"/>
+<!--右边内容结束  -->
+
+</div>
+
+
+
+<!--弹窗开始-->
+<include file="Index/openModal"/>
+<!--弹窗结束  -->
+
+
+
+</body>
+</html>
+<js file="__PUBLIC__/static/js/dynamics.js"/>
+<js file="__PUBLIC__/static/js/minigrid.js"/>
+<js file="__HOME_JS__/alltopicloading.js"/>
+
+
+<script type="text/javascript">
+$(function(){
+	var track_click = 0;
+	$(window).scroll(function(){
+	  
+  	　　var scrollTop = $(this).scrollTop();//滚动高度
+  	　　var scrollHeight = $(document).height();//内容高度
+  	　　var windowHeight = $(this).height();//可见高度
+  	　　if(scrollTop + windowHeight == scrollHeight){
+  		 track_click++;
+  		if(track_click<mp){
+  	　　　　//加载话题数据
+  		$.ajax({
+			type:'post',
+			dataType:'html',
+			url:MODULE+'/Topics/index',
+			data:'p='+track_click,
+			beforeSend:function(){
+				//显示正在加载
+				layer.load(2);
+			},
+			success:function(data){
+
+				//关闭正在加载
+				setTimeout(function(){
+					  layer.closeAll('loading');
+				}, 1000);
+				$('.grid').append(data);
+				$.getScript(PUBLIC_PATH+"Home/js/alltopicloading.js");
+			},
+			error:function(){
+
+				//关闭正在加载
+				setTimeout(function(){
+				  layer.closeAll('loading');
+				}, 1000);
+				layer.msg(AJAX_ERROR, {icon: 2,time:2000});
+		    }
+		});
+  		}
+  	　}
+  });
+});
+</script>
