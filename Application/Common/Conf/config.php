@@ -18,9 +18,9 @@ return array(
            __HOME_CSS__     =>   __ROOT__.'/Public/Home/css',
            __HOME_JS__      =>   __ROOT__.'/Public/Home/js',
            __HOME_IMAGES__  =>   __ROOT__.'/Public/Home/images',
-           __ADMIN_CSS__    =>   __ROOT__.'/Public/Home/css',
-           __ADMIN_JS__     =>   __ROOT__.'/Public/Home/js',
-           __ADMIN_IMAGES__ =>   __ROOT__.'/Public/Home/images',
+           __ADMIN_CSS__    =>   __ROOT__.'/Public/Admin/css',
+           __ADMIN_JS__     =>   __ROOT__.'/Public/Admin/js',
+           __ADMIN_IMAGES__ =>   __ROOT__.'/Public/Admin/images',
            
     ),
    
