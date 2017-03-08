@@ -21,7 +21,7 @@ return array(
            __ADMIN_CSS__    =>   __ROOT__.'/Public/Admin/css',
            __ADMIN_JS__     =>   __ROOT__.'/Public/Admin/js',
            __ADMIN_IMAGES__ =>   __ROOT__.'/Public/Admin/images',
-           
+           __ADMIN_FONT__  =>   __ROOT__.'/Public/Admin/font',
     ),
    
     //*****************定义上传路径 ,公共资源路径************

@@ -107,8 +107,8 @@
 	height:30px;
 	border:1px solid #CCCCCC;
 	border-radius:3px;
-   -moz-box-shadow: inset 0 0 2px #CCC;
-   -webkit-box-shadow: inset 0 0 2px #CCC;
+    -moz-box-shadow: inset 0 0 2px #CCC;
+    -webkit-box-shadow: inset 0 0 2px #CCC;
     box-shadow: inset 0 0 2px #CCC;
 	padding-left:10px;
 }
