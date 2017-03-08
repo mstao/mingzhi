@@ -177,12 +177,12 @@ class UserModel extends Model{
             //获取用户记录信息id
             $item_id=$val['item_id'];
             if($val['type']=='za'){       //如果类型为za  则代表 为用户 赞同了回答
-                //获取当前用户对回答的赞同状态
-                $upvote_status=D('Feeds')->getUpvoteStatusByAid($item_id, $uid);
+               /*  //获取当前用户对回答的赞同状态
+                $upvote_status=D('Feeds')->getUpvoteStatusByAid($item_id, $uid); */
                 //获取 回答信息
                 $a_info_all=D('Feeds')->getFeedAnswerInfo($item_id);
-                //将当前用户对回答的赞同状态最佳到信息数组中
-                $a_info_all[0]['upvote_status']=$upvote_status;
+               /*  //将当前用户对回答的赞同状态最佳到信息数组中
+                $a_info_all[0]['upvote_status']=$upvote_status; */
                 //将整理后的信息添加到大数组中，并做一个标记za,以便在模板中判断解析
                 $a_info_all[0]['action_time']=$val['add_time'];
                 $arr_rd1['answer']=$a_info_all;
@@ -190,12 +190,12 @@ class UserModel extends Model{
                 $all_user_record[]= $arr_rd1;
                 
             }else if($val['type']=='aq'){ //如果类型为aq  则代表 为用户 回答了问题
-                //获取当前用户对回答的赞同状态
-                $upvote_status=D('Feeds')->getUpvoteStatusByAid($item_id, $uid);
+                /* //获取当前用户对回答的赞同状态
+                $upvote_status=D('Feeds')->getUpvoteStatusByAid($item_id, $uid); */
                 //获取 回答信息
                 $a_info_all=D('Feeds')->getFeedAnswerInfo($item_id);
-                //将当前用户对回答的赞同状态最佳到信息数组中
-                $a_info_all[0]['upvote_status']=$upvote_status;
+                /* //将当前用户对回答的赞同状态最佳到信息数组中
+                $a_info_all[0]['upvote_status']=$upvote_status; */
                 //将整理后的信息添加到大数组中，并做一个标记aq,以便在模板中判断解析
                 $a_info_all[0]['action_time']=$val['add_time']; 
                 $arr_rd2['answer']=$a_info_all;

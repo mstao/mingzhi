@@ -120,7 +120,12 @@ class ProfileController extends HomeController {
 
             
          }else if(!empty($u) && $sel=='collect'){
+             
+             //获取用户的收藏夹信息
+             $collection_info=D('Collection')->getCollectionInfoByUid($u);
              $u_count=$this->getUserCountInfo($u);
+             
+             $this->assign("collection_info",$collection_info);
              $this->assign("u_count",$u_count);
              $this->assign("umsg",$data);
              $this->assign("focus_topic",$focus_topic_info);
@@ -226,10 +231,13 @@ class ProfileController extends HomeController {
          
          //获取用户的赞同数量
          $upvote_count=D('User')->getUpvoteCount($uid);
+         //获取用户的收藏夹数量
+         $collection_count=D('Collection')->getCollectionCount($uid);
          
          $data2["answer_count"]=$answer_count;
          $data2["question_count"]=$question_count;
          $data2["upvote_count"]=$upvote_count;
+         $data2["collection_count"]=$collection_count;
          return $data2;
      }
 }

@@ -1,6 +1,7 @@
 <?php
 /**
  * @desc 收藏夹  处理
+ * @author mingshan
  */
 namespace Home\Model;
 use Think\Model;
@@ -126,5 +127,25 @@ class CollectionModel extends Model{
         );
         $is_exist=M('Collection')->where($where)->select();
         return $is_exist;
+    }
+    
+    /**
+     * 获取用户的收藏夹数量
+     * @param unknown $uid
+     * @return unknown
+     */
+    function getCollectionCount($uid){
+        $info=D('Collection')->where('uid='.$uid)->count();
+        return $info;
+    }
+    
+    /**
+     * 获取用户的收藏夹信息 
+     * @param unknown $uid
+     */
+    function getCollectionInfoByUid($uid){
+        $info=D('Collection')
+                        ->where('uid='.$uid)
+                        ->select();
     }
 }

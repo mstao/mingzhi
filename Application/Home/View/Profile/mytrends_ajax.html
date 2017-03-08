@@ -27,10 +27,23 @@
 <{/* S 操作 */}>
 <div class="index_my_left_category  answer-operate">
 <input type="hidden" class="hide_answer_id" value="<{$record_info_details.id}>">
-<input type="hidden" class="hide_upvote_status" value="<{$record_info_details.upvote_status.vote_value}>">
-<span class="upvote answer-upvote"><a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a> </span>
-<a href="javascript:void(0);">反对</a><a href="javascript:void(0);"><img src="__HOME_IMAGES__/add.png"/>关注问题</a>
-<if condition="$feeds_info_detail['comment_content'] eq ''">
+
+<span class="upvote answer-upvote">
+<if condition="$record_info_details['vote_value'] eq 1">
+<a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a>
+<else/>
+<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a>
+</if>
+</span>
+<a href="javascript:void(0);">反对</a><a href="javascript:void(0);">
+<if condition="$record_info_details['q_focus_id'] eq ''">
+<img src="__HOME_IMAGES__/add.png"/>关注问题
+<else/>
+<img src="__HOME_IMAGES__/nofocus.png"/>取消关注
+</if>
+</a>
+</a>
+<if condition="$record_info_details['comment_count'] eq 0">
 <a href="javascript:void(0)" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>添加评论</a>
 <else/>
 <a href="javascript:void(0)" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>评论</a><span class="shoucangnumber"><{$record_info_details.comment_count}></span>

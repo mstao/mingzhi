@@ -41,13 +41,13 @@ class FeedsModel extends Model{
                 $tinfo_q=D('Topic')->getFeedTopicByQuestion($qid);
                 //将话题信息追加到问题信息数组中
                 $qinfo_q[0]['topic']= $tinfo_q;
-                //判断用户对问题的关注状态
+                /* //判断用户对问题的关注状态
                 $focus_question=D('Question')->getFocusQuestionStatus($uid,$qid);
                 if($focus_question==null){
                     $qinfo_q[0]['focus_question']=0;
                 }else{
                     $qinfo_q[0]['focus_question']=1;
-                }
+                } */
                 //判断当前用户对问题的举报状态
                 $report_question_status=D('Question')->getReportQuestionStatus($uid,$qid);
                 if ($report_question_status==null){
@@ -79,13 +79,13 @@ class FeedsModel extends Model{
                 
                 //根据回答id获取问题id
                 $qid=D('Question')->getQuestionIdByAid($aid);
-                //判断用户对问题的关注状态
+                /* //判断用户对问题的关注状态
                 $focus_question=D('Question')->getFocusQuestionStatus($uid,$qid);
                 if($focus_question==null){
                     $a_info_all[0]['focus_question']=0;
                 }else{
                     $a_info_all[0]['focus_question']=1;
-                }
+                } */
                 
                 //判断用户对回答的举报状态
                 $report_answer_status=D('Answer')->getReportAnswerStatus($uid,$aid);
@@ -130,10 +130,11 @@ class FeedsModel extends Model{
         $info=D('Answer')
                 ->alias('a')
                 //->field('u.username,u.tag,u.avatar_file,q.question_name,a.*')
-                ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value'))
+                ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value','qf.focus_id'=>'q_focus_id'))
                 ->join('__USER__ u ON u.id=a.uid')
                 ->join('__QUESTION__ q ON q.id=a.question_id')
                 ->join('LEFT JOIN __ANSWER_VOTE__ av ON av.answer_id=a.id')
+                ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id')
                 ->where('a.id='.$aid)
                 ->select();
         return $info;

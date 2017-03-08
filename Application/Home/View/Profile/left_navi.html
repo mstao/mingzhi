@@ -2,9 +2,10 @@
 <ul>
 <li><a href="<{:U('Home/Profile/index',array('u'=>$umsg['uid'],'sel'=>'question'))}>" >提问<span class="shoucangnumber"><{$u_count.question_count}></span></a></li>
 <li><a href="<{:U('Home/Profile/index',array('u'=>$umsg['uid'],'sel'=>'answer'))}>" >回答<span class="shoucangnumber"><{$u_count.answer_count}></span></a></li>
-<li><a href="<{:U('Home/Profile/index',array('u'=>$umsg['uid'],'sel'=>'collect'))}>" >收藏<span class="shoucangnumber">0</span></a></li>
+
 <li><a href="#" >编辑<span class="shoucangnumber">0</span></a></li>
 <li><a href="<{:U('Home/Profile/index',array('u'=>$umsg['uid'],'sel'=>'upvote'))}>" >赞同<span class="shoucangnumber"><{$u_count.upvote_count}></span></a></li>
+<li><a href="<{:U('Home/Profile/index',array('u'=>$umsg['uid'],'sel'=>'collect'))}>" >收藏夹<span class="shoucangnumber"><{$u_count.collection_count}></span></a></li>
 </ul>
 </div>
 
