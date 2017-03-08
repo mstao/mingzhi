@@ -50,3 +50,5 @@ Temporary Items
 *.log
 *.log
 *.log
+*.php
+Application/Runtime/Cache/Home/6e008af5d91b2917eb1ca42cf6c7650a.php

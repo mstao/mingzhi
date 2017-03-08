@@ -68,7 +68,7 @@ class FeedsModel extends Model{
                 //获取当前用户对回答的赞同状态
                 $upvote_status=$this->getUpvoteStatusByAid($aid, $uid);
                 //获取feed流 回答信息
-                $a_info_all=$this->getFeedAnswerInfo($aid);
+                $a_info_all=$this->getFeedAnswerInfo($aid,$uid);
                 $question_id=$a_info_all[0]['question_id'];
                 //根据问题id获取与此问题相关的话题信息
                 $tinfo_a=D('Topic')->getFeedTopicByQuestion($question_id);
@@ -126,15 +126,16 @@ class FeedsModel extends Model{
      * @param unknown $aid
      * @return unknown
      */
-    function getFeedAnswerInfo($aid){
+    function getFeedAnswerInfo($aid,$uid){
         $info=D('Answer')
                 ->alias('a')
                 //->field('u.username,u.tag,u.avatar_file,q.question_name,a.*')
-                ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value','qf.focus_id'=>'q_focus_id'))
+                ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id','av.add_time'))
                 ->join('__USER__ u ON u.id=a.uid')
                 ->join('__QUESTION__ q ON q.id=a.question_id')
                 ->join('LEFT JOIN __ANSWER_VOTE__ av ON av.answer_id=a.id')
-                ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id')
+                ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id and qf.uid='.$uid)
+                ->join('LEFT JOIN __ANSWER_REPORT__ ar ON ar.answer_id='.$aid.' and ar.uid='.$uid)
                 ->where('a.id='.$aid)
                 ->select();
         return $info;

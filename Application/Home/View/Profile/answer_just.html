@@ -1,0 +1,75 @@
+
+<{/* S 操作 */}>
+<div class="index_my_left_category  answer-operate">
+<input type="hidden" class="hide_answer_id" value="<{$record_info_details.id}>">
+
+<span class="upvote answer-upvote">
+<if condition="$record_info_details['vote_value'] eq 1">
+<a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a>
+<else/>
+<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a>
+</if>
+</span>
+<a href="javascript:void(0);">反对</a><a href="javascript:void(0);">
+<if condition="$record_info_details['q_focus_id'] eq ''">
+<img src="__HOME_IMAGES__/add.png"/>关注问题
+<else/>
+<img src="__HOME_IMAGES__/nofocus.png"/>取消关注
+</if>
+</a>
+</a>
+<if condition="$record_info_details['comment_count'] eq 0">
+<a href="javascript:void(0)" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>添加评论</a>
+<else/>
+<a href="javascript:void(0)" class="commentbtn"><img src="__HOME_IMAGES__/comment.png"/>评论</a><span class="shoucangnumber"><{$record_info_details.comment_count}></span>
+</if>
+
+<span class="shadow_border">
+<a href="javascript:void(0);" class="answer-collection-btn"><img src="__HOME_IMAGES__/collect.png"/> 收藏</a>
+<a href="javascript:void(0);" class="report-answer-btn">
+<if condition="$record_info_details['a_report_id'] eq ''">
+<img src="__HOME_IMAGES__/report.png"/> 举报
+<else/>
+<img src="__HOME_IMAGES__/report_blue.png" /><font style="color:#0F88EB;">已举报</font>
+</if>
+</a>
+</span>
+
+</div>
+
+<{/*评论内容 开始 */}>
+<div class="commentbox">
+			<div class="arrow-range">
+				<b class="arrow-outer"></b>
+				<b class="arrow-inner"></b>				
+			</div>
+			<div class="commentcon">
+					 
+					 
+					 <{/*我的回复开始  */}>
+				<div class="othercomment_mycomment">
+				    <div>
+						<img src="<{$Think.session.avatar_file}>" class="mycommen_touxiang" >
+						<{/* 回复内容 */}>
+						<div class="mycomment_input" contenteditable="true"></div>
+					</div>
+					<div >
+						<form action="" method="">
+						    <div class="replay-other-btn-div">
+						    <input type="submit" value="评论" class="replay-other-btn" data-answer-id="<{$record_info_details.id}>">
+						    </div>
+						</form>
+					</div>
+				</div>
+				
+				<{/*我的回复结束  */}>
+				
+                       <{/*其他人评论开始  */}>	
+				        <div class="othercomment_info">
+			                <{/*引入加载评论重用模板*/}>		   
+                            <include file="Index/Answer_Comment_Ajax"/>
+			            </div>
+			    <{/*其他人评论结束 */}>
+			</div>
+</div> 
+<{/*评论内容结束   */}>

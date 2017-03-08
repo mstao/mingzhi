@@ -147,5 +147,6 @@ class CollectionModel extends Model{
         $info=D('Collection')
                         ->where('uid='.$uid)
                         ->select();
+        return $info;
     }
 }

@@ -180,7 +180,7 @@ class UserModel extends Model{
                /*  //获取当前用户对回答的赞同状态
                 $upvote_status=D('Feeds')->getUpvoteStatusByAid($item_id, $uid); */
                 //获取 回答信息
-                $a_info_all=D('Feeds')->getFeedAnswerInfo($item_id);
+                $a_info_all=D('Feeds')->getFeedAnswerInfo($item_id,$uid);
                /*  //将当前用户对回答的赞同状态最佳到信息数组中
                 $a_info_all[0]['upvote_status']=$upvote_status; */
                 //将整理后的信息添加到大数组中，并做一个标记za,以便在模板中判断解析
@@ -193,7 +193,7 @@ class UserModel extends Model{
                 /* //获取当前用户对回答的赞同状态
                 $upvote_status=D('Feeds')->getUpvoteStatusByAid($item_id, $uid); */
                 //获取 回答信息
-                $a_info_all=D('Feeds')->getFeedAnswerInfo($item_id);
+                $a_info_all=D('Feeds')->getFeedAnswerInfo($item_id,$uid);
                 /* //将当前用户对回答的赞同状态最佳到信息数组中
                 $a_info_all[0]['upvote_status']=$upvote_status; */
                 //将整理后的信息添加到大数组中，并做一个标记aq,以便在模板中判断解析

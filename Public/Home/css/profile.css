@@ -185,6 +185,7 @@
 	border-radius:60px;
 	display:inline;
 	margin-left:5px;
+	color:#666666;
 }
 
 #myhomecontent .newactivity{
@@ -1229,6 +1230,7 @@ text-decoration:underline;
 }
 
 /* 回复评论弹出里面样式 */
+/* 回复评论弹出里面样式 */
 
 .othercomment_mycomment{
 }
@@ -1239,8 +1241,9 @@ text-decoration:underline;
 	float:left;
 }
 .othercomment_mycomment .mycomment_input{
-	border:1px solid #FA7D3C;
-	border-radius:9px;
+	border:1px solid #E7EAF8;
+	background:#F7F8FA;
+	border-radius:6px;
 	height:40px;
 	witdh:460px;
 	margin-left:50px;
@@ -1263,27 +1266,26 @@ text-decoration:underline;
 }
 .replay-other-btn,.replay-person-btn{
 	
-	padding: 0 18px;
+  padding: 0 18px;
   margin-left: 5px;
   height: 29px;
   line-height: 29px;
   font-size: 15px;
-  font-weight: bold;
+
   display: block;
   float: left;
-  color: #527881;
-  text-shadow: 0 1px #e3f1f1;
-  background: #5BBF5A;
+  color: #ffffff;
+  background: #0F88EB;
   border: 1px solid;
-  border-radius: 9px;
+  border-radius: 5px;
   outline: 0;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  background-image: -webkit-linear-gradient(top, #edf5f8, #5BBF5A);
-  background-image: -moz-linear-gradient(top, #edf5f8, #5BBF5A);
-  background-image: -o-linear-gradient(top, #edf5f8, #5BBF5A);
-  background-image: linear-gradient(to bottom, #edf5f8, #5BBF5A);
+  background-image: -webkit-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: -moz-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: -o-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: linear-gradient(to bottom, #0F88EB, #0F88EB);
 }
 
 
@@ -1371,8 +1373,9 @@ text-decoration:underline;
 	width:420px;
 }
 .replay-other-input-div .replay-other-input{
-	border:1px solid #30A5FF;
-	border-radius:9px;
+	border:1px solid #E7EAF8;
+	background:#F7F8FA;
+	border-radius:6px;
 	height:40px;
 	witdh:200px;
 	margin-left:0px;
@@ -1382,10 +1385,8 @@ text-decoration:underline;
 }
 
 .replay-other-input-div .replay-other-input:hover{
-	border-color: #FA7D3C;
+	border-color: #0F88EB;
 }
-
-
 /*回答了问题*/
 .mydongtai-ua{
 	margin-top:20px;
