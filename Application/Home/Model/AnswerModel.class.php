@@ -86,7 +86,7 @@ class AnswerModel extends Model{
         //获取此文问题的发起者
         $q_info=D('Question')->getQuestionSimpleInfo($qid);
         $q_uid=$q_info[0]['uid'];
-        $type_flag='aq';
+        $type_flag="aq";
         D('Notifications')->writeNotification($uid,$q_uid,$qid,$type_flag);
         
         
@@ -150,7 +150,7 @@ class AnswerModel extends Model{
        }
        
        //添加用户记录  此type 为  aq 回答了问题
-       $type='aq';
+       $type="aq";
        D('User')->addUserRecord($uid,$aid,$type);
        
        return $aid;
@@ -166,6 +166,7 @@ class AnswerModel extends Model{
     function upvoteAnswer($aid,$uid){
         $ctime=time();
         $type="za";//该条用户记录类型
+        $type_flag="za";
         //获取该回答的发表用户id
         $a_info=$this->getSimpleAnswerInfo($aid);
         $a_uid=$a_info[0]['uid'];
@@ -188,8 +189,7 @@ class AnswerModel extends Model{
             * 推送通知   类型为赞同了回答
             * @var integer $flag
             */
-           
-           $type_flag='za';
+
            D('Notifications')->writeNotification($uid,$a_uid,$aid,$type_flag);
           
            $flag=1;
@@ -210,8 +210,8 @@ class AnswerModel extends Model{
              * 取消推送通知
              * 
              */
-            //$type_flag='za';
-           // D('Notifications')->deleteNotifications($uid,$a_uid,$a_id,$type_flag);
+           
+            D('Notifications')->deleteNotifications($uid,$a_uid,$aid,$type_flag);
             
             $flag=0;
         }else if($is_exist['vote_value']==-1 || $is_exist['vote_value']==0){
@@ -227,7 +227,14 @@ class AnswerModel extends Model{
             //添加用户记录  此type 为  aq
             D('User')->addUserRecord($uid,$aid,$type);
             
-           $flag=1;
+            /**
+             * 推送通知   类型为赞同了回答
+             * @var integer $flag
+             */
+             
+            D('Notifications')->writeNotification($uid,$a_uid,$aid,$type_flag);
+            
+            $flag=1;
         } 
         return $flag;
        
@@ -319,9 +326,12 @@ class AnswerModel extends Model{
      * @return number|mixed|boolean|unknown|string
      */
     function reportAnswer($uid,$aid){
+        $type_flag="ra";
         //判断举报信息是否存在
         $is_exist=$this->getReportAnswerStatus($uid, $aid);
-         
+         //获取回答的超简单信息
+        $a_info=$this->getSimpleAnswerInfo($aid);
+        $r_uid=$a_info[0]['uid'];
         if ($is_exist==null){
             $time=time();
             $data=array(
@@ -330,8 +340,20 @@ class AnswerModel extends Model{
                 'add_time'     =>$time
             );
             $info=M('answer_report')->data($data)->add();
+            /**
+             * 推送通知  举报回答
+             */
+            
+            D('Notifications')->writeNotification($uid,$r_uid,$aid,$type_flag);
+            
         }else{
             $info=0;
+            
+            /**
+             * 取消推送通知  举报回答
+             */
+            D('Notifications')->deleteNotifications($uid,$r_uid,$aid,$type_flag);
+            
         }
          
         return $info;
@@ -358,6 +380,11 @@ class AnswerModel extends Model{
         //计数加1
         D('Answer')->where('id='.$aid)->setInc('comment_count');
         
+        //获取超简单回答信息
+        $a_info=$this->getSimpleAnswerInfo($aid);
+        $r_uid=$a_info[0]['uid'];
+        $type_flag="pa";
+        D('Notifications')->writeNotification($uid,$r_uid,$aid,$type_flag);
         return $flag;
     }
     

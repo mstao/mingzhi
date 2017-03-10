@@ -1,0 +1,61 @@
+<ul>
+<volist name="notification_content" id="no_content">
+<if condition="$no_content['flag'] eq 'za'">
+
+<volist name="no_content['content']" id="no">
+<li class="no-list-li">
+<volist name="no['u_info']" id="u_info">
+<a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
+</volist>
+赞同了<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr}></a>
+</li>
+</volist>
+
+<elseif condition="$no_content['flag'] eq 'aq'"/>
+
+<volist name="no_content['content']" id="no">
+<li class="no-list-li">
+<volist name="no['u_info']" id="u_info">
+<a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
+</volist>
+回答了<a href="<{:U('Home/Question/qindex',array('qid' =>$no['id']))}>"><{$no.question_name}></a>
+</li>
+</volist>
+
+<elseif condition="$no_content['flag'] eq 'rq'"/>
+
+<volist name="no_content['content']" id="no">
+<li class="no-list-li">
+<volist name="no['u_info']" id="u_info">
+<a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
+</volist>
+举报了问题<a href="<{:U('Home/Question/qindex',array('qid' =>$no['id']))}>"><{$no.question_name}></a>
+</li>
+</volist>
+
+<elseif condition="$no_content['flag'] eq 'ra'"/>
+
+<volist name="no_content['content']" id="no">
+<li class="no-list-li">
+<volist name="no['u_info']" id="u_info">
+<a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
+</volist>
+举报了回答<a href="javascript:void(0);"><{$no.answer_content}></a>
+</li>
+</volist>
+
+<elseif condition="$no_content['flag'] eq 'pa'"/>
+
+<volist name="no_content['content']" id="no">
+<li class="no-list-li">
+<volist name="no['u_info']" id="u_info">
+<a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
+</volist>
+评论了<a href="javascript:void(0);"><{$no.answer_content}></a>
+</li>
+</volist>
+
+</if>
+</volist>
+
+</ul>

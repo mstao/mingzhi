@@ -31,10 +31,47 @@
 				$('#gb').find('img').attr('src',HOME_IMAGES+'/user-blue-no.png');
 		    }
 	}
+	
+	
+	$(function(){
+		
+		/**
+		 * 消息的处理 递归调用
+		 */
+		 (function longPolling() {  
+	        // alert(Date.parse(new Date())/1000);  
+	         $.ajax({  
+	             url: MODULE+"/Notifications/longPoll",  
+	             data: {"timed": Date.parse(new Date())/1000},  
+	             dataType: "json",  
+	             timeout: 70000,//10秒超时，可自定义设置  
+	             error: function (XMLHttpRequest, textStatus, errorThrown) {  
+	                 
+	                //layer.msg("[state: " + textStatus + ", error: " + errorThrown + " ]");
+	            	 if (textStatus == "timeout") { // 请求超时  
+	                     longPolling(); // 递归调用  
+	                 } else { // 其他错误，如网络错误等  
+	                     longPolling();  
+	                 }  
+	             },  
+	             success: function (data, textStatus) {  
+	                 //此时已有消息过来了，将消息数量显示
+	                 $('.nav-counter').text(data.result);
+	                 if (textStatus == "success") { // 请求成功  
+	                    
+	                    longPolling();
+	                 }  
+	             }  
+	         });  
 
+	     })(); 
+		
+		  
+				
+	});
 
 	</script>   
-	<js file="__HOME_JS__/noticifications.js"/>           
+          
 	<div class="header">
 
 			<div class="page-menu-wrapper clearfix" >
@@ -89,22 +126,13 @@
 										<img src="__HOME_IMAGES__/notifications.png"/><br>
 										<span>没有更多消息</span>   
 										</div> -->
-										<div class="spinner">
+										<!-- <div class="spinner">
 										  <div class="bounce1"></div>
 										  <div class="bounce2"></div>
 										  <div class="bounce3"></div>
-										</div>
-										<!-- <ul>
-											<li><a href="#">xxxx</a>赞同了<a href="#">都是大大大大大大撒旦大神都是大大大大大大撒旦大神都是大大大大大大撒旦大神</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">都是大大大大大大撒旦大神</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">都是大大大大大大撒旦大神</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
-											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
-										</ul> -->
+										</div> -->
+										<!-- 引入模板 -->
+										<include file="Public/notification_content"/>
 										
 									</div>
 									<div class="tab_2 tab_all" id="f" style=" display: none;">

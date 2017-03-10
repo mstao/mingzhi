@@ -729,11 +729,15 @@ body {
 ::-webkit-scrollbar-thumb:window-inactive { 
  background: rgba(205, 205, 205);
 }
-.tab_all>ul >li >a{
+
+.no-list-li  >a{
 	color:#0F88EB;
-	display: inline;
+    display: inline;
+	margin-left:-10px;
+	margin-right:-5px;
 }
-.tab_all >ul >li >a:hover{
+
+.no-list-li >a:hover{
 	color:#0F88EB;
 	text-decoration: underline;
 }

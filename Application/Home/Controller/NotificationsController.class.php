@@ -10,8 +10,8 @@ use Think\Controller;
 
 class NotificationsController extends HomeController {
     protected $uid;
-    public function __construct(){
-        parent::__construct();
+    public function _initialize(){
+        parent::_initialize();
         $this->uid=session('uid');
     }
     
@@ -19,41 +19,46 @@ class NotificationsController extends HomeController {
      *  获取全部通知信息
      */
     public function index(){
-        $position=0;
-        $item_pre_page=10;
-        //获取消息信息
-        $info=D('Notifications')->readNotifications($this->uid,$position,$item_pre_page);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        
+        if(IS_AJAX){
+             $position=0;
+             $item_pre_page=10;
+            //获取消息信息
+             $info=D('Notifications')->readNotifications($this->uid,$position,$item_pre_page);
+           
+             $this->assign('notification_content',$info);
+             echo $this->fetch('Public:notification_content');
+        }
     }
     
     /**
      * @desc 获取赞同消息
      */
     public function upvote(){
-        $position=0;
-        $item_pre_page=10;
-        $type_flag=$_POST['type_flag'];
-        //获取消息信息
-        $info=D('Notifications')->getUpvoteAnswer($this->uid,$type_flag,$position,$item_pre_page);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+       if (IS_AJAX){
+            $position=0;
+            $item_pre_page=10;
+            $type_flag="za";
+            //获取消息信息
+            $info=D('Notifications')->getUpvoteAnswer($this->uid,$type_flag,$position,$item_pre_page);
+            $this->assign('notification_content',$info);
+            echo $this->fetch('Public:notification_content');
+       }
     }
     
+    /**
+     * 获取关注我的通知
+     */
     public function  focus(){
-        $position=0;
-        $item_pre_page=10;
-        $type_flag=$_POST['type_flag'];
-        //获取消息信息
-        $info=D('Notifications')->getFocusPersonInfo($this->uid,$type_flag,$position,$item_pre_page);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        if (IS_AJAX){
+            $position=0;
+            $item_pre_page=10;
+            $type_flag="gp";
+            //获取消息信息
+            $info=D('Notifications')->getFocusPersonInfo($this->uid,$type_flag,$position,$item_pre_page);
+            $this->assign('notification_content',$info);
+            echo $this->fetch('Public:notification_content');
+        }
     }
     
     /**

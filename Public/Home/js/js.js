@@ -71,7 +71,7 @@ $(function () {
         }
     }
 	
-	$('.notifications').click(function (e) {
+	/*$('.notifications').click(function (e) {
 		$(".notificationsbox").css({"margin-top":"-10px"});
 		 $(".notificationsbox").slowMove(
 				{"speed":15,"tween":"Bounce","ease":"easeOut"},
@@ -79,7 +79,7 @@ $(function () {
 		 );
 		 $(".notificationsbox").toggle();
         stopPropagation(e);
-    });
+    });*/
     $(document).bind('click', function () {
         $(".notificationsbox").hide();
         $(".search-container").fadeOut('normal');

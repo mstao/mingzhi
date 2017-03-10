@@ -409,7 +409,10 @@ class QuestionModel extends Model{
    function reportQuestion($uid,$qid){
        //判断举报信息是否存在
        $is_exist=$this->getReportQuestionStatus($uid,$qid);
-       
+       $type_flag="rq";
+       //获取问题的超简单信息
+       $q_info=$this->getQuestionSimpleInfo($qid);
+       $r_uid=$q_info[0][uid];
        if ($is_exist==null){
            $time=time();
            $data=array(
@@ -418,6 +421,11 @@ class QuestionModel extends Model{
                 'add_time'     =>$time
            );
            $info=M('question_report')->data($data)->add();
+           
+           /**
+            * 推送通知
+            */
+           D('Notifications')->writeNotification($uid,$r_uid,$qid,$type_flag);
        }else{
            $info=0;
        }
