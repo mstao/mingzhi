@@ -37,13 +37,11 @@ class UserController extends Controller{
                                 session('username',$rst['username']);
                                 $uid=$rst['id'];
                                 session('uid',$uid);
-                                $uinfo=$user->getPersonInfo($uid);    
-                                session('avatar_file',$uinfo[0]['avatar_file']);
-                                session('tag',$uinfo[0]['tag']);
+                                
                                 $data['status']  = 1;
                                 $data['content'] = '登录成功';
                                 $this->ajaxReturn($data);
-                                
+                                exit();
                                 //跳转
                                 //$this->redirect('Index/index');
                             }
@@ -66,19 +64,21 @@ class UserController extends Controller{
                 $data['status']  = 2;
                 $data['content'] = '验证码错误';
                 $this->ajaxReturn($data);
-                exit;
+                exit();
         }else{
             $flag=$user->AddUser($_POST);
             if($flag>0){
                 $data['status']  = 1;
                 $data['content'] = '<font color="green">注册成功</font>';
                 $this->ajaxReturn($data);
+                exit();
             }else{
                 $data['status']  = 0;
                 $data['content'] = '注册失败';
                 $this->ajaxReturn($data);
+                exit();
             }
-            exit;
+            
         }
     }
     
@@ -99,11 +99,13 @@ class UserController extends Controller{
             $data['status']  = 1;
             $data['content'] = '<font color="green">用户名可用</font>';
             $this->ajaxReturn($data);
+            exit();
             //echo '<font color="green">用户名可用</font>';
         }else{
             $data['status']  = 0;
             $data['content'] = '用户名已被使用';
             $this->ajaxReturn($data);
+            exit();
             //echo "用户名已被注册";        
         }
         exit;
@@ -118,12 +120,12 @@ class UserController extends Controller{
             $data['status']  = 1;
             $data['content'] = '<font color="green">邮箱可用</font>';
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }else{
             $data['status']  = 0;
             $data['content'] = '邮箱已被使用';
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }
         
     }
@@ -140,14 +142,17 @@ class UserController extends Controller{
               $data['status']  = 3;
               $data['content'] = '上传出错';
               $this->ajaxReturn($data);
+              exit();
           }else if($flag>0){
               $data['status']  = 1;
               $data['content'] = $path;
               $this->ajaxReturn($data);
+              exit();
           }else {
               $data['status']  = 0;
               $data['content'] = '写入数据库出错';
               $this->ajaxReturn($data);
+              exit();
           }
         }
     }
@@ -166,15 +171,18 @@ class UserController extends Controller{
                         $data['content'] = $name;
                         session('username',$name);
                         $this->ajaxReturn($data);
+                        exit();
                     }else{
                         $data['status']  = 2;
                         $data['content'] = '更改失败';
                         $this->ajaxReturn($data);
+                        exit();
                     }
                 }else{
                     $data['status']  = 0;
                     $data['content'] = '用户名已被使用';
                     $this->ajaxReturn($data);
+                    exit();
                 }
                 
                 
@@ -183,6 +191,7 @@ class UserController extends Controller{
             $data['status']  = 3;
             $data['content'] = '非法请求';
             $this->ajaxReturn($data);
+            exit();
         }
     }
     
@@ -196,16 +205,19 @@ class UserController extends Controller{
                 $data['status']  = 1;
                 $data['content'] = $tag;
                 $this->ajaxReturn($data);
+                exit();
             }else{
                 $data['status']  = 0;
                 $data['content'] = '更改失败';
                 $this->ajaxReturn($data);
+                exit();
             }
             
         }else{
             $data['status']  = 3;
             $data['content'] = '非法请求';
             $this->ajaxReturn($data);
+            exit();
         }
     }
     
@@ -218,15 +230,18 @@ class UserController extends Controller{
                 $data['status']  = 1;
                 $data['content'] = $sex;
                 $this->ajaxReturn($data);
+                exit();
             }else{
                 $data['status']  = 0;
                 $data['content'] = '更改失败';
                 $this->ajaxReturn($data);
+                exit();
             }
         }else{
             $data['status']  = 3;
             $data['content'] = '非法请求';
             $this->ajaxReturn($data);
+            exit();
         }
     }
      
@@ -239,15 +254,18 @@ class UserController extends Controller{
                 $data['status']  = 1;
                 $data['content'] = $desc;
                 $this->ajaxReturn($data);
+                exit();
             }else{
                 $data['status']  = 0;
                 $data['content'] = '更改失败';
                 $this->ajaxReturn($data);
+                exit();
             }
         }else{
             $data['status']  = 3;
             $data['content'] = '非法请求';
             $this->ajaxReturn($data);
+            exit();
         }
     }
     
@@ -261,15 +279,18 @@ class UserController extends Controller{
                 $data['status']  = 1;
                 $data['content'] = $name;
                 $this->ajaxReturn($data);
+                exit();
             }else{
                 $data['status']  = 0;
                 $data['content'] = '更改失败';
                 $this->ajaxReturn($data);
+                exit();
             }
         }else{
             $data['status']  = 3;
             $data['content'] = '非法请求';
             $this->ajaxReturn($data);
+            exit();
         }
     }
     

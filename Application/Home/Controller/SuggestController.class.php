@@ -25,7 +25,7 @@ class SuggestController extends HomeController{
         $data['status']  = 1;
         $data['content'] = $return_rs;
         $this->ajaxReturn($data);
-        exit;
+        exit();
     }
     
     
@@ -41,6 +41,6 @@ class SuggestController extends HomeController{
        $data['status']=1;
        $data['content']=$return_rs;
        $this->ajaxReturn($data);
-       exit;
+       exit();
    }
 }

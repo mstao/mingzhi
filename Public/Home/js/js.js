@@ -72,10 +72,10 @@ $(function () {
     }
 	
 	$('.notifications').click(function (e) {
-		$(".notificationsbox").css({"height":"0px","margin-top":"-10px"});
+		$(".notificationsbox").css({"margin-top":"-10px"});
 		 $(".notificationsbox").slowMove(
 				{"speed":15,"tween":"Bounce","ease":"easeOut"},
-				{"height":"105px","opacity":1,"margin-top":"0px"}
+				{"opacity":1,"margin-top":"0px"}
 		 );
 		 $(".notificationsbox").toggle();
         stopPropagation(e);

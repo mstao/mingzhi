@@ -183,6 +183,14 @@ class AnswerCommentModel extends Model{
         return $info;
     }
     
-    
+    /**
+     * 获取超简单评论信息
+     * @param unknown $cid
+     * @return mixed|boolean|string|NULL|unknown|object
+     */
+    function  getSimpleCommentInfo($cid){
+        $info= M('answer_comment')->field('suid,ruid,message,id')->where('id='.$cid)->select();
+        return $info;
+    }
     
 }

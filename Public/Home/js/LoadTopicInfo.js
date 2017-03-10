@@ -15,7 +15,7 @@ $(function(){
 				//显示正在加载
 				//layer.load(1);
 				//$(this).next('div').html('<img src="__HOME_IMAGES__/loading.gif" class="loading_image"/><span>加载中...</span>');
-			  mythis.html("<img src='"+HOME_IMAGES+"/loading_blue.gif' class='loading_image'/><span class='loading-span'>加载中...</span>");
+			  mythis.html('<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>');
 				
 			},
 			success:function(data){

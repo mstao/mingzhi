@@ -85,10 +85,12 @@ class QuestionController extends HomeController {
             $data['status']  = 1;
             $data['content'] = '回答成功';
             $this->ajaxReturn($data);
+            exit();
         }else{
             $data['status']  = 0;
             $data['content'] = '回答失败';
             $this->ajaxReturn($data);
+            exit();
         }
     }
     

@@ -1,7 +1,7 @@
 <{/*header开始*/}>
    <script type="text/javascript">
 	function check(val,obj){
-		
+		    
 			if(val=='f'){
 					f.style.display='block';
 					s.style.display='none';
@@ -33,7 +33,8 @@
 	}
 
 
-	</script>                   
+	</script>   
+	<js file="__HOME_JS__/noticifications.js"/>           
 	<div class="header">
 
 			<div class="page-menu-wrapper clearfix" >
@@ -55,7 +56,7 @@
 				<ul class="menu-share">
                  <li><a href="index.html">发现</a></li>
                 <li><a href="__MODULE__/Topic/index">话题</a></li>
-                  <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue">9</span></a>
+                  <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue"><{$headerinfo.no_count}></span></a>
                   </li>
                    <{/*消息内容开始  */}>
                   <div class="notificationsbox">
@@ -83,16 +84,33 @@
 									<!--clear-->
 									<div class="clear"></div>
 									<!--clear-->
-									<div class="tab_1" id="s" >
-									    <div class="no-notifications">
+									<div class="tab_1 tab_all" id="s" >
+									    <!-- <div class="no-notifications">
 										<img src="__HOME_IMAGES__/notifications.png"/><br>
 										<span>没有更多消息</span>   
+										</div> -->
+										<div class="spinner">
+										  <div class="bounce1"></div>
+										  <div class="bounce2"></div>
+										  <div class="bounce3"></div>
 										</div>
+										<!-- <ul>
+											<li><a href="#">xxxx</a>赞同了<a href="#">都是大大大大大大撒旦大神都是大大大大大大撒旦大神都是大大大大大大撒旦大神</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">都是大大大大大大撒旦大神</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">都是大大大大大大撒旦大神</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
+											<li><a href="#">xxxx</a>赞同了<a href="#">weeeqeqeew</a></li>
+										</ul> -->
+										
 									</div>
-									<div class="tab_2" id="f" style=" display: none;">
+									<div class="tab_2 tab_all" id="f" style=" display: none;">
 									<span class="no-message">你收到的赞同会在这里显示</span>
 									</div>
-									<div class="tab_3" id="g" style=" display: none;"> 
+									<div class="tab_3 tab_all" id="g" style=" display: none;"> 
 									<span class="no-message">有人关注你时会显示在这里</span>
 									</div>
 							 <div class="no-footer">
@@ -108,7 +126,7 @@
                    <{/*消息内容结束  */}>
                   
 					<li class="myname_li">
-						<a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" title="" class="mymainname"><img src="<{$Think.session.avatar_file}>" class="mytouxiangimg"><span class="myname_header"><{$Think.session.username}></span></a>
+						<a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" title="" class="mymainname"><img src="<{$headerinfo.avatar_file}>" class="mytouxiangimg"><span class="myname_header"><{$headerinfo.username}></span></a>
 						<ul class="dropdown-menu follow">
 							<li><a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" >我的主页</a></li>
 							<li><a href="__MODULE__/Inbox/index" >私信<img src="__HOME_IMAGES__/yuandian.png"/></a></li>

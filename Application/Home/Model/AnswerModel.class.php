@@ -80,7 +80,18 @@ class AnswerModel extends Model{
         D('Question')->where('id='.$qid)->setInc('answer_count');
         
         /**
-         * 推送
+         * 推送通知
+         * 当前用户回答了xx用户的问题
+         */
+        //获取此文问题的发起者
+        $q_info=D('Question')->getQuestionSimpleInfo($qid);
+        $q_uid=$q_info[0]['uid'];
+        $type_flag='aq';
+        D('Notifications')->writeNotification($uid,$q_uid,$qid,$type_flag);
+        
+        
+        /**
+         * 推送feed
          * 推送类型  ：用户回答了问题，推送给关注此问题的用户  和关注此问题的话题的用户
          * 保证推送表中内容不重复，需要去重
          */
@@ -155,6 +166,9 @@ class AnswerModel extends Model{
     function upvoteAnswer($aid,$uid){
         $ctime=time();
         $type="za";//该条用户记录类型
+        //获取该回答的发表用户id
+        $a_info=$this->getSimpleAnswerInfo($aid);
+        $a_uid=$a_info[0]['uid'];
         $is_exist=D("Feeds")->getUpvoteStatusByAid($aid, $uid);
         if($is_exist['vote_value']==null ){
            
@@ -169,6 +183,15 @@ class AnswerModel extends Model{
             
            //添加用户记录  此type 为  aq           
            D('User')->addUserRecord($uid,$aid,$type);
+           
+           /**
+            * 推送通知   类型为赞同了回答
+            * @var integer $flag
+            */
+           
+           $type_flag='za';
+           D('Notifications')->writeNotification($uid,$a_uid,$aid,$type_flag);
+          
            $flag=1;
         }else if($is_exist['vote_value']==1){
             $data2=array(
@@ -182,6 +205,13 @@ class AnswerModel extends Model{
             D('Answer')->where('id='.$aid)->setDec('upvote_count');
             //取消赞 ，删除用户记录  记录类型为 aq
             D('User')->deleteUserRecord($uid,$aid,$type);
+            
+            /**
+             * 取消推送通知
+             * 
+             */
+            //$type_flag='za';
+           // D('Notifications')->deleteNotifications($uid,$a_uid,$a_id,$type_flag);
             
             $flag=0;
         }else if($is_exist['vote_value']==-1 || $is_exist['vote_value']==0){
@@ -225,7 +255,8 @@ class AnswerModel extends Model{
     function getAnswerInfoByUid($uid,$position,$item_per_page){
         $info=D('Answer')
                 ->alias('a')
-                ->field('u.username,u.tag,u.avatar_file,q.question_name,a.*,ao.vote_value')
+                //->field('u.username,u.tag,u.avatar_file,q.question_name,a.*,ao.vote_value,')
+                ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','ao.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))
                 ->join('__USER__ u ON u.id=a.uid')
                 ->join('__QUESTION__ q ON q.id=a.question_id')
                 ->join('__ANSWER_VOTE__ ao ON ao.answer_id=a.id')
@@ -250,10 +281,12 @@ class AnswerModel extends Model{
     function  getUpvoteAnswerByUid($uid,$position,$item_per_page){
     	$info=D('answer_vote')
     	        ->alias('av')
-    	        ->field('u.username,u.tag,u.avatar_file,q.question_name,a.*,av.vote_value,av.add_time')
+    	        ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))
     	        ->join('__ANSWER__ a ON a.id=av.answer_id')
     	        ->join('__QUESTION__ q ON q.id=a.question_id')
     	        ->join('__USER__ u ON u.id=av.vote_uid')
+    	        ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id and qf.uid='.$uid)
+    	        ->join('LEFT JOIN __ANSWER_REPORT__ ar ON ar.answer_id=a.id and ar.uid='.$uid)
     	        ->where('av.vote_uid='.$uid)
     	        ->where('av.vote_value=1')
     	        ->order('av.add_time desc')
@@ -329,6 +362,15 @@ class AnswerModel extends Model{
     }
     
     
+    /**
+     * 获取超简单回答信息
+     * @param unknown $aid
+     * @return mixed|boolean|string|NULL|unknown|object
+     */
+    function getSimpleAnswerInfo($aid){
+        $info=D('Answer')->field('answer_content,id,uid')->where('id='.$aid)->select();
+        return $info;
+    }
     
   
     

@@ -515,5 +515,16 @@ class UserModel extends Model{
                  ->select();
        return $info;
    }
+   
+   /**
+    * 获取超简单的用户信息
+    * @param unknown $uid
+    * @return mixed|boolean|string|NULL|unknown|object
+    */
+   
+   function getSimpleUserInfo($uid){
+       $info=D('User')->field('username,id')->where('id='.$uid)->select();
+       return $info;
+   }
 }
 ?>

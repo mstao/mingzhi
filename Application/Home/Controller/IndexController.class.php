@@ -76,12 +76,12 @@ class IndexController extends HomeController {
                $data['status']  = 1;
                $data['content'] = $flag;
                $this->ajaxReturn($data);
-               exit;
+               exit();
            }else if($flag=='0'){
                $data['status']  = 2;
                $data['content'] = '发起问题失败，请仔细核对信息';
                $this->ajaxReturn($data); 
-               exit;
+               exit();
            }
         }else{
           $this->display();  
@@ -97,7 +97,7 @@ class IndexController extends HomeController {
         $data['status']  = 1;
         $data['content'] = $flag;
         $this->ajaxReturn($data);
-        exit;
+        exit();
         
     }
     //首页  回答 不赞同
@@ -128,7 +128,7 @@ class IndexController extends HomeController {
 		$data['status']  = 1;
 		$data['content'] = $flag;
 		$this->ajaxReturn($data);
-		exit;
+		exit();
     	
     }
     //首页 关注问题
@@ -139,12 +139,12 @@ class IndexController extends HomeController {
             $data['status']  = 1;
             $data['content'] = $flag;
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }else{
             $data['status']  = 0;
             $data['content'] = '有问题了哦';
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }
     }
     //首页   加载回答评论ajax
@@ -189,12 +189,12 @@ class IndexController extends HomeController {
             $data['status']  = 1;
             $data['content'] = $flag;
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }else{
             $data['status']  = 0;
             $data['content'] = '评论出现问题';
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }
     }
     
@@ -209,12 +209,12 @@ class IndexController extends HomeController {
             $data['status']  = 1;
             $data['content'] = $flag;
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }else{
             $data['status']  = 0;
             $data['content'] = '回复出现问题';
             $this->ajaxReturn($data);
-            exit;
+            exit();
         }
     }
     
@@ -225,7 +225,7 @@ class IndexController extends HomeController {
         $data['status']  = 1;
         $data['content'] = $info;
         $this->ajaxReturn($data);
-        exit;
+        exit();
     }
     
     //点赞与取消赞 评论
@@ -235,7 +235,7 @@ class IndexController extends HomeController {
         $data['status']  = 1;
         $data['content'] = $info;
         $this->ajaxReturn($data);
-        exit;
+        exit();
     }
     
     
@@ -251,7 +251,7 @@ class IndexController extends HomeController {
         $data['status']  = 1;
         $data['content'] = $info;
         $this->ajaxReturn($data);
-        exit;
+        exit();
     }
     
     //问题举报
@@ -261,7 +261,7 @@ class IndexController extends HomeController {
         $data['status']  = 1;
         $data['content'] = $info;
         $this->ajaxReturn($data);
-        exit;
+        exit();
     }
     
     //加载收藏夹内容
@@ -292,7 +292,7 @@ class IndexController extends HomeController {
         $data['status']  = 1;
         $data['content'] = $flag;
         $this->ajaxReturn($data);
-        exit;
+        exit();
     }
     
     //退出系统

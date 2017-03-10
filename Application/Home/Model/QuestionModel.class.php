@@ -456,4 +456,14 @@ class QuestionModel extends Model{
                     ->select();
        return $info;
    }
+   
+   /**
+    * 获取超简单问题信息
+    * @param unknown $qid
+    * @return mixed|boolean|string|NULL|unknown|object
+    */
+   function getSimpleQuestionInfo($qid){
+       $info=D('Question')->field('question_name,id')->where('id='.$qid)->select();
+       return $info;
+   }
 }
