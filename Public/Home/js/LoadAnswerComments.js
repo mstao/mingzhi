@@ -10,8 +10,11 @@ $(function(){
 		 //获取aid
 		 var aid=$(this).closest('.index_my_left_category').find('.hide_answer_id').val();
 		 var mythis=$(this);
-		 //加载评论
-		 $.ajax({
+		 arguments.callee.num = arguments.callee.num ? arguments.callee.num : 0;
+		 ++arguments.callee.num;
+		 if((arguments.callee.num&1)!=0){
+		   //加载评论
+		  $.ajax({
 				type:'post',
 				dataType:'html',
 				url:MODULE+'/Index/commentAjax',
@@ -40,5 +43,6 @@ $(function(){
 					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
 				}
 			});
+		 }
 	});
 });

@@ -23,14 +23,15 @@ $(function(){
 				data:{'token':search_input},
 				beforeSend:function(){
 					//显示正在加载
-					layer.load(2);
+					//layer.load(2);
+					mythis.parent().parent().next().html('<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>');
 				},
 				success:function(data){
 
 					//关闭正在加载
-					setTimeout(function(){
+					/*setTimeout(function(){
 						  layer.closeAll('loading');
-					});
+					});*/
 					
 			
 					if(data.status==1){
@@ -82,9 +83,9 @@ $(function(){
 				error:function(){
 
 					//关闭正在加载
-					setTimeout(function(){
+					/*setTimeout(function(){
 					  layer.closeAll('loading');
-					}, 1000);
+					}, 1000);*/
 					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
 			    }
 			});
@@ -108,15 +109,15 @@ $(function(){
 				data:{'token':search_input},
 				beforeSend:function(){
 					//显示正在加载
-					layer.load(2);
+					 mythis.next().html('<div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>');
 				},
 				success:function(data){
 
 					//关闭正在加载
-					setTimeout(function(){
+				/*	setTimeout(function(){
 						  layer.closeAll('loading');
 					});
-					
+					*/
 			
 					if(data.status==1){
 					  //layer.msg('获取信息');
@@ -152,9 +153,9 @@ $(function(){
 				error:function(){
 
 					//关闭正在加载
-					setTimeout(function(){
+					/*setTimeout(function(){
 					  layer.closeAll('loading');
-					}, 1000);
+					}, 1000);*/
 					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
 			    }
 			});

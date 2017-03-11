@@ -3,8 +3,8 @@ $(function(){
 		//获取当前topic id
 		var topic_id=$(this).attr('data-topic-id');
 		
-		var mythis=$('+div>div>div:nth-child(1)',this);
-		var mythis2=$('+div>div>div:nth-child(2)',this);
+		var mythis=$('+div>div',this);
+		
 		//根据当前topic_id获取topic信息
 		$.ajax({
 			type:'post',
@@ -29,22 +29,21 @@ $(function(){
 					//状态为1，代表话题话题信息已获取到，将信息填充到模板中
 				    
 					//先填充话题信息
-					mythis.html("<div class='topicinfomytouxiang'><a href='#'><img src='"+data.content.topic_pic+"' width='40' height='40'/></a></div><div class='topicinforightcontent'><div class='topicinfoname'><a href='"+MODULE+"/Topic/index/tid/"+data.content.topic_id+"/sel/trends'>"+data.content.topic_name+"</a></div><div class='topicinfonameanswer'>"+data.content.topic_desc+"</div></div>");
-                    
-					//再填充与话题有关的统计信息
-					mythis2.find('.topic-question-count').text(data.content.question_count);
-					mythis2.find('.topic-hot-question-count').text(data.content.hot_question_count);
-					mythis2.find('.topic-foucs-person-count').text(data.content.topic_focus_count);
+					
+					
+                    var vhtml="<div class='topicinfo'><div class='topicinfomytouxiang'><a href='#'><img src='"+data.content.topic_pic+"' width='40' height='40'/></a></div><div class='topicinforightcontent'><div class='topicinfoname'><a href='"+MODULE+"/Topic/index/tid/"+data.content.topic_id+"/sel/trends'>"+data.content.topic_name+"</a></div><div class='topicinfonameanswer'>"+data.content.topic_desc+"</div></div></div>"
+					vhtml+="<div class='topicopinfooperation'>问题：<a href='javascript:void(0);' class='topic-question-count'>"+data.content.question_count+"</a> &nbsp;&nbsp;热点：<a href='javascript:void(0);' class='topic-hot-question-count'>"+data.content.hot_question_count+"</a>&nbsp;&nbsp;关注者:<a href='javascript:void(0);' class='topic-foucs-person-count'>"+data.content.topic_focus_count+"</a><a href='javascript:void(0);' class='topicinfoquxiao topic-focus-btn' data-topic-id='"+data.content.topic_id+"'>";
 					
 					//根据当前用户对该话题的关注状态进行渲染
 					if(data.content.focus_status==0){
-						mythis2.find('.topic-focus-btn').html("<img src='"+HOME_IMAGES+"/add.png' style='position:relative;top:3px;'/>关注");
+						vhtml+="<img src='"+HOME_IMAGES+"/add.png' style='position:relative;top:3px;'/>关注";
 
 					}else if(data.content.focus_status==1){
-						mythis2.find('.topic-focus-btn').text('取消关注');
+						vhtml+="取消关注";
 						
 					}
-					
+					vhtml+="</a></div>";
+					mythis.html(vhtml);
 				}else{
 					layer.msg(data.content, {icon: 2,time:1000});
 				}

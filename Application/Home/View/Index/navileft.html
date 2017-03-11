@@ -15,15 +15,8 @@
 <a href="<{:U('Home/Topic/index',array('tid'=>$focus_topic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname" data-topic-id="<{$focus_topic.id}>"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"><{$focus_topic.topic_name}></a>
 
 <div>
+
 <div class="topicinformation">
-<div class="topicinfo">
-</div>
-<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
-<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn" data-topic-id="<{$hottopic.id}>"></a>
-
-</div>
-
-
 </div>
              
 </div>
@@ -52,14 +45,6 @@
 <a href="<{:U('Home/Topic/index',array('tid'=>$hottopic['id'],'sel'=>'trends'))}>" class="nav_topicname enter-topicname"  data-topic-id="<{$hottopic.id}>"><img alt="" src="__HOME_IMAGES__/dot.png" class="dot"/><{$hottopic.topic_name}></a>
 <div>
 <div class="topicinformation">
-<div class="topicinfo"></div>
-<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
-<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn" data-topic-id="<{$hottopic.id}>"><if condition="$hottopic['focus_id'] eq ''">关注话题<else/>取消关注</if></a>
-
-
-</div>
-
-
 </div>
              
 </div>

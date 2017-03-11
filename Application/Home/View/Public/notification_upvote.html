@@ -1,0 +1,5 @@
+<ul>
+<volist name="notification_content" id="no">
+<li class="no-list-li"><a href="<{:U('Home/Profile/index',array('u'=>$no['sender_uid']))}>"><{$no.username}></a>赞同了<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr}></a></li>
+</volist>
+</ul>

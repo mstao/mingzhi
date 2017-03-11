@@ -750,7 +750,7 @@ body {
 	color:#666666;
 	margin-left:-13px;
 }
-.tab_2,.tab_3 .no-message{
+.tab-all .no-message{
 	color:#666666;
 	position: relative;
 	left:60px;
@@ -799,7 +799,7 @@ body {
     border-radius:3px;
     box-shadow:1px 5px 5px #EFEFEF;   	
     position:absolute;
-    top:60px;
+	margin-top:60px;
     margin-left:90px;	       
     background-color:#fff;
 	line-height: 50px;
@@ -933,7 +933,10 @@ body {
 
 /**加载动画**/
 .spinner {
-  margin: 100px auto 0;
+  margin: 0  auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   width: 150px;
   text-align: center;
 }
@@ -975,4 +978,84 @@ body {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
+}
+/*topic*/
+
+.topicinformation{
+	 min-width: 100px;
+	 min-height:100px;
+}
+.topicinfo{
+	width: 350px;
+	border-bottom:1px double #eaeada;
+	padding-bottom:20px;   
+	margin-bottom:20px;                         
+}
+.topicinfo a:hover{
+    color:#0F88EB;
+  
+}
+
+.topicinfomytouxiang{
+	width:40px;
+	display:inline;
+	
+	color:#666666;
+}
+
+ .topicinfomytouxiang img{
+	float:left;
+}
+
+.topicinforightcontent{
+	font-size:14px;
+	left:right;
+	color:#666666;
+	margin-left:50px;
+	
+}
+
+
+.topicinfoname{
+	
+	text-decoration:none;
+	
+	font-size:16px;
+	font-weight:bold;
+}
+.topicinfoname a{
+	color:#225599;	
+	text-decoration: none;
+} 
+.topicinfoname a:hover{
+	color:#0F88EB;
+	text-decoration: none;
+}
+
+.topicinfonameanswer{
+    margin-top:10px;
+    font-size:16px;
+	color:#000;
+	
+	text-decoration:none;
+}
+.topicopinfooperation{
+	color:#666666;
+	font-size:0.9em;
+    padding-left:10px;	
+}
+.topicopinfooperation a{
+	color:#225599;;
+	text-decoration:none;
+	
+}
+.topicopinfooperation a:hover{
+    text-decoration:underline;
+}
+.topicinfoquxiao {
+   font-size:16px;
+}
+.topicinfoquxiao {
+	color:#06F;
+	float:right;
 }

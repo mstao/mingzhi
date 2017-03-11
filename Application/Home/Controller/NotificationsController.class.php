@@ -42,7 +42,7 @@ class NotificationsController extends HomeController {
             //获取消息信息
             $info=D('Notifications')->getUpvoteAnswer($this->uid,$type_flag,$position,$item_pre_page);
             $this->assign('notification_content',$info);
-            echo $this->fetch('Public:notification_content');
+            echo $this->fetch('Public:notification_upvote');
        }
     }
     
@@ -57,7 +57,7 @@ class NotificationsController extends HomeController {
             //获取消息信息
             $info=D('Notifications')->getFocusPersonInfo($this->uid,$type_flag,$position,$item_pre_page);
             $this->assign('notification_content',$info);
-            echo $this->fetch('Public:notification_content');
+            echo $this->fetch('Public:notification_focus');
         }
     }
     
@@ -86,7 +86,7 @@ class NotificationsController extends HomeController {
                     'request_time'   =>$timed,
                     'use_time'       =>($responseTime - $timed)
                 );
-                echo $this->ajaxReturn($content);
+                $this->ajaxReturn($content);
                 exit();
             } else { // 模拟没有数据变化，将休眠 hold住连接
                 sleep(13);
