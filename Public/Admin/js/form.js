@@ -100,7 +100,7 @@ $(function(){
 	
 	
 	//AJAX实现登录
-	$('form').eq(0).bind('submit',function(e){
+	$('.btn-primary').bind('click',function(e){
 		if(oknamel && okpassl){
 			layer.msg('正在登录',{offset: 0,time:2000});
 			
@@ -114,23 +114,27 @@ $(function(){
 				data:{'um':um,'pw':pw},
 				beforeSend:function(){
 					//显示正在加载
-					/*layer.load(2);*/
+					layer.load(2);
 				},
 				success:function(data){
 
 					//关闭正在加载
-					/*setTimeout(function(){
+					setTimeout(function(){
 						  layer.closeAll('loading');
-					}, 1000);*/
-					layer.msg(data.content, {icon: 1});
-					window.location.href=MODULE+"/Index/index";
+					}, 1000);
+					if(data.status==0){
+						layer.msg(data.content, {icon: 2});
+					}else if(data.status=1){
+						layer.msg(data.content, {icon: 1});
+						window.location.href=MODULE+"/Index/index";
+					}
 				},
 				error:function(){
 
 					//关闭正在加载
-					/*setTimeout(function(){
+					setTimeout(function(){
 					  layer.closeAll('loading');
-					}, 1000);*/
+					}, 1000);
 					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
 			    }
 			});

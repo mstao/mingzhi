@@ -12,7 +12,7 @@ return array(
     'TMPL_R_DELIM'          =>    '}>',
     //**************设置伪静态************
     'URL_HTML_SUFFIX'       =>   '',              //默认后缀
-    'SHOW_PAGE_TRACE'       =>   FALSE,                //开启页面trace
+    'SHOW_PAGE_TRACE'       =>   TRUE,                //开启页面trace
     //******定义常用css,js,images路径*******
     'TMPL_PARSE_STRING'     =>   array(                //定义常用路径
            __HOME_CSS__     =>   __ROOT__.'/Public/Home/css',
@@ -21,14 +21,14 @@ return array(
            __ADMIN_CSS__    =>   __ROOT__.'/Public/Admin/css',
            __ADMIN_JS__     =>   __ROOT__.'/Public/Admin/js',
            __ADMIN_IMAGES__ =>   __ROOT__.'/Public/Admin/images',
-           __ADMIN_FONT__  =>   __ROOT__.'/Public/Admin/font',
+           __ADMIN_FONT__   =>   __ROOT__.'/Public/Admin/font',
     ),
    
     //*****************定义上传路径 ,公共资源路径************
     'UPLOADS_PATH'          =>	__ROOT__.'/Uploads/',
     'PUBLIC_PATH'           =>	__ROOT__.'/Public/',
     //*****************URL**************
-    'URL_MODEL'             =>  1,                      // 为了兼容性更好而设置成1 如果确认服务器开启了mod_rewrite 请设置为 2
+    'URL_MODEL'             =>  2,                      // 为了兼容性更好而设置成1 如果确认服务器开启了mod_rewrite 请设置为 2
     'URL_CASE_INSENSITIVE'  =>  true,                   //url 不区分大小写  为TRUE不区分大小写
     //****************SESSION设置*****************
    'SESSION_OPTIONS'        =>  array(

@@ -8,9 +8,9 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="js/html5.js"></script>
-<script type="text/javascript" src="js/respond.min.js"></script>
-<script type="text/javascript" src="js/PIE_IE678.js"></script>
+<script type="text/javascript" src="__ADMIN_JS__/html5.js"></script>
+<script type="text/javascript" src="__ADMIN_JS__/respond.min.js"></script>
+<script type="text/javascript" src="__ADMIN_JS__/PIE_IE678.js"></script>
 <![endif]-->
 <link href="__ADMIN_CSS__/H-ui.css" rel="stylesheet" type="text/css" />
 <link href="__ADMIN_CSS__/H-ui.admin.css" rel="stylesheet" type="text/css" />
@@ -25,7 +25,7 @@
 <title>明之后台管理</title>
 </head>
 <body style="overflow:hidden">
-<header class="Hui-header cl"> <a class="Hui-logo l" title="H-ui.admin v2.1" href="/">明之后台管理</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">beta</span> <span class="Hui-userbox"><span class="c-white">超级管理员：admin</span> <a class="btn btn-danger radius ml-10" href="#" title="退出"><i class="icon-off"></i> 退出</a></span> <a aria-hidden="false" class="Hui-nav-toggle" id="nav-toggle" href="#"></a> </header>
+<header class="Hui-header cl"> <a class="Hui-logo l" title="H-ui.admin v2.1" href="/">明之后台管理</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">beta</span> <span class="Hui-userbox"><span class="c-white">超级管理员：<{$u_info.admin_name}></span>&nbsp;&nbsp;<span class="c-white"><a href="<{:U('Home/Index/index')}>" target="_blank">返回前台</a></span> &nbsp;<a class="btn btn-danger radius ml-10" href="#" title="退出"><i class="icon-off"></i> 退出</a></span> <a aria-hidden="false" class="Hui-nav-toggle" id="nav-toggle" href="#"></a></header>
 <div class="cl Hui-main">
   <aside class="Hui-aside" style="">
     <input runat="server" id="divScrollValue" type="hidden" value="" />
@@ -34,12 +34,9 @@
         <dt><i class="icon-user"></i> 用户中心<b></b></dt>
         <dd>
           <ul>
-            <li><a _href="user-list.html" href="javascript:;">用户管理</a></li>
-            <li><a _href="user-list-del.html" href="javascript:;">删除的用户</a></li>
-            <li><a _href="user-list-black.html" href="javascript:;">黑名单</a></li>
-            <li><a _href="record-browse.html" href="javascript:void(0)">浏览记录</a></li>
-            <li><a _href="record-download.html" href="javascript:void(0)">下载记录</a></li>
-            <li><a _href="record-share.html" href="javascript:void(0)">分享记录</a></li>
+            <li><a _href="user-list.html" href="javascript:;">用户列表</a></li>
+            <li><a _href="user-list-del.html" href="javascript:;">封禁的用户</a></li>
+            
           </ul>
         </dd>
       </dl>
@@ -56,17 +53,18 @@
         <dt><i class="icon-comments"></i> 话题管理<b></b></dt>
         <dd>
           <ul>
-            <li><a _href="#" href="javascript:;">评论列表</a></li>
-            <li><a _href="feedback-list.html" href="javascript:void(0)">意见反馈</a></li>
+            <li><a _href="#" href="javascript:;">话题列表</a></li>
+            <li><a _href="feedback-list.html" href="javascript:void(0)">封禁话题</a></li>
+            <li><a _href="feedback-list.html" href="javascript:void(0)">热门话题</a></li>
           </ul>
         </dd>
       </dl>
       <dl id="menu-article">
-        <dt><i class="icon-edit"></i> 资讯管理<b></b></dt>
+        <dt><i class="icon-edit"></i> 私信管理<b></b></dt>
         <dd>
           <ul>
-            <li><a _href="article-class.html" href="javascript:void(0)">分类管理</a></li>
-            <li><a _href="article-list.html" href="javascript:void(0)">资讯管理</a></li>
+            <li><a _href="article-class.html" href="javascript:void(0)">系统私信</a></li>
+            <li><a _href="article-list.html" href="javascript:void(0)">用户私信</a></li>
           </ul>
         </dd>
       </dl>
@@ -83,9 +81,9 @@
         <dt><i class="icon-beaker"></i> 回答管理<b></b></dt>
         <dd>
           <ul>
-            <li><a _href="product-brand.html" href="javascript:void(0)">品牌管理</a></li>
-            <li><a _href="article-class.html" href="javascript:void(0)">分类管理</a></li>
-            <li><a _href="product-list.html" href="javascript:void(0)">产品管理</a></li>
+            <li><a _href="product-brand.html" href="javascript:void(0)">回答列表</a></li>
+            <li><a _href="article-class.html" href="javascript:void(0)">封禁回答</a></li>
+            
           </ul>
         </dd>
       </dl>
@@ -98,16 +96,7 @@
           </ul>
         </dd>
       </dl>
-     <!-- <dl id="menu-order">
-        <dt><i class="icon-credit-card"></i> 财务管理<b></b></dt>
-        <dd>
-          <ul>
-            <li><a _href="order-list.html" href="javascript:void(0)">订单列表</a></li>
-            <li><a _href="order-list.html" href="javascript:void(0)">充值管理</a></li>
-            <li><a _href="order-list.html" href="javascript:void(0)">发票管理</a></li>
-          </ul>
-        </dd>
-      </dl>-->
+   
       <dl id="menu-tongji">
         <dt><i class="icon-bar-chart"></i> 系统统计<b></b></dt>
         <dd>
@@ -153,14 +142,14 @@
     <div id="iframe_box" class="Hui-articlebox">
       <div class="show_iframe">
         <div style="display:none" class="loading"></div>
-        <iframe scrolling="yes" frameborder="0" src="welcome.html"></iframe>
+        <iframe scrolling="yes" frameborder="0" src="__CONTROLLER__/welcome.html"></iframe>
       </div>
     </div>
   </section>
 </div>
-<script type="text/javascript" src="__ADMIN_JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/static/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="__ADMIN_JS__/Validform_v5.3.2_min.js"></script> 
-<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+<script type="text/javascript" src="__PUBLIC__/static/layer-2.4/layer.js" ></script>
 <script type="text/javascript" src="__ADMIN_JS__/H-ui.js"></script>
 <script type="text/javascript" src="__ADMIN_JS__/H-ui.admin.js"></script>
 

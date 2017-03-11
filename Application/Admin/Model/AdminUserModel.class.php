@@ -9,7 +9,7 @@ use Think\Model;
  * @author mingshan
  *
  */
-class UserModel extends Model{
+class AdminUserModel extends Model{
   
     /**
      * 制作一个方法对用户名和密码进行校验（后台管理）
@@ -32,6 +32,8 @@ class UserModel extends Model{
             return false;
         }
     }
+    
+    
     /**
      * 获取后台管理人员的信息
      * @param unknown $uid
