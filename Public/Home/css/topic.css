@@ -371,61 +371,7 @@ text-decoration:none;
 }
 /*赞同等功能样式*/
 
-.index_my_left_category{
-	font-size:14px;
-	font-family:arial,sans-serif;
-	margin-top:10px;
-	margin-left:0px;
-	padding-bottom:20px;
-}
 
-.index_my_left_category a{
-	font:16px;
-	text-decoration:none;
-	color:#666666;
-	padding-left:8px;
-}
-.index_my_left_category a:hover{
-	text-decoration:underline;
-	color:#0F88EB;
-}
-.index_my_left_category .upvote{
-  	
-	height:20px;
-	padding:0 5px;
-	color:#0769CB;
-	background-color:#F1F8FB;
-	border:1px solid #BBCADC;
-	border-radius:9px;
-	display:inline-block;
-	margin-left:5px;
-}
-.index_my_left_category .upvote a{
-	color:#0769CB;
-}
-.index_my_left_category .upvote:hover{
-	border:1px solid #0769CB;
-	
-}
-
-.index_my_left_category .upvote a:hover{
-	text-decoration: none;
-}
-.index_my_left_category .answer-toquestion{
-	padding:0px 3px;
-}
-.index_my_left_category img{
-	display:inline-block;
-	position: relative;
-	top:3px;
-}
-.index_my_left_category .shadow_border{
-	display:none;
-	width:100px;	
-	padding-left:20px;
-    margin-left:40px;
-
-}
 
 /*点击回答弹窗*/
 .mark{
@@ -601,7 +547,86 @@ text-decoration:none;
 			
 
 
+#topicinformation{
+	 width: 350px;
+}
+#topicinfo{
+	width: 350px;
+	border-bottom:1px double #eaeada;
+	padding-bottom:20px;   
+	margin-bottom:20px;                         
+}
+#topicinfo a:hover{
+    color:#0F88EB;
+  
+}
 
+.topicinfomytouxiang{
+	width:40px;
+	display:inline;
+	
+	color:#666666;
+}
+
+ .topicinfomytouxiang img{
+	float:left;
+}
+
+.topicinforightcontent{
+	font-size:14px;
+	left:right;
+	color:#666666;
+	margin-left:50px;
+	
+}
+
+
+.topicinfoname{
+	
+	text-decoration:none;
+	
+	font-size:16px;
+	font-weight:bold;
+}
+.topicinfoname a{
+	color:#225599;	
+	text-decoration: none;
+} 
+.topicinfoname a:hover{
+	color:#0F88EB;
+	text-decoration: none;
+}
+
+.topicinfonameanswer{
+    margin-top:10px;
+    font-size:16px;
+	color:#000;
+	
+	text-decoration:none;
+}
+.topicopinfooperation{
+	color:#666666;
+	font-size:0.9em;
+    padding-left:10px;	
+	border-top:1px solid #EAEADA;
+}
+.topicopinfooperation a{
+	color:#225599;;
+	text-decoration:none;
+	
+}
+.topicopinfooperation a:hover{
+    text-decoration:underline;
+}
+
+.topicinfoquxiao {
+	
+	float:right;
+	font-size:16px;
+    display: inline;
+	background: #ffffff;
+    
+}
 
 .topic_new_question_tag{
 	border-bottom:1px solid #ccc;

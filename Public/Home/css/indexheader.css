@@ -52,15 +52,18 @@ body {
 	float: left;
 	margin-right: -1px;
 }
+
 .home{
 	left:-40px;
+	top:-3px;
 }
 .menu-function {
 	float: left;
 	
 }
 .menu-share {
-	float: right;
+	float: left;
+	margin-left:2px;
 }
 .page-menu-wrapper > .menu-function > li:first-child {
 	border-left: none;
@@ -86,7 +89,6 @@ body {
 	position: absolute;
 	width: 260px;
 	font-size: 18px;
-	font-weight: bold;
 	text-align: left;
 	background-color: #fff;
 	
@@ -207,16 +209,7 @@ body {
 	vertical-align: middle;
 }
 
-/* .menu-function > li:nth-child(1) > a:before {
-	content: url(../images/ico1.png);	
-	width:30px;
-	top:2px;
-} */
 
-/* .menu-function > li:nth-child(2) > a:before {
-	content: url(../images/soso.png);	
-	top:2.5px;
-} */
 .menu-share > li:nth-child(1) > a:before {
 	content:url(../images/eye.png);
 	top:1.5px;
@@ -230,10 +223,7 @@ body {
 	content: url(../images/xiaoxi2.png);
 	top:1.5px;
 }
-/*
-.menu-share > li:nth-child(4) > a:before {
-	content:url(images/home1.png);
-} */
+
 .menu-share > li:nth-child(6) > a:before {
 	content:url(../images/answer.png);
 	top:1.5px;
@@ -1059,3 +1049,58 @@ body {
 	color:#06F;
 	float:right;
 }
+/*登录，注册*/
+.menu-loginreg{
+	display:block;
+	float:right;
+}
+.login-btn{
+	height: 35px;
+    padding-left:0px;
+	margin-left:10px;
+	line-height:40px;
+	margin-top:10px;
+}
+
+.reg-btn{
+	height: 35px ;
+    padding-left:0px;
+	line-height:40px;
+	margin-top:10px;
+	margin-left:15px;
+}
+.login-btn >a{
+	
+
+    height: 35px;
+    width: 50px;
+	background: #ffffff;
+	border: 1px solid #0F88EB;
+	border-radius: 3px;
+	color: #0F88EB;
+	text-decoration: none;
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;  
+	
+}
+.login-btn >a:hover{
+	color:#0F88EB;
+	background:#eff0f4;
+}
+
+ .reg-btn>a{
+    height: 35px ;
+	background: #FFFFFF;
+	border: 1px solid #0F88EB;
+	border-radius: 3px;
+	color: #0F88EB;
+	text-decoration: none;
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;  
+}
+ .reg-btn>a:hover{
+	color:#0F88EB;
+	background:#eff0f4;
+ }

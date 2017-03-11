@@ -24,18 +24,20 @@ $(function(){
 					
 					//代表执行赞同操作
 					if(data.content==1){
-						mythis.find('a').css('color','#666').css('background','#F6F6F6');
-						mythis.find('a > b').text('已赞');
-						var upvote_count=mythis.find('a > i').text();
-						mythis.find('a > i').text( parseInt(upvote_count)+1);
-						mythis.closest('.index_my_left_category').find('.hide_upvote_status').val('1');
+						mythis.find('a').css('color','#666');
+						mythis.find('i').css('color','#666');
+						mythis.find('a ').text('已赞');
+						var upvote_count=mythis.find('i').text();
+						mythis.find('i').text( parseInt(upvote_count)+1);
+
 					}else if(data.content==0){
 					//代表执行取消赞操作
-						mythis.find('a').css('color','#0769CB').css('background','#F1F8FB');														
-						mythis.find('a > b').text('赞同');
-						var upvote_count=mythis.find('a > i').text();
-						mythis.find('a > i').text( parseInt(upvote_count)-1);
-						mythis.closest('.index_my_left_category').find('.hide_upvote_status').val('0');
+						mythis.find('a').css('color','#0769CB');
+						mythis.find('i').css('color','#0769CB');
+						mythis.find('a').text('赞同');
+						var upvote_count=mythis.find('i').text();
+						mythis.find('i').text( parseInt(upvote_count)-1);
+						
 					}
 					
 					

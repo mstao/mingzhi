@@ -216,3 +216,67 @@
 	text-decoration:underline;
 }
 
+/*赞同等功能样式*/
+
+.index_my_left_category{
+	font-size:14px;
+	font-family:arial,sans-serif;
+	margin-top:10px;
+	margin-left:0px;
+	padding-bottom:10px;
+}
+
+.index_my_left_category a{
+	font:16px;
+	text-decoration:none;
+	color:#666666;
+	padding-left:8px;
+}
+.index_my_left_category a:hover{
+	text-decoration:underline;
+	color:#0F88EB;
+}
+.index_my_left_category .upvote{
+  	
+	height:25px;
+	padding:0px 5px;
+	padding-right:10px;
+	
+	background-color:#EBF3FB;
+	border-radius:3px;
+	display:inline-block;
+	font-weight: normal;
+	color:#0769CB;
+	
+}
+.index_my_left_category .upvote a{
+	color:#0769CB;
+	display: inline-block;
+	
+	padding-right:5px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+.index_my_left_category .upvote:hover{
+
+   	background-color:#eff0f4;
+}
+
+.index_my_left_category .upvote a:hover{
+	text-decoration: none;
+}
+.index_my_left_category .answer-toquestion{
+	padding:0px 3px;
+}
+.index_my_left_category img{
+	display:inline-block;
+	position: relative;
+	top:3px;
+}
+.index_my_left_category .shadow_border{
+	display:none;
+	width:100px;	
+	padding-left:20px;
+    margin-left:40px;
+
+}

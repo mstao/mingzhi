@@ -5,10 +5,9 @@
 
 <span class="upvote answer-upvote">
 <if condition="$record_info_details['vote_value'] eq 1">
-<a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a>
+<a href="javascript:void(0);" style="color:#666666;">已赞 </a> <i class="answer-upvote-count" style="color:#666666"><{$record_info_details.upvote_count}></i>
 <else/>
-<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></a>
-</if>
+<a href="javascript:void(0);" >赞同</a> <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></if>
 </span>
 <a href="javascript:void(0);">反对</a><a href="javascript:void(0);">
 <if condition="$record_info_details['q_focus_id'] eq ''">

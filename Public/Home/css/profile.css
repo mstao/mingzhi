@@ -1153,29 +1153,7 @@ text-decoration:underline;
 	text-decoration:underline;
 	color:#0F88EB;
 }
-.index_my_left_category .upvote{
-  	
-	height:20px;
-	padding:0px 5px;
-	padding-right:10px;
-	color:#0769CB;
-	background-color:#F1F8FB;
-	border:1px solid #BBCADC;
-	border-radius:9px;
-	display:inline-block;
-	
-}
-.index_my_left_category .upvote a{
-	color:#0769CB;
-}
-.index_my_left_category .upvote:hover{
-	border:1px solid #0769CB;
-	
-}
 
-.index_my_left_category .upvote a:hover{
-	text-decoration: none;
-}
 .index_my_left_category .answer-toquestion{
 	padding:0px 3px;
 }
