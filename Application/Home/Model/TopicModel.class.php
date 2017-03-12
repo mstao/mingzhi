@@ -203,10 +203,13 @@ class TopicModel extends Model{
     * @param unknown $tid
     * @return unknown
     */
-   function getQuestionInfoByTid($tid){
+   function getQuestionInfoByTid($uid,$tid){
        $info=M('topic_relation')
                      ->alias('tr')
+                     ->field('q.id,q.question_name,q.create_time,q.answer_count,q.focus_count,qf.focus_id,qr.report_id')
                      ->join('__QUESTION__ q ON q.id=tr.item_id')
+                     ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=tr.item_id and qf.uid='.$uid)
+                     ->join('LEFT JOIN __QUESTION_REPORT__ qr ON qr.question_id=tr.item_id and qr.uid='.$uid)
                      ->where('tr.topic_id='.$tid)
                      ->order('q.create_time desc')
                      ->select();

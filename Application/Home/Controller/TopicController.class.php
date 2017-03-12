@@ -52,7 +52,7 @@ class TopicController extends HomeController {
              //向分页封装函数传入参数
              $p=getpage($topic_relation,$question_count,10);
              //获取此话题待回答的问题信息
-             $unanswer_question=D('Topic')->getQuestionInfoByTid($tid);
+             $unanswer_question=D('Topic')->getQuestionInfoByTid($this->uid,$tid);
               
              $this->unanswer_question=$unanswer_question;
              $this->page=$p->show();
@@ -132,7 +132,7 @@ class TopicController extends HomeController {
              //向分页封装函数传入参数   
              $p=getpage($topic_relation,$question_count,4);
              //获取此话题待回答的问题信息
-             $unanswer_question=D('Topic')->getQuestionInfoByTid($tid);
+             $unanswer_question=D('Topic')->getQuestionInfoByTid($this->uid,$tid);
                                                
              $this->unanswer_question=$unanswer_question;
              $this->page=$p->show();
