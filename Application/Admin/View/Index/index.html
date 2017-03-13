@@ -23,9 +23,11 @@
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>明之后台管理</title>
+<script>var MODULE="__MODULE__";</script>
+
 </head>
 <body style="overflow:hidden">
-<header class="Hui-header cl"> <a class="Hui-logo l" title="H-ui.admin v2.1" href="/">明之后台管理</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">beta</span> <span class="Hui-userbox"><span class="c-white">超级管理员：<{$u_info.admin_name}></span>&nbsp;&nbsp;<span class="c-white"><a href="<{:U('Home/Index/index')}>" target="_blank">返回前台</a></span> &nbsp;<a class="btn btn-danger radius ml-10" href="#" title="退出"><i class="icon-off"></i> 退出</a></span> <a aria-hidden="false" class="Hui-nav-toggle" id="nav-toggle" href="#"></a></header>
+<header class="Hui-header cl"> <a class="Hui-logo l" title="H-ui.admin v2.1" href="/">明之后台管理</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">beta</span> <span class="Hui-userbox"><span class="c-white">超级管理员：<{$u_info.admin_name}></span>&nbsp;&nbsp;<span class="c-white"><a href="<{:U('Home/Index/index')}>" target="_blank">返回前台</a></span> &nbsp;<a class="btn btn-danger radius ml-10 logout" href="javascript:void(0);" title="退出"><i class="icon-off"></i> 退出</a></span> <a aria-hidden="false" class="Hui-nav-toggle" id="nav-toggle" href="#"></a></header>
 <div class="cl Hui-main">
   <aside class="Hui-aside" style="">
     <input runat="server" id="divScrollValue" type="hidden" value="" />
@@ -155,3 +157,41 @@
 
 </body>
 </html>
+<script type="text/javascript">
+  $(function(){
+	$('.logout').bind('click',function(){
+		layer.confirm('确定退出后台管理？', {
+			  btn: ['确定','取消'] //按钮
+			}, function(){
+				$.ajax({
+					type:'post',
+					dataType:'json',
+					url:MODULE+'/AdminUser/loginOut',
+					beforeSend:function(){
+						//显示正在加载
+						layer.load(2);
+					},
+					success:function(data){
+
+						//关闭正在加载
+						setTimeout(function(){
+							  layer.closeAll('loading');
+						}, 1000);
+					
+					},
+					error:function(){
+
+						//关闭正在加载
+						setTimeout(function(){
+						  layer.closeAll('loading');
+						}, 1000);
+						layer.msg(AJAX_ERROR, {icon: 2,time:2000});
+				    }
+				});
+			}, function(){
+			  //取消操作，这里为空
+			});
+	});
+  });
+
+</script>

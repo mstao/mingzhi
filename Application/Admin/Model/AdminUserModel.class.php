@@ -43,4 +43,7 @@ class AdminUserModel extends Model{
         $info=D('admin_user')->where('id='.$uid)->select();
         return $info;
     }
+    
+    
+   
 }

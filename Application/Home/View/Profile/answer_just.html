@@ -2,14 +2,15 @@
 <{/* S 操作 */}>
 <div class="index_my_left_category  answer-operate">
 <input type="hidden" class="hide_answer_id" value="<{$record_info_details.id}>">
-
+<input type="hidden" class="hide_question_id" value="<{$record_info_details.question_id}>">
 <span class="upvote answer-upvote">
 <if condition="$record_info_details['vote_value'] eq 1">
 <a href="javascript:void(0);" style="color:#666666;">已赞 </a> <i class="answer-upvote-count" style="color:#666666"><{$record_info_details.upvote_count}></i>
 <else/>
 <a href="javascript:void(0);" >赞同</a> <i class="answer-upvote-count"><{$record_info_details.upvote_count}></i></if>
 </span>
-<a href="javascript:void(0);">反对</a><a href="javascript:void(0);">
+<a href="javascript:void(0);">反对</a>
+<a href="javascript:void(0);" class="focus-question-btn">
 <if condition="$record_info_details['q_focus_id'] eq ''">
 <img src="__HOME_IMAGES__/add.png"/>关注问题
 <else/>

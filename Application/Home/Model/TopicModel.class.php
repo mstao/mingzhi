@@ -226,6 +226,7 @@ class TopicModel extends Model{
        $info=M('topic_relation')
                      ->alias('tr')
                      ->join('__QUESTION__ q ON q.id=tr.item_id')
+                     
                      ->where('q.answer_count>0 AND tr.topic_id='.$tid)
                      ->order('q.answer_count desc')
                      ->select();

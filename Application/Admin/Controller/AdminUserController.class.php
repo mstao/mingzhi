@@ -42,4 +42,13 @@ class AdminUserController extends Controller{
         }
     
     }
+    
+    /**
+     *退出后台系统 
+     */
+    
+    public function loginOut(){
+        unset($_SESSION['auid']);
+        $this->redirect("AdminUser/Login");
+    }
 }

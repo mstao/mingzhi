@@ -297,7 +297,7 @@ class IndexController extends HomeController {
     
     //退出系统
     public function exitsys(){
-        session(null);
+        unset ($_SESSION['uid']);
         $this->redirect("User/Login");
     }
 }
