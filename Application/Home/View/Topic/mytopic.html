@@ -10,7 +10,9 @@
 	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
     var AJAX_ERROR='<{:C("AJAX_ERROR_TIPS")}>';
 	var default_question_desc='<{:C("DEFAULT_QUESTION_DESC")}>';
-	var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
+    var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+    var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+    var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
 	</script>
 	<css file="__HOME_CSS__/indexheader.css" />
 	<css file="__HOME_CSS__/topic.css" />
@@ -20,10 +22,7 @@
 	<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
 	<js file="__PUBLIC__/static/layer-2.4/layer.js" />
 	<css file="__PUBLIC__/static/wangEditor/dist/css/wangEditor.min.css"/>
-	<js file="__PUBLIC__/static/lightBox/js/jquery.lightbox-0.5.js"/>	
-	<js file="__PUBLIC__/static/js/jQuery.tween.js" />
-	<js file="__HOME_JS__/js.js" />
-	<js file="__HOME_JS__/header.js"/>
+<include file="Public/public_static_res"/>
 	<js file="__HOME_JS__/FocusTopic.js"/>
 	<js file="__HOME_JS__/LoadTopicInfo.js"/>
 	<js file="__HOME_JS__/FocusQuestion.js"/>

@@ -8,15 +8,14 @@
 	 var MODULE="__MODULE__";
      var AJAX_ERROR="<{$Think.config.AJAX_ERROR_TIPS}>";
      var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+     var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+     var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+     var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
 	</script>
 <css file="__HOME_CSS__/indexheader.css" />
 <css file="__HOME_CSS__/inbox.css" />
 <css file="__HOME_CSS__/footer.css" />
-<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
-<js file="__PUBLIC__/static/js/jQuery.tween.js" />
-<js file="__PUBLIC__/static/js/truncaString.js" />
-<js file="__HOME_JS__/js.js" />
-<js file="__HOME_JS__/header.js"/>
+<include file="Public/public_static_res"/>
 </head>
 <body> 
 

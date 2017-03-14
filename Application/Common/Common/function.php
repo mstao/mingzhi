@@ -91,7 +91,7 @@ function time2Units ($oldtime)
  * @param string $suffix 截断显示字符 
  * @return string 
  */
-function msubstr($str, $start=0, $length=30, $charset="utf-8", $suffix=TRUE) {
+function msubstr($str, $start=0, $length=12, $charset="utf-8", $suffix=TRUE) {
         if(function_exists("mb_substr"))
             $slice = mb_substr($str, $start, $length, $charset);
         elseif(function_exists('iconv_substr')) {

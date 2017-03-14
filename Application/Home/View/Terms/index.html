@@ -4,12 +4,14 @@
 <meta charset="UTF-8">
 <include file="./Application/Home/View/Public/headerinfo.html"/>
 	<title>首页-<{$Think.config.WEB_NAME}></title>
-
+<script>
+var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+</script>
 	<css file="__HOME_CSS__/indexheader.css" />
 	<css file="__HOME_CSS__/common.css" />
-	<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
-	<js file="__HOME_JS__/publish/publish.js" />
-	<js file="__HOME_JS__/js.js" />
+<include file="Public/public_static_res"/>
 
 </head>
 <body> 
