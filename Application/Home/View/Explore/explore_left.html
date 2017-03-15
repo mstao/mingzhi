@@ -1,14 +1,29 @@
 <div id="expleftcontent">
+
+<div class="exp-left-top">
+<span><img alt="" src="__HOME_IMAGES__/tuijian.png"> &nbsp;明之推荐</span>
+</div>
 <div class="exp-question">
 <ul>
-<li><a href="#">这个伪命题额我认为热热</a></li>
-<li><a href="#">这个伪命题额我认为热热</a></li>
-<li><a href="#">这个伪命题额我认为热热</a></li>
+<volist name="recommend_q" id="rq">
+<li><a href="<{:U('Home/Question/qindex',array('qid'=>$rq['id']))}>"><{$rq.question_name|msubstr=0,35}></a><span>问答</span></li>
+
+</volist>
 </ul>
 
 </div>
 
 <div class="exp-answer">
+<div class="exp-left-top hot-top">
+<span><img alt="" src="__HOME_IMAGES__/explore.png"> &nbsp;热度排行</span>
+</div>
+<div class="exp-answer-content">
 
+<include file="Explore/answer"/>
+
+</div>
+<!--S 点击加载更多 -->
+<div class="js-load-more js-load-more-upvote"><span class="loading_span">加载更多</span><img src="__HOME_IMAGES__/loading.gif" class="loading_image"/></div>
+<!--E 点击加载更多-->
 </div>
 </div>

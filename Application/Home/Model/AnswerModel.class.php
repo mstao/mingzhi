@@ -416,9 +416,17 @@ class AnswerModel extends Model{
                     ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id and qf.uid='.$uid)
                     ->join('LEFT JOIN __ANSWER_REPORT__ ar ON ar.answer_id=a.id and ar.uid='.$uid)
                     ->order('a.upvote_count desc')
+                    ->where('a.upvote_count >0')
                     ->select();
         return $info;
     }
     
-    
+    /**
+     * 获取发现里的热门回答总数
+     * @return unknown
+     */
+    function getExploreAnswerCount(){
+        $count=D('Answer')->where('upvote_count >0')->count('id');
+        return $count;
+    }
 }

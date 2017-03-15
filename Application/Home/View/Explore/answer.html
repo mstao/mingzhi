@@ -1,0 +1,18 @@
+<{/*S 赞同了回答循环*/}>
+<volist name="record_info" id="record_info_details">
+
+<{/*S 赞同了回答内容*/}>
+
+<div class="mydongtai-ua index-rightcontent">
+<div class="mydongtai-ua-tag"><span class="dongtai-type-zan">回答了问题</span><span class="dongtai-time-zan"><{$record_info_details.create_time|time2Units}></span></div>
+<div class="mydongtai-ua-question"><a href="<{:U('Home/Question/qindex',array('qid'=>$record_info_details['question_id']))}>"><{$record_info_details.question_name}></a></div>
+<div class="mydongtai-ua-user"><img src="<{$record_info_details.avatar_file}>" width="50px" height="50px"/> <span class="mydongtai-ua-username"><{$record_info_details.username}></span></div>
+<div class="mydongtai-ua-answer Editor-txt"><{$record_info_details.answer_content}></div>
+
+<!-- 引入回答通用模板 -->
+<include file="Profile/answer_just"/>
+
+</div>
+<{/*E 赞同了回答内容  */}>
+</volist>
+<{/*E 赞同了回答循环  */}>

@@ -7,7 +7,7 @@
 <volist name="no['u_info']" id="u_info">
 <a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
 </volist>
-赞同了<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr}></a>
+赞同了<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr=0,20}></a>
 </li>
 </volist>
 
@@ -40,7 +40,7 @@
 <volist name="no['u_info']" id="u_info">
 <a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
 </volist>
-举报了回答<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr}></a>
+举报了回答<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr=0,20}></a>
 </li>
 </volist>
 
@@ -51,7 +51,7 @@
 <volist name="no['u_info']" id="u_info">
 <a href="<{:U('Home/Profile/index',array('u'=>$u_info['id']))}>"><{$u_info.username}></a>
 </volist>
-评论了<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr}></a>
+评论了<a href="javascript:void(0);"><{$no.answer_content|getTextUnits|msubstr=0,20}></a>
 </li>
 </volist>
 
