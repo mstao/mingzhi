@@ -474,4 +474,14 @@ class QuestionModel extends Model{
        $info=D('Question')->field('question_name,id')->where('id='.$qid)->select();
        return $info;
    }
+   
+   /**
+    * 获取发现里的推荐问题
+    * @return unknown
+    */
+   
+   function getExploreQuestionInfo(){
+       $info=D('Question')->field("question_name,id")->order("answer_count desc")->limit(5)->select();
+       return $info;
+   }
 }

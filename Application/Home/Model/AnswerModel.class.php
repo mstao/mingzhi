@@ -399,6 +399,26 @@ class AnswerModel extends Model{
         return $info;
     }
     
-  
+    
+    /**
+     * 获取发现里的热门回答
+     * @param unknown $uid
+     * @return unknown
+     */
+    function getExploreAnswerInfo($uid,$position,$item_per_page){
+        $info=D('Answer')
+                    ->alias('a')
+                    ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','ao.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))
+                    ->join('__USER__ u ON u.id=a.uid')
+                    ->join('__QUESTION__ q ON q.id=a.question_id')
+                    ->join('__ANSWER_VOTE__ ao ON ao.answer_id=a.id')
+                    ->join('LEFT JOIN __ANSWER_VOTE__ av ON av.answer_id=a.id')
+                    ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id and qf.uid='.$uid)
+                    ->join('LEFT JOIN __ANSWER_REPORT__ ar ON ar.answer_id=a.id and ar.uid='.$uid)
+                    ->order('a.upvote_count desc')
+                    ->select();
+        return $info;
+    }
+    
     
 }

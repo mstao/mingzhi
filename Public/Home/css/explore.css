@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+#expmain{
+   margin:90px auto;
+   width:960px;
+}
+#expleftcontent{
+     float:left;
+	 width:630px;
+	 
+}
+#expright{
+	
+	float:left;
+	margin-left:80px;
+	width:250px;
+	
+}
+.exp-question{
+	margin-top:20px;
+}
+.exp-question ul li{
+	list-style-type: none;
+	display: block;
+}
+.exp-question ul li
