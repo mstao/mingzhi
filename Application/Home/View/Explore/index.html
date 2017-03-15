@@ -11,6 +11,7 @@ var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
 var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
 var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
 var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+var r_p=<{$ajax_p}>;
 </script>
 <css file="__HOME_CSS__/indexheader.css" />
 <css file="__HOME_CSS__/footer.css" />
@@ -32,6 +33,7 @@ var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
 <js file="__HOME_JS__/LoadCollectionInfo.js"/>
 <js file="__HOME_JS__/AddCollection.js"/>
 <js file="__HOME_JS__/FocusQuestion.js"/>
+<js file="__HOME_JS__/explore.js"/>
 </head>
 	
 <body>
@@ -56,5 +58,18 @@ var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
 
 </div>
 <!-- 主体内容结束 -->
+
+<{/*S 提问弹窗*/}>
+<include file="Index/openModal"/>
+<{/*E 提问弹窗*/}>
+
+
+<{/*S 收藏夹*/}>
+<include file="Index/collection"/>
+<{/*E 收藏夹*/}>
+
+<{/*S 添加收藏夹*/}>
+<include file="Index/Create_Collection"/>
+<{/*E 添加收藏夹*/}>
 </body>
 </html>
