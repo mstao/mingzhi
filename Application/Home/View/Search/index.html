@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<include file="./Application/Home/View/Public/headerinfo.html"/>
+<title>搜索结果-<{$Think.config.WEB_NAME}></title>
+<script>
+var MODULE="__MODULE__";
+var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
+var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
+var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
+var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+var r_p=<{$ajax_p}>;
+</script>
+<css file="__HOME_CSS__/indexheader.css" />
+<css file="__HOME_CSS__/footer.css" />
+<css file="__HOME_CSS__/common.css"/>
+<css file="__HOME_CSS__/search.css"/>
+<include file="Public/public_static_res"/>
+</head>
+<body>
+<!--导航栏开始-->
+<include  file="Public/header"/>   
+<!--导航栏结束  -->                      
+
+<!--主体内容开始-->
+
+<div id="searchmain">                 
+
+<!-- 左边内容开始 -->
+<include  file="Search/search_result"/> 
+<!-- 左边内容结束 -->
+
+
+</div>
+<!-- 主体内容结束 -->
+</body>
+</html>

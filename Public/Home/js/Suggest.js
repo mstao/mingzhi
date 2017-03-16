@@ -5,7 +5,10 @@
 
 $(function(){
 	
-	//导航栏搜索结果提示
+	/**
+	 *导航栏搜索结果提示 
+	 */
+	
 	$(document).on('input propertychange focus','.searchinput',function(){
 		//获取当前输入框输入内容
 		var search_input=$(this).val();
@@ -93,7 +96,9 @@ $(function(){
 	});
 	
 	
-	//提问页面问题 自动提示
+	/**
+	 * 提问页面问题 自动提示
+	 */
 	$(document).on('input propertychange focus','.openModal-question-content',function(){
 		var search_input=$(this).val();
 		var mythis=$(this);
@@ -163,4 +168,17 @@ $(function(){
 		}
 	});
 	
+	
+	/**
+	 * 点击搜索按钮
+	 */
+	$(document).on('click','.search_btn',function(){
+		//获取要搜索的内容
+		var token=$(this).prev().val();
+		if(token.replace(/(^\s*)|(\s*$)/g,"")==""){
+			layer.msg('请输入搜索内容哦(*^_^*)');
+		}else{
+			window.location.href=MODULE+"/Search/search?token="+token;
+		}
+	});
 });
