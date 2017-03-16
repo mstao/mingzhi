@@ -11,21 +11,9 @@
 <?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i;?><ul  class="bubblemenu"> 
     <li>
             来自&nbsp;&nbsp; 
-  
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic_info["id"]); ?>">
-<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname"><?php echo ($focus_topic_info["topic_name"]); ?></a>
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname"  data-topic-id="<?php echo ($focus_topic_info["id"]); ?>"><?php echo ($focus_topic_info["topic_name"]); ?></a>
 <div>
 <div class="topicinformation">
-<div class="topicinfo"></div>
-<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
-<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><?php if($focus_topic_info['focus_id'] == ''): ?>关注话题<?php else: ?>取消关注<?php endif; ?></a>
-
-
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic_info["id"]); ?>">
-
-</div>
-
-
 </div>
              
 </div>
@@ -90,21 +78,10 @@
  <?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i;?><ul  class="bubblemenu"> 
     <li>
             来自&nbsp;&nbsp; 
-
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic_info["id"]); ?>">       
-   <a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname"><?php echo ($focus_topic_info["topic_name"]); ?></a>
-        <div>
-        <div class="topicinformation">
-<div class="topicinfo"></div>
-<div class="topicopinfooperation">问题：<a href="javascript:void(0);" class="topic-question-count"></a> &nbsp;&nbsp;热点：<a href="javascript:void(0);" class="topic-hot-question-count"></a>&nbsp;&nbsp;关注者:<a href="javascript:void(0);" class="topic-foucs-person-count"></a>
-<a href="javascript:void(0);" class="topicinfoquxiao topic-focus-btn"><?php if($focus_topic_info['focus_id'] == ''): ?>关注话题<?php else: ?>取消关注<?php endif; ?></a>
-
-
-<input type="hidden" class="hidden-topic-id" value="<?php echo ($focus_topic_info["id"]); ?>">
-
-</div>
-
-
+     
+<a href="<?php echo U('Home/Topic/index',array('tid'=>$focus_topic_info['id'],'sel'=>'trends'));?>" class="enter-topicname" data-topic-id="<?php echo ($focus_topic_info["id"]); ?>"><?php echo ($focus_topic_info["topic_name"]); ?></a>
+<div>
+<div class="topicinformation">
 </div>
              
 </div>
@@ -138,17 +115,17 @@
 <div class="index_my_left_category  answer-operate">
 <input type="hidden" class="hide_question_id" value="<?php echo ($feeds_info_detail["question_id"]); ?>">
 <input type="hidden" class="hide_answer_id" value="<?php echo ($feeds_info_detail["id"]); ?>">
-<input type="hidden" class="hide_upvote_status" value="<?php echo ($feeds_info_detail["upvote_status"]["vote_value"]); ?>">
+
 <span class="upvote answer-upvote">
 
-<?php if($feeds_info_detail['vote_value'] == 1 ): ?><a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><?php echo ($feeds_info_detail["upvote_count"]); ?></i></a>
+<?php if($feeds_info_detail['vote_value'] == 1 ): ?><a href="javascript:void(0);" style="color:#666666;">已赞 </a> <i class="answer-upvote-count" style="color:#666666"><?php echo ($feeds_info_detail["upvote_count"]); ?></i>
 <?php else: ?>
-<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><?php echo ($feeds_info_detail["upvote_count"]); ?></i></a><?php endif; ?>
+<a href="javascript:void(0);" >赞同</a> <i class="answer-upvote-count"><?php echo ($feeds_info_detail["upvote_count"]); ?></i><?php endif; ?>
 
 </span>
 <a href="javascript:void(0);">反对</a>
 <a href="javascript:void(0);" class="focus-question-btn">
-<?php if($feeds_info_detail['focus_question'] == 0): ?><img src="/mytest/mingzhi/Public/Home/images/add.png"/>关注问题
+<?php if($feeds_info_detail['q_focus_id'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/add.png"/>关注问题
 <?php else: ?>
 <img src="/mytest/mingzhi/Public/Home/images/nofocus.png"/>取消关注<?php endif; ?>
 </a>
@@ -179,7 +156,7 @@
 					 
 				<div class="othercomment_mycomment">
 				    <div>
-						<img src="<?php echo (session('avatar_file')); ?>" class="mycommen_touxiang" >
+						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" >
 						
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>

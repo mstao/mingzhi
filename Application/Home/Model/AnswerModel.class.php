@@ -429,4 +429,47 @@ class AnswerModel extends Model{
         $count=D('Answer')->where('upvote_count >0')->count('id');
         return $count;
     }
+    
+    /**
+     * 处理关于回答的搜索
+     * @param unknown $uid
+     * @param unknown $token
+     * @param unknown $position
+     * @param unknown $item_per_page
+     * @return unknown
+     */
+    function  dealSearchAnswerinfo($uid,$token,$position,$item_per_page){
+        $map['question_name']=array('like','%'.$token.'%');
+        $info=D('Answer')
+                    ->alias('a')
+                    ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','ao.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))
+                    ->join('__USER__ u ON u.id=a.uid')
+                    ->join('__QUESTION__ q ON q.id=a.question_id')
+                    ->join('__ANSWER_VOTE__ ao ON ao.answer_id=a.id')
+                    ->join('LEFT JOIN __ANSWER_VOTE__ av ON av.answer_id=a.id')
+                    ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=a.question_id and qf.uid='.$uid)
+                    ->join('LEFT JOIN __ANSWER_REPORT__ ar ON ar.answer_id=a.id and ar.uid='.$uid)
+                    ->order('a.upvote_count desc')
+                    ->where($map)
+                    ->select();
+        return $info;
+    }
+    
+    
+    /**
+     * 获取搜索回答的数量
+     * @param unknown $token
+     * @return unknown
+     */
+    
+    function  getSearchAnswerCount($token){
+        $map['question_name']=array('like','%'.$token.'%');
+        $info=D('Answer')
+                    ->alias('a')
+                    ->join('__QUESTION__ q ON q.id=a.question_id')
+                    ->where($map)
+                    ->count('a.id');
+        return $info;
+    }
+    
 }

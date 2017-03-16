@@ -7,9 +7,9 @@
 		<div class="container-n1">
 		<div class="list">
 		 <ul>
-		 <li><a class="checked_select">内容</a></li>
+		 <li><a href="<{:U('Home/Search/search',array('token'=>$token,'style'=>'c'))}>">内容</a></li>
 		 <li><a href="<{:U('Home/Search/search',array('token'=>$token,'style'=>'p'))}>">用户</a></li>
-		 <li><a href="<{:U('Home/Search/search',array('token'=>$token,'style'=>'t'))}>">话题</a></li>
+		 <li><a class="checked_select">话题</a></li>
 		 <li><a href="<{:U('Home/Search/search',array('token'=>$token,'style'=>'q'))}>">问题</a></li>
 		 </ul>
 		 </div>
@@ -18,7 +18,7 @@
 		 
 		 <div class="search-result-content">
 		 <!-- 引用回答重用模板 -->
-		 <include file="Search/answer_temp"/>
+		 <include file="Search/topic_temp"/>
 		 </div>
 		 
 		 <!--S 点击加载更多 -->

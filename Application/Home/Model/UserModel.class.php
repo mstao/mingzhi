@@ -526,5 +526,31 @@ class UserModel extends Model{
        $info=D('User')->field('username,id')->where('id='.$uid)->select();
        return $info;
    }
+   /**
+    * 处理详细搜索
+    * @param unknown $uid
+    * @param unknown $token
+    * @return unknown
+    */
+   function dealSearchUserDetails($uid,$token,$position,$item_per_page){
+       $map['username']=array('like','%'.$token.'%');
+       $info=D('User')
+                   ->alias('u')
+                   ->field('id,username,tag,avatar_file,fans_count,question_count,answer_count,uf.follow_id')
+                   ->join('LEFT JOIN __USER_FOLLOW__ uf ON uf.friend_uid=u.id and uf.fans_uid='.$uid)
+                   ->where($map)
+                   ->limit(3)
+                   ->select();
+       return $info;
+   }
+   
+   /**
+    * 获取搜索用户的数量
+    * @param unknown $token
+    */
+   function getSearchUserCount($token){
+       $map['username']=array('like','%'.$token.'%');
+       $count=D('User')->where($map)->count('id');
+   }
 }
 ?>

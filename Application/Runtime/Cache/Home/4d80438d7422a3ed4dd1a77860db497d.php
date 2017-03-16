@@ -4,7 +4,8 @@
 <img src="<?php echo ($all_topic["topic_pic"]); ?>" width="40" height="40"/></a>
 </div>
 <div class="onetopicinfo-rightcontent">
-<div class="onetopicinfo-topicfirst"><a href="<?php echo U('Home/Topic/index',array('tid'=>$all_topic['tid'],'sel'=>'trends'));?>" class="onetopicinfo-topicname"><?php echo ($all_topic["topic_name"]); ?></a><a href="#" class="onetopicinfo-tianjiafocus">
+<div class="onetopicinfo-topicfirst"><a href="<?php echo U('Home/Topic/index',array('tid'=>$all_topic['tid'],'sel'=>'trends'));?>" class="onetopicinfo-topicname"><?php echo ($all_topic["topic_name"]); ?></a>
+<a href="javascript:void(0);" class="onetopicinfo-tianjiafocus topic-focus-btn" data-topic-id="$all_topic.tid">
 <?php if($all_topic['focus_id'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/add.png"/>关注
 <?php else: ?>
 <span style="color:#666666;">取消关注</span><?php endif; ?>

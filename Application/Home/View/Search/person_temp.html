@@ -1,0 +1,27 @@
+<empty name="record_info">
+<center><div style="margin-top:80px;"><span style="color:#999999;">暂无搜索结果</span></div></center>
+
+</empty>
+<volist name="record_info" id="record_info"> 
+<div class="user-n1">
+<img alt="" src="<{$record_info.avatar_file}>" width="60" height="60" style="float:left;">
+ <div class="user-n1-con">
+  <p class="user-n1-user"><{$record_info.username}></p>
+  <p class="user-n1-tag"><{$record_info.tag}><p>
+ </div>
+ <div class="user-n2">
+ <ul align="center">
+ <li><a href=""><{$record_info.answer_count}><br>回答</a></li>
+ <li><a href=""><{$record_info.question_count}><br>问题</a></li>
+ <li><a href=""><{$record_info.fans_count}><br>关注者</a></li>
+ </ul>
+ <if condition="$record_info['follow_id'] eq ''">
+ <button class="focus-btn">关注</button>
+ <else/>
+  <button class="focus-btn" style="background:#EEEEEE;color:#666666;">取消关注</button>
+ </if>
+ </div>
+ 
+ </div>
+</volist>
+ 

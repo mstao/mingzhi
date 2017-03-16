@@ -8,7 +8,7 @@
 <meta name="description" content="<?php echo (C("WEB_DESC")); ?>" />
 
         <script type="text/javascript">
-        var MODULE="/mytest/mingzhi/index.php/Home";
+        var MODULE="/mytest/mingzhi/Home";
         </script>
         <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/login.css" />
 		<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jquery-1.10.2.min.js"></script>
@@ -33,7 +33,7 @@
         </div>
 		<!--登录开始-->
 		<div class="web_qr_login" id="web_qr_login" style="display: block; ">
-	    <form action="/mytest/mingzhi/index.php/Home/User/Login" name="loginForm" class="formBlock" method="post">		
+	    <form action="/mytest/mingzhi/Home/User/Login" name="loginForm" class="formBlock" method="post">		
 		<div>
 			
 			<input type="text" name="username"  id="loginusername"  placeholder="用户名或邮箱"  autocomplete="off" />
@@ -46,7 +46,7 @@
 		</div>
 		<div>
 			<input type="text" name="verify" id="loginverify" placeholder="验证码" autocomplete="off"/>
-			<img src="/mytest/mingzhi/index.php/Home/User/Verify"  title="点击刷新" onClick="this.src=this.src+'?'+Math.random();"/>	
+			<img src="/mytest/mingzhi/Home/User/Verify"  title="点击刷新" onClick="this.src=this.src+'?'+Math.random();"/>	
 			<span class="err_verify_login err_info"></span>
 		</div>
 		<div class="btnBlock">
@@ -62,7 +62,7 @@
     
     <!--注册开始-->
     <div class="qlogin" id="qlogin" style="display: none; ">
-        <form   action="/mytest/mingzhi/index.php/Home/User/Login" name="registerForm" class="formBlock" method="post">
+        <form   action="/mytest/mingzhi/Home/User/Login" name="registerForm" class="formBlock" method="post">
 		<div>			
 			<input type="text" name="username"  id="zhuusername" placeholder="用户名" autocomplete="off"/>	
 			<span class="err_username  err_info"></span>	
@@ -79,7 +79,7 @@
 		</div>
 		<div>
 		    <input type="text" name="verify" id="regverify" placeholder="验证码" autocomplete="off"/>
-		    <img src="/mytest/mingzhi/index.php/Home/User/Verify"  title="点击刷新" onClick="this.src=this.src+'?'+Math.random();"/>	
+		    <img src="/mytest/mingzhi/Home/User/Verify"  title="点击刷新" onClick="this.src=this.src+'?'+Math.random();"/>	
 		    <span class="err_verify_r err_info"></span>
 		</div>
 		<div class="btnBlock">

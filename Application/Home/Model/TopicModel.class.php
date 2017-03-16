@@ -291,6 +291,38 @@ class TopicModel extends Model{
    }
    
    /**
+    * 处理关于话题的详细信息
+    * @param unknown $uid
+    * @param unknown $token
+    * @param unknown $position
+    * @param unknown $item_per_page
+    * @return unknown
+    */
+   function dealSearchTopicDetails($uid,$token,$position,$item_per_page){
+       $map['topic_name']=array('like','%'.$token.'%');
+       $info=D('Topic')
+                  ->alias('t')
+                  ->field('id,topic_name,topic_pic,question_count,topic_desc,topic_focus_count,focus_id')
+                  ->join('LEFT JOIN __TOPIC_FOCUS__ tf ON tf.topic_id=t.id and tf.uid='.$uid)
+                  ->where($map)
+                  ->select();
+       return $info;
+   }
+   
+   /**
+    * 获取搜索话题的数量
+    * @param unknown $token
+    * @return unknown
+    */
+   function getSearchTopicCount($token){
+       $map['topic_name']=array('like','%'.$token.'%');
+       $count=D('Topic')
+                  ->where($map)
+                  ->count('id');
+       return $count;
+   }
+   
+   /**
     * 推荐话题信息
     * @return unknown
     */

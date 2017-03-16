@@ -1,4 +1,4 @@
-$(function(){
+
 	$(function(){
 		var track_click=0;
 		$('.js-load-more').bind('click',function(){
@@ -31,4 +31,3 @@ $(function(){
 				}
 		});
 	});
-});

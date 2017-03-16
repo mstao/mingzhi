@@ -1,0 +1,23 @@
+<empty name="record_info">
+<center><div style="margin-top:80px;"><span style="color:#999999;">暂无搜索结果</span></div></center>
+
+</empty>
+
+<volist name="record_info" id="record_info">
+ <div class="All-on1">
+   <img alt="" src="<{$record_info.topic_pic}>"> 
+   <div class="topic-info">
+   <a href="<{:U('Home/Topic/index',array('tid'=>$record_info['id'],'sel'=>'trends'))}>" class="topic-name"><{$record_info.topic_name}></a>
+   <span class="topic-desc"><{$record_info.topic_desc}><span>
+   <span class="topic-link"><a href="<{:U('Home/Topic/index',array('tid'=>$record_info['id'],'sel'=>'unanswered'))}>" ><{$record_info.question_count}>个问题</a><a href="#" ><{$record_info.topic_focus_count}>个关注</a></span>
+   
+   <if condition="$record_info['focus_id'] eq ''">
+ <button class="topic-focus">关注</button>
+ <else/>
+  <button class="topic-focus" style="background:#EEEEEE;color:#666666;">取消关注</button>
+ </if>
+
+
+   </div>
+ </div>
+</volist>

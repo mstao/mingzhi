@@ -8,7 +8,7 @@
 
 	<title>私信-<?php echo (C("WEB_NAME")); ?></title>
 	<script type="text/javascript">
-	 var MODULE="/mytest/mingzhi/index.php/Home";
+	 var MODULE="/mytest/mingzhi/Home";
      var AJAX_ERROR="<?php echo (C("AJAX_ERROR_TIPS")); ?>";
      var default_question_desc="<?php echo (C("DEFAULT_QUESTION_DESC")); ?>";
 	</script>
@@ -27,7 +27,7 @@
 
    <script type="text/javascript">
 	function check(val,obj){
-		
+		    
 			if(val=='f'){
 					f.style.display='block';
 					s.style.display='none';
@@ -57,15 +57,53 @@
 				$('#gb').find('img').attr('src',HOME_IMAGES+'/user-blue-no.png');
 		    }
 	}
+	
+	
+	$(function(){
+		
+		/**
+		 * 消息的处理 递归调用
+		 */
+		 (function longPolling() {  
+	        // alert(Date.parse(new Date())/1000);  
+	         $.ajax({  
+	             url: MODULE+"/Notifications/longPoll",  
+	             data: {"timed": Date.parse(new Date())/1000},  
+	             dataType: "json",  
+	             timeout: 70000,//10秒超时，可自定义设置  
+	             error: function (XMLHttpRequest, textStatus, errorThrown) {  
+	                 
+	                //layer.msg("[state: " + textStatus + ", error: " + errorThrown + " ]");
+	            	 if (textStatus == "timeout") { // 请求超时  
+	                     longPolling(); // 递归调用  
+	                 } else { // 其他错误，如网络错误等  
+	                     longPolling();  
+	                 }  
+	             },  
+	             success: function (data, textStatus) {  
+	                 //此时已有消息过来了，将消息数量显示
+	                 $('.nav-counter').text(data.result);
+	                 if (textStatus == "success") { // 请求成功  
+	                    
+	                    longPolling();
+	                 }  
+	             }  
+	         });  
 
+	     })(); 
+		
+		  
+				
+	});
 
-	</script>                   
+	</script>   
+          
 	<div class="header">
 
 			<div class="page-menu-wrapper clearfix" >
 				<ul class="menu-function">
 					<li>
-						<a href="/mytest/mingzhi/index.php/Home/Index/index" title="" class="home" ><font  size="6"><?php echo (C("WEB_NAME")); ?></font></a>                                    
+						<a href="/mytest/mingzhi/Home/Index/index" title="" class="home" ><font  size="6"><?php echo (C("WEB_NAME")); ?></font></a>                                    
 					</li>
 					<li id="search-hidden">
 						<input type="text" name="" class="searchinput" placeholder="搜索话题,人物或问题"><a href="javascript:void(0);" class="search_btn" title=""><img  src="/mytest/mingzhi/Public/Home/images/search_s.png"></a>
@@ -80,8 +118,8 @@
 				
 				<ul class="menu-share">
                  <li><a href="index.html">发现</a></li>
-                <li><a href="/mytest/mingzhi/index.php/Home/Topic/index">话题</a></li>
-                  <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue">9</span></a>
+                <li><a href="/mytest/mingzhi/Home/Topic/index">话题</a></li>
+                  <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue"><?php echo ($headerinfo["no_count"]); ?></span></a>
                   </li>
                    
                   <div class="notificationsbox">
@@ -90,7 +128,7 @@
 							<b class="notifications-arrow-inner"></b>				
 						</div>					
 						<div class="notificationscon">
-							<!-- <div class="notifications-go-all"><a href="/mytest/mingzhi/index.php/Home/notifications/index">查看全部消息 </a></div>						 			
+							<!-- <div class="notifications-go-all"><a href="/mytest/mingzhi/Home/notifications/index">查看全部消息 </a></div>						 			
 						    <div class="notifications-info">
 						      <div class="notifications-info-no">
 						      <img src="/mytest/mingzhi/Public/Home/images/notifications.png"/><br>
@@ -109,17 +147,102 @@
 									<!--clear-->
 									<div class="clear"></div>
 									<!--clear-->
-									<div class="tab_1" id="s" >
-									    <div class="no-notifications">
+									<div class="tab_1 tab_all" id="s" >
+									    <!-- <div class="no-notifications">
 										<img src="/mytest/mingzhi/Public/Home/images/notifications.png"/><br>
 										<span>没有更多消息</span>   
-										</div>
+										</div> -->
+										<!-- <div class="spinner">
+										  <div class="bounce1"></div>
+										  <div class="bounce2"></div>
+										  <div class="bounce3"></div>
+										</div> -->
+										<!-- 引入模板 -->
+										<ul>
+										
+<?php if(is_array($notification_content)): $i = 0; $__LIST__ = $notification_content;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no_content): $mod = ($i % 2 );++$i; if($no_content['flag'] == 'za'): if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'aq'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+回答了<a href="<?php echo U('Home/Question/qindex',array('qid' =>$no['id']));?>"><?php echo ($no["question_name"]); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'rq'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+举报了问题<a href="<?php echo U('Home/Question/qindex',array('qid' =>$no['id']));?>"><?php echo ($no["question_name"]); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'ra'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+举报了回答<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'pa'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+评论了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; ?>
+
+
+										</ul>
 									</div>
-									<div class="tab_2" id="f" style=" display: none;">
-									<span class="no-message">你收到的赞同会在这里显示</span>
+									<div class="tab_2 tab_all" id="f" style=" display: none;">
+									<!-- <span class="no-message">你收到的赞同会在这里显示</span> -->
+									<ul>
+									
+<?php if(is_array($notification_content)): $i = 0; $__LIST__ = $notification_content;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li"><a href="<?php echo U('Home/Profile/index',array('u'=>$no['sender_uid']));?>"><?php echo ($no["username"]); ?></a>赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+									</ul>
 									</div>
-									<div class="tab_3" id="g" style=" display: none;"> 
-									<span class="no-message">有人关注你时会显示在这里</span>
+									<div class="tab_3 tab_all" id="g" style=" display: none;"> 
+									<!-- <span class="no-message">有人关注你时会显示在这里</span> -->
+									<ul>
+									
+<?php if(is_array($notification_content)): $i = 0; $__LIST__ = $notification_content;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no_content): $mod = ($i % 2 );++$i; if($no_content['flag'] == 'za'): if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'aq'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+回答了<a href="<?php echo U('Home/Question/qindex',array('qid' =>$no['id']));?>"><?php echo ($no["question_name"]); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'rq'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+举报了问题<a href="<?php echo U('Home/Question/qindex',array('qid' =>$no['id']));?>"><?php echo ($no["question_name"]); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'ra'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+举报了回答<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; ?>
+
+<?php elseif($no_content['flag'] == 'pa'): ?>
+
+<?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
+<?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+评论了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+</li><?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; ?>
+
+
+									</ul>
 									</div>
 							 <div class="no-footer">
 							 <p title="设置"><a href="javascript:void(0);"><img src="/mytest/mingzhi/Public/Home/images/settings-no.png"></a></p>
@@ -134,12 +257,12 @@
                    
                   
 					<li class="myname_li">
-						<a href="/mytest/mingzhi/index.php/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname"><img src="<?php echo (session('avatar_file')); ?>" class="mytouxiangimg"><span class="myname_header"><?php echo (session('username')); ?></span></a>
+						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname"><img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><span class="myname_header"><?php echo ($headerinfo["username"]); ?></span></a>
 						<ul class="dropdown-menu follow">
-							<li><a href="/mytest/mingzhi/index.php/Home/Profile/index/u/<?php echo (session('uid')); ?>" >我的主页</a></li>
-							<li><a href="/mytest/mingzhi/index.php/Home/Inbox/index" >私信<img src="/mytest/mingzhi/Public/Home/images/yuandian.png"/></a></li>
+							<li><a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" >我的主页</a></li>
+							<li><a href="/mytest/mingzhi/Home/Inbox/index" >私信<img src="/mytest/mingzhi/Public/Home/images/yuandian.png"/></a></li>
 							<li><a href="" >设置</a></li>
-							<li><a href="/mytest/mingzhi/index.php/Home/Index/exitsys">退出</a></li>
+							<li><a href="/mytest/mingzhi/Home/Index/exitsys">退出</a></li>
 							
 						</ul>
 					</li>
@@ -258,8 +381,10 @@
                       
                 
                       <div class="openModal-sixin">
-			             <div class="openModal-sixin-content" contenteditable="true">搜索用户</div>
-			             <div class="openModal-sixin-desc" contenteditable="true">填写私信内容</div> 
+			             <!-- <div class="openModal-sixin-content" contenteditable="true">搜索用户</div>
+			              <div class="openModal-sixin-desc" contenteditable="true">填写私信内容</div>  -->
+                          <input type="text" class="openModal-sixin-content" placeholder="搜索用户">
+                          <textarea class="openModal-sixin-desc" placeholder="填写私信内容"></textarea>
                       </div> 
                        <div class="openModal-sixin-opr">
                        <a href="javascript:void(0)" class="letter_reset" onclick="$('.mark,.letter-dialog').hide();">取消</a>
@@ -283,7 +408,6 @@
              <!-- <div class="openModal-question-content" contenteditable="true"></div> -->
              <!-- S 搜素问题结果 -->
              <div class="question-searchresult-div">
-             <span></span>
              </div>
              <!-- S 搜素问题结果 -->
              <div class="openModal-question-desc" contenteditable="true"></div> 
@@ -297,7 +421,7 @@
              <input type="text" class="openModal-question-topic" placeholder="添加或搜索话题(回车添加)">
         </div>       
 		<div class="openModal-operate">
-		    <span><a href="/mytest/mingzhi/index.php/Home/Publish/index">高级模式</a></span>
+		    <span><a href="/mytest/mingzhi/Home/Publish/index">高级模式</a></span>
 			<div class="openModal-submit">
 				
 				   <input type="button" value="发起" class="publish_submit_btn_just">

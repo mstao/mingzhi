@@ -178,7 +178,59 @@ $(function(){
 		if(token.replace(/(^\s*)|(\s*$)/g,"")==""){
 			layer.msg('请输入搜索内容哦(*^_^*)');
 		}else{
-			window.location.href=MODULE+"/Search/search?token="+token;
+			window.location.href=MODULE+"/Search/search?token="+token+"&style=c";
 		}
 	});
+	
+	/**
+	 * 回车搜素
+	 */
+	$('.searchinput').keyup(function(event) { 
+		 var code = event.keyCode;  
+	     if(code==13) {  
+			//获取要搜索的内容
+			var token=$(this).val();
+			if(token.replace(/(^\s*)|(\s*$)/g,"")==""){
+				layer.msg('请输入搜索内容哦(*^_^*)');
+			}else{
+				window.location.href=MODULE+"/Search/search?token="+token+"&style=c";
+			}
+	     }
+	});
+	
+	/**
+	 * 内容ajax加载更多
+	 */
+	
+	var track_click=0;
+	$('.js-load-more-content').bind('click',function(){
+		track_click++;
+		if(track_click < r_p){
+			$.ajax({
+				type:'get',
+				dataType:'html',
+				url: MODULE+'/Search/search',
+				data:{'p':track_click,'token':token,'style':'c'},
+				beforeSend:function(){
+					//显示正在加载
+					$('.loading_image').css('visibility','visible');
+					$('.loading_span').css('display','none');
+				},
+				success:function(data){
+					$('.loading_image').css('visibility','hidden');
+					$('.loading_span').css('display','inline-block');
+					//将通过ajax获取的数据追加到页面中
+					$('.search-result-content').append(data);
+
+				},
+				error:function(){
+
+					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
+				}
+			});
+		}else{
+				$('.loading_span').text('已经没有数据了哦');
+		}
+	});
+	
 });
