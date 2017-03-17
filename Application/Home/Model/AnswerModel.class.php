@@ -438,8 +438,8 @@ class AnswerModel extends Model{
      * @param unknown $item_per_page
      * @return unknown
      */
-    function  dealSearchAnswerinfo($uid,$token,$position,$item_per_page){
-        $map['question_name']=array('like','%'.$token.'%');
+    function  dealSearchAnswerInfo($uid,$token,$position,$item_per_page){
+        $map['answer_content']=array('like','%'.$token.'%');
         $info=D('Answer')
                     ->alias('a')
                     ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','ao.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))

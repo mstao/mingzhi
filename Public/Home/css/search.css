@@ -142,6 +142,7 @@ position:relative;
   background-image: -o-linear-gradient(top, #0F88EB, #0F88EB);
   background-image: linear-gradient(to bottom, #0F88EB, #0F88EB);
 }
+.nofocus-topic{}
 .All-on1{
 	margin-top:20px;	
 	width:630px;

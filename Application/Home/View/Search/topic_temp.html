@@ -12,9 +12,9 @@
    <span class="topic-link"><a href="<{:U('Home/Topic/index',array('tid'=>$record_info['id'],'sel'=>'unanswered'))}>" ><{$record_info.question_count}>个问题</a><a href="#" ><{$record_info.topic_focus_count}>个关注</a></span>
    
    <if condition="$record_info['focus_id'] eq ''">
- <button class="topic-focus">关注</button>
+ <button class="topic-focus topic-focus-btn topic-button" data-topic-id="<{$record_info.id}>">关注</button>
  <else/>
-  <button class="topic-focus" style="background:#EEEEEE;color:#666666;">取消关注</button>
+  <button class="topic-focus topic-focus-btn topic-button" style="background:#EEEEEE;color:#666666;" data-topic-id="<{$record_info.id}>">取消关注</button>
  </if>
 
 

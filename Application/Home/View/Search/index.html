@@ -6,6 +6,7 @@
 <title>搜索结果-<{$Think.config.WEB_NAME}></title>
 <script>
 var MODULE="__MODULE__";
+var HOME_IMAGES="__HOME_IMAGES__";
 var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
 var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
 var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
@@ -20,6 +21,16 @@ var token="<{$token}>";
 <css file="__HOME_CSS__/common.css"/>
 <css file="__HOME_CSS__/search.css"/>
 <include file="Public/public_static_res"/>
+<js file="__HOME_JS__/report.js"/>
+<js file="__HOME_JS__/upvoteso.js"/>
+
+<js file="__HOME_JS__/CommentAnswer.js"/>
+<js file="__HOME_JS__/LoadAnswerComments.js"/>
+<js file="__HOME_JS__/ReplayComment.js"/>
+<js file="__HOME_JS__/CommentOperate.js"/>
+<js file="__HOME_JS__/LoadCollectionInfo.js"/>
+<js file="__HOME_JS__/AddCollection.js"/>
+<js file="__HOME_JS__/FocusQuestion.js"/>
 </head>
 <body>
 <!--导航栏开始-->
@@ -40,5 +51,14 @@ var token="<{$token}>";
 <{/*S 提问弹窗*/}>
 <include file="Index/openModal"/>
 <{/*E 提问弹窗*/}>
+
+<{/*S 收藏夹*/}>
+<include file="Index/collection"/>
+<{/*E 收藏夹*/}>
+
+<{/*S 添加收藏夹*/}>
+<include file="Index/Create_Collection"/>
+<{/*E 添加收藏夹*/}>
+
 </body>
 </html>

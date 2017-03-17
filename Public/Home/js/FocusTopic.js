@@ -27,12 +27,20 @@ $(function(){
 				if(data.status==1){
 					//状态为1，代表话题已关注，做取消关注操作
 					if(data.content==1){
+						mythis.text('取消关注');
+						if(mythis.hasClass("topic-button")){
+							mythis.css('backgroundColor','#EEEEEE').css('color','#666666');
+							
+						}
 						
-						mythis.html('取消关注');
-						
+
 					}else if(data.content==0){
-						mythis.html("<img src='"+HOME_IMAGES+"/add.png'/>关注");
-						
+						if(mythis.hasClass("topic-button")){
+							mythis.text('关注');
+							mythis.css('backgroundColor','#0F88EB').css('color','#FFFFFF');
+						}else{
+							mythis.html("<img src='"+HOME_IMAGES+"/add.png'>关注");
+						}
 					}
 					
 				}else{

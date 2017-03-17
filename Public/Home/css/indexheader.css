@@ -716,7 +716,7 @@ body {
 
 	display:block;
 	line-height:30px;
-	height:30px;
+	min-height:30px;
 	border-bottom: 1px solid #EAEADA;
 	font-size:15px;
 	color:#444444;
@@ -726,7 +726,7 @@ body {
 }
 .no-list-li  >a{
 	color:#0F88EB;
-
+    display:inline;
 	margin-left:-10px;
 	margin-right:-5px;
 }

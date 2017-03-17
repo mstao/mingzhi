@@ -280,3 +280,14 @@
     margin-left:40px;
 
 }
+.shoucangnumber{
+	width:15px;
+	padding:0 7px;
+	background-color:#EEEEEE;
+	border:1px solid #ECECEC;
+	border-radius:60px;
+	display:inline;
+	margin-left:5px;
+	color:#666666;
+}
+
