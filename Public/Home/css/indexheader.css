@@ -691,14 +691,7 @@ body {
 .tab_all > ul{
 	margin-top:5px;
 }
-.tab_all > ul >li {
-	line-height:25px;
-	border-bottom: 1px solid #EAEADA;
-	font-size:15px;
-	color:#444444;
-	padding-top:5px;
-	padding-bottom:5px;
-}
+
 /* Let's get this party started */ 
 ::-webkit-scrollbar {
 	width: 12px;
@@ -719,10 +712,21 @@ body {
 ::-webkit-scrollbar-thumb:window-inactive { 
  background: rgba(205, 205, 205);
 }
+.no-list-li{
 
+	display:block;
+	line-height:30px;
+	height:30px;
+	border-bottom: 1px solid #EAEADA;
+	font-size:15px;
+	color:#444444;
+	padding-top:5px;
+	padding-bottom:5px;
+	
+}
 .no-list-li  >a{
 	color:#0F88EB;
-    display: inline;
+
 	margin-left:-10px;
 	margin-right:-5px;
 }

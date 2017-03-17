@@ -1,0 +1,48 @@
+<empty name="unanswer_question">
+<center><div style="margin-top:80px;"><span style="color:#999999;">暂无搜索结果</span></div></center>
+
+</empty>
+<volist name="unanswer_question" id="unanswer_qinfo" >
+
+<div class="unanswered_question_div">
+<div class="unanswered_question_from">
+来自 · <span><a href="<{:U('Home/Profile/index',array('u'=>$unanswer_qinfo['uid']))}>"><{$unanswer_qinfo.username}></a></span> · <{$unanswer_qinfo.create_time|time2Units}>
+</div>
+                          
+<div class="unanswered_question_content">
+<div class="unanswered_question_name">
+<a href="<{:U('Home/Question/qindex',array('qid'=>$unanswer_qinfo['id']))}>"><{$unanswer_qinfo.question_name}></a>
+</div>
+<div class="unanswered_question_count">
+<span><{$unanswer_qinfo.answer_count}>个回答</span>&nbsp; <span><{$unanswer_qinfo.focus_count}>次关注</span>
+</div>
+</div>
+
+<div class="index_my_left_category">
+<input type="hidden" class="hide_question_name" value="<{$unanswer_qinfo.question_name}>">
+<input type="hidden" class="hide_question_id" value="<{$unanswer_qinfo.id}>"> 
+<span class="answer-toquestion upvote "><a href="javascript:void(0);"><img src="__HOME_IMAGES__/answerquestion.png">&nbsp;回答  &nbsp;</a> </span>
+<a href="javascript:void(0);" class="focus-question-btn">
+<if condition="$unanswer_qinfo['focus_id'] eq ''">
+<img src="__HOME_IMAGES__/add.png"/>关注问题
+<else/>
+<img src="__HOME_IMAGES__/nofocus.png"/>取消关注
+</if>
+</a>
+<a href="javascript:void(0)" class="pass">不感兴趣</a>
+<span class="shadow_border">
+<a href="javascript:void(0);">
+<if condition="$unanswer_qinfo['report_id'] eq ''">
+<img src="__HOME_IMAGES__/report.png"/> 举报
+<else/>
+<img src="__HOME_IMAGES__/report_blue.png" /><font style="color:#0F88EB;">已举报</font>
+</if>
+</a>
+</span>
+
+</div>
+
+</div>
+
+
+</volist>

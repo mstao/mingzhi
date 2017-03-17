@@ -466,6 +466,41 @@ class QuestionModel extends Model{
    }
    
    /**
+    * 处理关于问题搜索的详细信息
+    * @param unknown $uid
+    * @param unknown $token
+    * @param unknown $position
+    * @param unknown $item_per_page
+    * @return unknown
+    */
+   function dealsearchquestiondetails($uid,$token,$position,$item_per_page){
+       $map['question_name']=array('like','%'.$token.'%');
+       $info=D('Question')
+                    ->alias('q')
+                    ->field('q.id,q.question_name,q.create_time,q.answer_count,q.focus_count,q.uid,u.username,qf.focus_id,qr.report_id')
+                    ->join('LEFT JOIN __QUESTION_FOCUS__ qf ON qf.question_id=q.id and qf.uid='.$uid)
+                    ->join('LEFT JOIN __QUESTION_REPORT__ qr ON qr.question_id=q.id and qr.uid='.$uid)
+                    ->join('LEFT JOIN __USER__ u ON u.id=q.uid')
+                    ->where($map)
+                    ->limit($position,$item_per_page)
+                    ->select();
+       return $info;
+   }
+   
+   
+   /**
+    * 获取搜索的问题的数量
+    * @param unknown $token
+    * @return unknown
+    */
+   function getSearchQuestionCount($token){
+        $map['question_name']=array('like','%'.$token.'%');
+        $count=D('Question')->where($map)->count('id');
+        return $count;
+   }
+   
+   
+   /**
     * 获取超简单问题信息
     * @param unknown $qid
     * @return mixed|boolean|string|NULL|unknown|object
@@ -475,11 +510,11 @@ class QuestionModel extends Model{
        return $info;
    }
    
+   
    /**
     * 获取发现里的推荐问题
     * @return unknown
     */
-   
    function getExploreQuestionInfo(){
        $info=D('Question')->field("question_name,id")->order("answer_count desc")->limit(5)->select();
        return $info;
