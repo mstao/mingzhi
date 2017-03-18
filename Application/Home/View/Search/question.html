@@ -6,6 +6,7 @@
 <title>搜索结果-<{$Think.config.WEB_NAME}></title>
 <script>
 var MODULE="__MODULE__";
+var HOME_IMAGES="__HOME_IMAGES__";
 var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
 var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
 var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
@@ -22,6 +23,7 @@ var token="<{$token}>";
 <css file="__PUBLIC__/static/wangEditor/dist/css/wangEditor.min.css"/>
 <include file="Public/public_static_res"/>
 <js file="__HOME_JS__/FocusQuestion.js"/>
+<js file="__HOME_JS__/report.js"/>
 </head>
 <body>
 <!--导航栏开始-->
@@ -39,7 +41,11 @@ var token="<{$token}>";
 
 </div>
 <!-- 主体内容结束 -->
+<hr style="margin-top:80px;height:1px;border:none;border-top:1px solid #eeeeee; wdith:960;" />
+<!-- 页脚开始 -->
 
+<include file="Public/footer"/>
+<!-- 页脚结束 -->
 <!--S 回答  弹出-->
 <include file="Index/writeAnswer"/>
 <!--E 回答  弹出-->
