@@ -233,4 +233,108 @@ $(function(){
 		}
 	});
 	
+	/**
+	 *用户ajax加载更多
+	 */
+	
+	$('.js-load-more-person').bind('click',function(){
+		track_click++;
+		if(track_click < r_p){
+			$.ajax({
+				type:'get',
+				dataType:'html',
+				url: MODULE+'/Search/search',
+				data:{'p':track_click,'token':token,'style':'p'},
+				beforeSend:function(){
+					//显示正在加载
+					$('.loading_image').css('visibility','visible');
+					$('.loading_span').css('display','none');
+				},
+				success:function(data){
+					$('.loading_image').css('visibility','hidden');
+					$('.loading_span').css('display','inline-block');
+					//将通过ajax获取的数据追加到页面中
+					$('.search-result-content').append(data);
+
+				},
+				error:function(){
+
+					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
+				}
+			});
+		}else{
+				$('.loading_span').text('已经没有数据了哦');
+		}
+	});
+	
+	
+	
+	/**
+	 *话题ajax加载更多
+	 */
+	
+	$('.js-load-more-topic').bind('click',function(){
+		track_click++;
+		if(track_click < r_p){
+			$.ajax({
+				type:'get',
+				dataType:'html',
+				url: MODULE+'/Search/search',
+				data:{'p':track_click,'token':token,'style':'t'},
+				beforeSend:function(){
+					//显示正在加载
+					$('.loading_image').css('visibility','visible');
+					$('.loading_span').css('display','none');
+				},
+				success:function(data){
+					$('.loading_image').css('visibility','hidden');
+					$('.loading_span').css('display','inline-block');
+					//将通过ajax获取的数据追加到页面中
+					$('.search-result-content').append(data);
+
+				},
+				error:function(){
+
+					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
+				}
+			});
+		}else{
+				$('.loading_span').text('已经没有数据了哦');
+		}
+	});
+	
+	
+	/**
+	 *用户ajax加载更多
+	 */
+	
+	$('.js-load-more-question').bind('click',function(){
+		track_click++;
+		if(track_click < r_p){
+			$.ajax({
+				type:'get',
+				dataType:'html',
+				url: MODULE+'/Search/search',
+				data:{'p':track_click,'token':token,'style':'q'},
+				beforeSend:function(){
+					//显示正在加载
+					$('.loading_image').css('visibility','visible');
+					$('.loading_span').css('display','none');
+				},
+				success:function(data){
+					$('.loading_image').css('visibility','hidden');
+					$('.loading_span').css('display','inline-block');
+					//将通过ajax获取的数据追加到页面中
+					$('.search-result-content').append(data);
+
+				},
+				error:function(){
+
+					layer.msg(AJAX_ERROR, {icon: 2,time:2000});
+				}
+			});
+		}else{
+				$('.loading_span').text('已经没有数据了哦');
+		}
+	});
 });
