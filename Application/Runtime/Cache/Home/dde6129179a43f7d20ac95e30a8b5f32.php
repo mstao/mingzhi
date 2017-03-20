@@ -9,6 +9,7 @@
 	<title><?php echo (session('username')); ?>-<?php echo (C("WEB_NAME")); ?></title>
 	<script type="text/javascript">
 	var MODULE="/mytest/mingzhi/Home";
+	var HOME_IMAGES='/mytest/mingzhi/Public/Home/images';
 	var PUBLIC_PATH='<?php echo C("PUBLIC_PATH");?>';
 	var default_question_desc="<?php echo (C("DEFAULT_QUESTION_DESC")); ?>";
 	var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";

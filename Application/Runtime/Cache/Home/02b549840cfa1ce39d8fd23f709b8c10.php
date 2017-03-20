@@ -8,18 +8,25 @@
 
 	<title>私信-<?php echo (C("WEB_NAME")); ?></title>
 	<script type="text/javascript">
-	 var MODULE="/mytest/mingzhi/Home";
-     var AJAX_ERROR="<?php echo (C("AJAX_ERROR_TIPS")); ?>";
-     var default_question_desc="<?php echo (C("DEFAULT_QUESTION_DESC")); ?>";
+	var MODULE="/mytest/mingzhi/Home";
+	var HOME_IMAGES="/mytest/mingzhi/Public/Home/images";
+	var PUBLIC_PATH='<?php echo C("PUBLIC_PATH");?>';
+	var default_question_desc="<?php echo (C("DEFAULT_QUESTION_DESC")); ?>";
+	var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
+	var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+	var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
 	</script>
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/indexheader.css" />
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/inbox.css" />
+<link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/fenye.css" />
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/footer.css" />
-<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jQuery.tween.js"></script>
-<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/truncaString.js"></script>
-<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
-<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/header.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jQuery.tween.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/static/layer-2.4/layer.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/publish/publish.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/Suggest.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/notifications.js"></script>
 </head>
 <body> 
 
@@ -117,7 +124,7 @@
 				
 				
 				<ul class="menu-share">
-                 <li><a href="index.html">发现</a></li>
+                 <li><a href="<?php echo U('Home/Explore/index');?>">发现</a></li>
                 <li><a href="/mytest/mingzhi/Home/Topic/index">话题</a></li>
                   <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue"><?php echo ($headerinfo["no_count"]); ?></span></a>
                   </li>
@@ -162,7 +169,7 @@
 										
 <?php if(is_array($notification_content)): $i = 0; $__LIST__ = $notification_content;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no_content): $mod = ($i % 2 );++$i; if($no_content['flag'] == 'za'): if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
 <?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
-赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]),0,20)); ?></a>
 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 <?php elseif($no_content['flag'] == 'aq'): ?>
@@ -183,14 +190,14 @@
 
 <?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
 <?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
-举报了回答<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+举报了回答<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]),0,20)); ?></a>
 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 <?php elseif($no_content['flag'] == 'pa'): ?>
 
 <?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
 <?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
-评论了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+评论了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]),0,20)); ?></a>
 </li><?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; ?>
 
 
@@ -210,7 +217,7 @@
 									
 <?php if(is_array($notification_content)): $i = 0; $__LIST__ = $notification_content;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no_content): $mod = ($i % 2 );++$i; if($no_content['flag'] == 'za'): if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
 <?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
-赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+赞同了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]),0,20)); ?></a>
 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 <?php elseif($no_content['flag'] == 'aq'): ?>
@@ -231,14 +238,14 @@
 
 <?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
 <?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
-举报了回答<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+举报了回答<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]),0,20)); ?></a>
 </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 <?php elseif($no_content['flag'] == 'pa'): ?>
 
 <?php if(is_array($no_content['content'])): $i = 0; $__LIST__ = $no_content['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$no): $mod = ($i % 2 );++$i;?><li class="no-list-li">
 <?php if(is_array($no['u_info'])): $i = 0; $__LIST__ = $no['u_info'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$u_info): $mod = ($i % 2 );++$i;?><a href="<?php echo U('Home/Profile/index',array('u'=>$u_info['id']));?>"><?php echo ($u_info["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
-评论了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]))); ?></a>
+评论了<a href="javascript:void(0);"><?php echo (msubstr(getTextUnits($no["answer_content"]),0,20)); ?></a>
 </li><?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; ?>
 
 
@@ -289,18 +296,17 @@
 <div class="inboxleft-nav">我的私信<span><a href="javascript:void(0)" class="write_letter_btn">写私信</a></span></div>
 <div class="inboxleft-info">
 
-<!-- 一条私信开始 -->
+<?php if(is_array($inbox_info)): $i = 0; $__LIST__ = $inbox_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$inbox_info): $mod = ($i % 2 );++$i;?><!-- 一条私信开始 -->
 <div class="sss">
 <div class="touxiang">
-<img src="/mytest/mingzhi/Public/Home/images/yingxiong.jpg" width="40" height="40"/>
+<img src="<?php echo ($inbox_info["avatar_file"]); ?>" width="40" height="40"/>
 </div>
 <div class="rightcontent">
 
 
-<div class="user"><a href="#" >管理员</a>：</div>
-<div class="answercon">尊敬的明山，您已经注册成为明之 社区的会员，请您在发表言论时，遵守当地法律法规。
-如果您有什么疑问可以联系管理员。</div> 
-<div class="timecon">2016-03-22 07:34</div>
+<div class="user"><a href="<?php echo U('Home/Profile/index',array('u'=>$inbox_info['suid']));?>" ><?php echo ($inbox_info["s_username"]); ?></a>：</div>
+<div class="answercon"><?php echo ($inbox_info["inbox_content"]); ?></div> 
+<div class="timecon"><?php echo (time2Units($inbox_info["add_time"])); ?></div>
 <div class="my_left_category">
 
 
@@ -312,36 +318,11 @@
 
 </div>
 </div>
-<!-- 一条私信结束 -->
-
-<!-- 一条私信开始 -->
-<div class="sss">
-<div class="touxiang">
-<img src="/mytest/mingzhi/Public/Home/images/yingxiong.jpg" width="40" height="40"/>
-</div>
-<div class="rightcontent">
-
-
-<div class="user"><a href="#" >管理员</a>：</div>
-<div class="answercon">尊敬的明山，您已经注册成为明之 社区的会员，请您在发表言论时，遵守当地法律法规。
-如果您有什么疑问可以联系管理员。</div> 
-<div class="timecon">2016-03-22 07:34</div>
-<div class="my_left_category">
-
-
-<span><a href="javascript:void(0);">回复</a></span><span><a href="javascript:void(0);" class="commentbtn">删除</a></span>
+<!-- 一条私信结束 --><?php endforeach; endif; else: echo "" ;endif; ?>
 
 </div>
-
-
-
-</div>
-</div>
-<!-- 一条私信结束 -->
-
-
-</div>
-
+<BR>
+<div class="pagelist"><?php echo ($page); ?></div> 
 </div> 
 <!-- 左边内容结束 -->
 

@@ -4,18 +4,18 @@
 <div class="inboxleft-nav">我的私信<span><a href="javascript:void(0)" class="write_letter_btn">写私信</a></span></div>
 <div class="inboxleft-info">
 
+<volist name="inbox_info" id="inbox_info">
 <!-- 一条私信开始 -->
 <div class="sss">
 <div class="touxiang">
-<img src="__PUBLIC__/Home/images/yingxiong.jpg" width="40" height="40"/>
+<img src="<{$inbox_info.avatar_file}>" width="40" height="40"/>
 </div>
 <div class="rightcontent">
 
 
-<div class="user"><a href="#" >管理员</a>：</div>
-<div class="answercon">尊敬的明山，您已经注册成为明之 社区的会员，请您在发表言论时，遵守当地法律法规。
-如果您有什么疑问可以联系管理员。</div> 
-<div class="timecon">2016-03-22 07:34</div>
+<div class="user"><a href="<{:U('Home/Profile/index',array('u'=>$inbox_info['suid']))}>" ><{$inbox_info.s_username}></a>：</div>
+<div class="answercon"><{$inbox_info.inbox_content}></div> 
+<div class="timecon"><{$inbox_info.add_time|time2Units}></div>
 <div class="my_left_category">
 
 
@@ -28,33 +28,9 @@
 </div>
 </div>
 <!-- 一条私信结束 -->
-
-<!-- 一条私信开始 -->
-<div class="sss">
-<div class="touxiang">
-<img src="__PUBLIC__/Home/images/yingxiong.jpg" width="40" height="40"/>
-</div>
-<div class="rightcontent">
-
-
-<div class="user"><a href="#" >管理员</a>：</div>
-<div class="answercon">尊敬的明山，您已经注册成为明之 社区的会员，请您在发表言论时，遵守当地法律法规。
-如果您有什么疑问可以联系管理员。</div> 
-<div class="timecon">2016-03-22 07:34</div>
-<div class="my_left_category">
-
-
-<span><a href="javascript:void(0);">回复</a></span><span><a href="javascript:void(0);" class="commentbtn">删除</a></span>
+</volist>
 
 </div>
-
-
-
-</div>
-</div>
-<!-- 一条私信结束 -->
-
-
-</div>
-
+<BR>
+<div class="pagelist"><{$page}></div> 
 </div>

@@ -273,3 +273,37 @@
     padding:38px 20px;
     font-size: 14px;
 }
+
+
+.inbox-searchresult-div{
+	display: none;
+	min-height: 30px;
+}
+ .inbox-searchresult-div ul li{
+	list-style-type: none;
+}
+.inbox-searchresult-div ul li a{
+	text-decoration: none;
+	color:black;
+	display: inline-block;
+	width:400px;
+	min-height:30px;
+	padding-top:8px;
+	padding-bottom:4px;
+}
+.inbox-searchresult-div ul li a > span{
+	color:#848FA4;
+	font-size:12px;
+	margin-left:5px;
+}
+
+.inbox-searchresult-div ul li a:hover{
+	text-decoration: none;
+	color:black;
+	display: inline-block;
+	width:400px;
+	min-height:30px;
+	background: #EBF3FB;
+	padding-top:8px;
+	padding-bottom:4px;
+}
