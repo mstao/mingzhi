@@ -552,5 +552,20 @@ class UserModel extends Model{
        $map['username']=array('like','%'.$token.'%');
        $count=D('User')->where($map)->count('id');
    }
+   
+   /**
+    * 
+    * 有用户名获取用户id ,因为用户名唯一
+    * @param unknown $username
+    * @return unknown
+    */
+   function getUidByUserName($username){
+       $where=array(
+         'username'   =>$username  
+       );
+       $info=D('User')->field('id')->where($where)->select();
+       $uid=$info[0]['id'];
+       return $uid;
+   }
 }
 ?>

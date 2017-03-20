@@ -111,7 +111,7 @@
 
 .answercon{
 	margin-top:10px;
-	color:#000;
+	color:#444444;
 	display:inline;
 	font-size:1em;
 	margin-left:0px;
@@ -167,6 +167,7 @@
 	padding-top:3px;
 	overflow: auto;
 	background-color:#fff;
+	color:#0F88EB;
 }
 .openModal-sixin-desc{
 	display:inline-block;
@@ -176,6 +177,7 @@
 	width:430px;
 	height:80px;
 	padding-left:5px;
+	color:#444444;
 	padding-top:3px;
 	overflow: auto;
 	background-color:#fff;
@@ -291,7 +293,7 @@
 	padding-top:8px;
 	padding-bottom:4px;
 }
-.inbox-searchresult-div ul li a > span{
+.inbox-searchresult-div ul li a > span:last-child{
 	color:#848FA4;
 	font-size:12px;
 	margin-left:5px;

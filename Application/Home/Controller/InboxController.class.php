@@ -12,7 +12,9 @@ class InboxController extends HomeController{
         $this->uid=session('uid');
     }
     
-    
+    /**
+     * 私信页面
+     */
     public function index(){
         //获取私信数量
         $inbox_count=D('Inbox')->getInboxCount($this->uid);
@@ -29,7 +31,68 @@ class InboxController extends HomeController{
     }
  
     public function writeInbox(){
-        $this->display();
+        
+        if (IS_AJAX){
+            $username=$_POST['um'];
+            $content=$_POST['con'];
+            //由username获取uid
+            $ruid=D('User')->getUidByUserName($username);
+            if($ruid==null){
+                
+                $data['status']  = 2;
+                $this->ajaxReturn($data);
+                exit();
+            }else{
+                $flag=D('Inbox')->writeInbox($this->uid,$ruid,$content);
+                if($flag>0){
+                    $data['status']  = 1;
+                    $data['content'] = $flag;
+                    $this->ajaxReturn($data);
+                    exit();
+                }else{
+                    $data['status']  = 0;
+                    $data['content'] = $flag;
+                    $this->ajaxReturn($data);
+                    exit();
+                }
+            }
+           
+        }
+       
+       
+    }
+    
+    /**
+     * 查询用户
+     * @param unknown $token
+     */
+    function  getUserInfo($token){
+        if(IS_AJAX){
+            $info=D('User')->dealSearchUserInfo($token);
+            $data['status']  = 1;
+            $data['content'] = $info;
+            $this->ajaxReturn($data);
+            exit();
+        }
+      
+    }
+    
+    function  delInbox($iid){
+        if(IS_AJAX){
+            $flag=D('Inbox')->delInbox($iid);
+            if($flag>0){
+                $data['status']  = 1;
+                $data['content'] = $flag;
+                $this->ajaxReturn($data);
+                exit();
+            }else{
+                $data['status']  = 0;
+                $data['content'] = $flag;
+                $this->ajaxReturn($data);
+                exit();
+            }
+
+        }
     }
     
 }

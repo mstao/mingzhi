@@ -8,18 +8,21 @@
 
 	<title>私信-<?php echo (C("WEB_NAME")); ?></title>
 	<script type="text/javascript">
-	var MODULE="/mytest/mingzhi/Home";
-	var HOME_IMAGES="/mytest/mingzhi/Public/Home/images";
+	var MODULE='/mytest/mingzhi/Home';
+	var HOME_IMAGES='/mytest/mingzhi/Public/Home/images';
 	var PUBLIC_PATH='<?php echo C("PUBLIC_PATH");?>';
-	var default_question_desc="<?php echo (C("DEFAULT_QUESTION_DESC")); ?>";
-	var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
-	var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
-	var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+    var AJAX_ERROR='<?php echo C("AJAX_ERROR_TIPS");?>';
+    var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+    var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+    var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+	var default_question_desc='<?php echo C("DEFAULT_QUESTION_DESC");?>';
+	var SELF="/mytest/mingzhi/Home/Inbox/index";
 	</script>
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/indexheader.css" />
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/inbox.css" />
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/fenye.css" />
 <link rel="stylesheet" type="text/css" href="/mytest/mingzhi/Public/Home/css/footer.css" />
+
 	<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/static/js/jQuery.tween.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/static/layer-2.4/layer.js"></script>
@@ -27,6 +30,8 @@
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/Suggest.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/notifications.js"></script>
+<script type="text/javascript" src="/mytest/mingzhi/Public/static/layer-2.4/layer.js"></script>
+<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/inbox.js"></script>
 </head>
 <body> 
 
@@ -310,7 +315,7 @@
 <div class="my_left_category">
 
 
-<span><a href="javascript:void(0);">回复</a></span><span><a href="javascript:void(0);" class="commentbtn">删除</a></span>
+<span><a href="javascript:void(0);">回复</a></span><span><a href="javascript:void(0);" class="delbtn" data-inbox-id="<?php echo ($inbox_info["id"]); ?>">删除</a></span>
 
 </div>
 
@@ -365,6 +370,8 @@
 			             <!-- <div class="openModal-sixin-content" contenteditable="true">搜索用户</div>
 			              <div class="openModal-sixin-desc" contenteditable="true">填写私信内容</div>  -->
                           <input type="text" class="openModal-sixin-content" placeholder="搜索用户">
+                          <!-- 搜索用户显示 -->
+                          <div class="inbox-searchresult-div"></div>
                           <textarea class="openModal-sixin-desc" placeholder="填写私信内容"></textarea>
                       </div> 
                        <div class="openModal-sixin-opr">

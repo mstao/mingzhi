@@ -90,14 +90,16 @@ class IndexController extends HomeController {
     }
     //首页  回答 点赞
     public function upvote(){
-        $aid=$_POST['aid'];
-        
-        
-        $flag=D('Answer')->upvoteAnswer($aid,$this->uid);
-        $data['status']  = 1;
-        $data['content'] = $flag;
-        $this->ajaxReturn($data);
-        exit();
+        if(IS_AJAX){
+            $aid=$_POST['aid'];
+                     
+            $flag=D('Answer')->upvoteAnswer($aid,$this->uid);
+            $data['status']  = 1;
+            $data['content'] = $flag;
+            $this->ajaxReturn($data);
+            exit();
+        }
+      
         
     }
     //首页  回答 不赞同
@@ -107,45 +109,55 @@ class IndexController extends HomeController {
     
     //加载话题信息 
     public function loadTopicInfo(){
-    	$tid=$_POST['tid'];
-    	$arr=D('Topic')->getTopicInfoByTid($tid);
-    	if(!empty($arr)){
-    		$data['status']  = 1;
-    		$data['content'] = $arr;
-    		$this->ajaxReturn($data);
-    		exit();
-    	}else{
-    		$data['status']  = 1;
-    		$data['content'] = "出错了哦";
-    		$this->ajaxReturn($data);
-    		exit();
+    	IF(IS_AJAX){
+    	    $tid=$_POST['tid'];
+    	    $arr=D('Topic')->getTopicInfoByTid($tid);
+    	    if(!empty($arr)){
+    	        $data['status']  = 1;
+    	        $data['content'] = $arr;
+    	        $this->ajaxReturn($data);
+    	        exit();
+    	    }else{
+    	        $data['status']  = 1;
+    	        $data['content'] = "出错了哦";
+    	        $this->ajaxReturn($data);
+    	        exit();
+    	    } 
     	}
+       
     }
     // 关注 取消关注 话题 
     public function focusOrNoTopic(){
-    	$tid=$_POST['tid'];
-    	$flag=D('Topic')->dealFocusTopic($this->uid,$tid);
-		$data['status']  = 1;
-		$data['content'] = $flag;
-		$this->ajaxReturn($data);
-		exit();
-    	
-    }
-    //首页 关注问题
-    public function focusOrNoQuestion(){
-    	$qid=$_POST['qid'];
-    	$flag=D('Question')->focusQuestionOrNo($this->uid,$qid);
-        if($flag>0){
+        if(IS_AJAX){
+            $tid=$_POST['tid'];
+            $flag=D('Topic')->dealFocusTopic($this->uid,$tid);
             $data['status']  = 1;
             $data['content'] = $flag;
             $this->ajaxReturn($data);
             exit();
-        }else{
-            $data['status']  = 0;
-            $data['content'] = '有问题了哦';
-            $this->ajaxReturn($data);
-            exit();
         }
+    	
+    	
+    }
+    //首页 关注问题
+    public function focusOrNoQuestion(){
+        if(IS_AJAX){
+            $qid=$_POST['qid'];
+            $flag=D('Question')->focusQuestionOrNo($this->uid,$qid);
+            if($flag>0){
+                $data['status']  = 1;
+                $data['content'] = $flag;
+                $this->ajaxReturn($data);
+                exit();
+            }else{
+                $data['status']  = 0;
+                $data['content'] = '有问题了哦';
+                $this->ajaxReturn($data);
+                exit();
+            }    
+        }
+        
+    	
     }
     //首页   加载回答评论ajax
     public function commentAjax(){
@@ -182,60 +194,73 @@ class IndexController extends HomeController {
     }
     //首页  回答 添加评论
     public function commentAnswer(){
-        $aid=$_POST['aid'];
-        $content=$_POST['content'];
-        $flag=D('Answer')->commentAnswer($this->uid,$aid,$content);
-        if($flag>0){
-            $data['status']  = 1;
-            $data['content'] = $flag;
-            $this->ajaxReturn($data);
-            exit();
-        }else{
-            $data['status']  = 0;
-            $data['content'] = '评论出现问题';
-            $this->ajaxReturn($data);
-            exit();
+        
+        if(IS_AJAX){
+            $aid=$_POST['aid'];
+            $content=$_POST['content'];
+            $flag=D('Answer')->commentAnswer($this->uid,$aid,$content);
+            if($flag>0){
+                $data['status']  = 1;
+                $data['content'] = $flag;
+                $this->ajaxReturn($data);
+                exit();
+            }else{
+                $data['status']  = 0;
+                $data['content'] = '评论出现问题';
+                $this->ajaxReturn($data);
+                exit();
+            }     
         }
+       
     }
     
     //首页 回复评论
     public function replayComment(){
-        $ruid=$_POST['ruid'];
-        $aid=$_POST['aid'];
-        $comment_id=$_POST['comment_id'];
-        $content=$_POST['content'];
-        $flag=D('AnswerComment')->replayComment($aid,$this->uid,$ruid,$comment_id,$content);
-        if($flag>0){
-            $data['status']  = 1;
-            $data['content'] = $flag;
-            $this->ajaxReturn($data);
-            exit();
-        }else{
-            $data['status']  = 0;
-            $data['content'] = '回复出现问题';
-            $this->ajaxReturn($data);
-            exit();
+        if (IS_AJAX){
+            $ruid=$_POST['ruid'];
+            $aid=$_POST['aid'];
+            $comment_id=$_POST['comment_id'];
+            $content=$_POST['content'];
+            $flag=D('AnswerComment')->replayComment($aid,$this->uid,$ruid,$comment_id,$content);
+            if($flag>0){
+                $data['status']  = 1;
+                $data['content'] = $flag;
+                $this->ajaxReturn($data);
+                exit();
+            }else{
+                $data['status']  = 0;
+                $data['content'] = '回复出现问题';
+                $this->ajaxReturn($data);
+                exit();
+            }     
         }
+       
     }
     
     //举报评论 
     public function reportComment(){
-        $comment_id=$_POST['comment_id'];
-        $info=D('AnswerComment')->reportComment($this->uid,$comment_id);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        if(IS_AJAX){
+            $comment_id=$_POST['comment_id'];
+            $info=D('AnswerComment')->reportComment($this->uid,$comment_id);
+            $data['status']  = 1;
+            $data['content'] = $info;
+            $this->ajaxReturn($data);
+            exit();
+        }
+        
     }
     
     //点赞与取消赞 评论
     public function upvoteComment(){
-        $comment_id=$_POST['comment_id'];
-        $info=D('AnswerComment')->dealCommentVote($this->uid,$comment_id);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        if(IS_AJAX){
+            $comment_id=$_POST['comment_id'];
+            $info=D('AnswerComment')->dealCommentVote($this->uid,$comment_id);
+            $data['status']  = 1;
+            $data['content'] = $info;
+            $this->ajaxReturn($data);
+            exit();
+        }
+       
     }
     
     
@@ -246,53 +271,70 @@ class IndexController extends HomeController {
     
     //首页  回答举报
     public function reportAnswer(){
-        $aid=$_POST['aid'];
-        $info=D('Answer')->reportAnswer($this->uid,$aid);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        if (IS_AJAX){
+            $aid=$_POST['aid'];
+            $info=D('Answer')->reportAnswer($this->uid,$aid);
+            $data['status']  = 1;
+            $data['content'] = $info;
+            $this->ajaxReturn($data);
+            exit();
+        }
+        
     }
     
     //问题举报
     public function reportQuestion(){
-        $qid=$_POST['qid'];
-        $info=D('Question')->reportQuestion($this->uid,$qid);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        if (IS_AJAX){
+            $qid=$_POST['qid'];
+            $info=D('Question')->reportQuestion($this->uid,$qid);
+            $data['status']  = 1;
+            $data['content'] = $info;
+            $this->ajaxReturn($data);
+            exit();
+        }
+       
     }
     
     //加载收藏夹内容
     public function getCollectionInfo(){
-        $aid=$_POST['aid'];
-        $info=D('Collection')->getCollectionInfo($aid,$this->uid);
-        $data['status']  = 1;
-        $data['content'] = $info;
-        $this->ajaxReturn($data);
-        exit();
+        if(IS_AJAX){
+            $aid=$_POST['aid'];
+            $info=D('Collection')->getCollectionInfo($aid,$this->uid);
+            $data['status']  = 1;
+            $data['content'] = $info;
+            $this->ajaxReturn($data);
+            exit();
+        }
+        
+     
     }
     
     //添加收藏夹
     public function addCollectionInfo(){
-        $collection_name=$_POST['cn'];
-        $collection_desc=$_POST['cd'];
-        $flag=D('Collection')->addCollectionInfo($this->uid,$collection_name,$collection_desc);
-        $data['status']  = 1;
-        $data['content'] = $flag;
-        $this->ajaxReturn($data);
-        exit();
+        
+        if(IS_AJAX){
+            $collection_name=$_POST['cn'];
+            $collection_desc=$_POST['cd'];
+            $flag=D('Collection')->addCollectionInfo($this->uid,$collection_name,$collection_desc);
+            $data['status']  = 1;
+            $data['content'] = $flag;
+            $this->ajaxReturn($data);
+            exit();
+        }
+       
     }
     //将回答信息收藏
     public function addAnswerCollect(){
-        $aid=$_POST['aid'];
-        $cid=$_POST['cid'];
-        $flag=D('Collection')->addAnswerInfoToCollection($cid,$this->uid,$aid);
-        $data['status']  = 1;
-        $data['content'] = $flag;
-        $this->ajaxReturn($data);
-        exit();
+        if(IS_AJAX){
+            $aid=$_POST['aid'];
+            $cid=$_POST['cid'];
+            $flag=D('Collection')->addAnswerInfoToCollection($cid,$this->uid,$aid);
+            $data['status']  = 1;
+            $data['content'] = $flag;
+            $this->ajaxReturn($data);
+            exit();
+        }
+        
     }
     
     //退出系统

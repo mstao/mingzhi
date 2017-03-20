@@ -23,6 +23,7 @@ class  InboxModel extends Model{
             'sender_uid'      =>$suid,
             'recipient_uid'   =>$ruid,
             'inbox_content'   =>$content,
+            'status'          =>1,
             'add_time'        =>$time
         );
         $flag=D('Inbox')->data($data)->add();

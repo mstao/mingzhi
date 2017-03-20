@@ -5,19 +5,24 @@
 	<include file="./Application/Home/View/Public/headerinfo.html"/>
 	<title>私信-<{$Think.config.WEB_NAME}></title>
 	<script type="text/javascript">
-	var MODULE="__MODULE__";
-	var HOME_IMAGES="__HOME_IMAGES__";
+	var MODULE='__MODULE__';
+	var HOME_IMAGES='__HOME_IMAGES__';
 	var PUBLIC_PATH='<{:C("PUBLIC_PATH")}>';
-	var default_question_desc="<{$Think.config.DEFAULT_QUESTION_DESC}>";
-	var DEFAULT_QUESTION_URL=MODULE+"/Question/qindex/qid/";
-	var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
-	var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+    var AJAX_ERROR='<{:C("AJAX_ERROR_TIPS")}>';
+    var DEFAULT_QUESTION_URL=MODULE+'/Question/qindex/qid/';
+    var DEFAULT_TOPIC_URL=MODULE+'/Topic/index/tid/';
+    var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
+	var default_question_desc='<{:C("DEFAULT_QUESTION_DESC")}>';
+	var SELF="__SELF__";
 	</script>
 <css file="__HOME_CSS__/indexheader.css" />
 <css file="__HOME_CSS__/inbox.css" />
 <css file="__HOME_CSS__/fenye.css" />
 <css file="__HOME_CSS__/footer.css" />
+
 <include file="Public/public_static_res"/>
+<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+<js file="__HOME_JS__/inbox.js"/>
 </head>
 <body> 
 
