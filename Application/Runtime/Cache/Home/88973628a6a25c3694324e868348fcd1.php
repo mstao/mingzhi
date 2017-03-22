@@ -33,7 +33,7 @@
         </div>
 		<!--登录开始-->
 		<div class="web_qr_login" id="web_qr_login" style="display: block; ">
-	    <form action="/mytest/mingzhi/Home/User/Login" name="loginForm" class="formBlock" method="post">		
+	    <form action="/mytest/mingzhi/index.php/Home/User/Login" name="loginForm" class="formBlock" method="post">		
 		<div>
 			
 			<input type="text" name="username"  id="loginusername"  placeholder="用户名或邮箱"  autocomplete="off" />
@@ -62,7 +62,7 @@
     
     <!--注册开始-->
     <div class="qlogin" id="qlogin" style="display: none; ">
-        <form   action="/mytest/mingzhi/Home/User/Login" name="registerForm" class="formBlock" method="post">
+        <form   action="/mytest/mingzhi/index.php/Home/User/Login" name="registerForm" class="formBlock" method="post">
 		<div>			
 			<input type="text" name="username"  id="zhuusername" placeholder="用户名" autocomplete="off"/>	
 			<span class="err_username  err_info"></span>	

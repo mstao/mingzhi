@@ -3,10 +3,13 @@ namespace  Home\Model;
 use Think\Model;
 
 /**
- * 
+ +-----------------------------------------------------
+ * 消息model
+ +-----------------------------------------------------
  * @desc 服务器推信息
  * @author mingshan
  *
+ +-----------------------------------------------------
  */
 
 class NotificationsModel extends Model{

@@ -1,12 +1,16 @@
 <?php
 
-/**  
+/** 
+ +----------------------------------------------------- 
  * 问题model 
  * 
+ +-----------------------------------------------------
  * 用来发起提问，将提问信息添加到数据库
  * 获取提问的具体信息
  * 
  * @author Mingshan
+ * 
+ +-----------------------------------------------------
  */
 
 namespace Home\Model;
@@ -519,4 +523,5 @@ class QuestionModel extends Model{
        $info=D('Question')->field("question_name,id")->order("answer_count desc")->limit(5)->select();
        return $info;
    }
+   
 }

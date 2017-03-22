@@ -2,9 +2,11 @@
 namespace Admin\Controller;
 use \Think\Controller;
 /**
+ +-----------------------------------------------------
  * 后台用户请求处理
  * @author mingshan
  *
+ +-----------------------------------------------------
  */
 class AdminUserController extends Controller{
     //登录
