@@ -35,6 +35,7 @@
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/Suggest.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/notifications.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/publish/publish.js"></script>
 <script type="text/javascript" src="/mytest/mingzhi/Public/static/lightBox/js/jquery.lightbox-0.5.js"></script>
 <script type="text/javascript" src="/mytest/mingzhi/Public/static/layer-2.4/layer.js"></script>
 

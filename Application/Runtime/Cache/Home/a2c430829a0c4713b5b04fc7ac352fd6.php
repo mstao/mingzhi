@@ -36,6 +36,7 @@
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/Suggest.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/notifications.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/publish/publish.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/static/lightBox/js/jquery.lightbox-0.5.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/GetAnswers.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/upvoteso.js"></script>
@@ -528,7 +529,7 @@
 
 <!-- 我的登录信息显示开始 -->
 <div class="mylogininfo">
-<img src="<?php echo (session('avatar_file')); ?>" ><span><em><?php echo (session('username')); ?></em>&nbsp; , <?php echo (session('tag')); ?></span>
+<img src="<?php echo ($headerinfo["avatar_file"]); ?>" ><span><em><?php echo ($headerinfo["username"]); ?></em>&nbsp; , <?php echo ($headerinfo["tag"]); ?></span>
 </div>
 <!-- 我的登录信息显示结束-->
 

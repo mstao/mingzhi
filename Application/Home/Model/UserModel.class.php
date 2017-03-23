@@ -571,5 +571,16 @@ class UserModel extends Model{
        $uid=$info[0]['id'];
        return $uid;
    }
+   
+   
+   /**
+    * 获取用户数量
+    * @return unknown
+    */
+   function getUserCount(){
+        $count=D('User')->count('id');
+        return $count;
+    }
+    
 }
 ?>

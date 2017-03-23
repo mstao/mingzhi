@@ -472,7 +472,8 @@ $(function(){
     	  }
     	  //获取编辑后的纯文本
     	  var  only_text= editor.$txt.text();
-    	  if(only_text.replace(/(^\s*)|(\s*$)/g,"")=="" || only_text=="写下你的想法..."){
+    	  
+    	 if(only_text.replace(/(^\s*)|(\s*$)/g,"")!=""){
     		  $.ajax({
     				type:'post',
     				dataType:'json',

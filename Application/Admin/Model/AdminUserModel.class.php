@@ -44,7 +44,17 @@ class AdminUserModel extends Model{
         $info=D('admin_user')->where('id='.$uid)->select();
         return $info;
     }
-    
-    
+
+    /**
+     * 获取系统注册用户信息
+     * @return mixed|boolean|string|NULL|unknown|object
+     */
+    function getUserInfo($position,$item_per_page){
+        $info=D('User')
+                    ->field('id,username,sex,email,mobile,city,forbidden')
+                    ->order('reg_time desc')
+                    ->select();
+        return $info;
+    }
    
 }

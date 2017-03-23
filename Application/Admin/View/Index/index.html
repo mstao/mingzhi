@@ -36,7 +36,7 @@
         <dt><i class="icon-user"></i> 用户中心<b></b></dt>
         <dd>
           <ul>
-            <li><a _href="user-list.html" href="javascript:;">用户列表</a></li>
+            <li><a _href="__CONTROLLER__/userList" href="javascript:;">用户列表</a></li>
             <li><a _href="user-list-del.html" href="javascript:;">封禁的用户</a></li>
             
           </ul>
@@ -172,7 +172,6 @@
 						layer.load(2);
 					},
 					success:function(data){
-
 						//关闭正在加载
 						setTimeout(function(){
 							  layer.closeAll('loading');
@@ -180,7 +179,6 @@
 					
 					},
 					error:function(){
-
 						//关闭正在加载
 						setTimeout(function(){
 						  layer.closeAll('loading');
@@ -193,5 +191,4 @@
 			});
 	});
   });
-
 </script>

@@ -21,6 +21,7 @@ var DEFAULT_USER_URL=MODULE+'/Profile/index/u/';
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/js.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/Suggest.js"></script>
 	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/notifications.js"></script>
+	<script type="text/javascript" src="/mytest/mingzhi/Public/Home/js/publish/publish.js"></script>
 
 </head>
 <body> 
