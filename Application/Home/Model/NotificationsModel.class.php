@@ -301,7 +301,8 @@ class NotificationsModel extends Model{
         $where=array(
             'sender_uid'     =>$suid,
             'recipient_uid'  =>$ruid,
-            'action_type_id' =>$type_id
+            'action_type_id' =>$type_id,
+            'item_id'        =>$item_id
         );
         //判断此通知信息是否存在
         $IS_EXIST=$this->isWriteNotification($suid, $ruid, $item_id, $type_flag);

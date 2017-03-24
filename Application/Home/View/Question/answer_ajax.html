@@ -1,5 +1,9 @@
+<empty name="answer_info">
+<center><div style="margin-top:60px;"><span style="color:#999999;">暂时没有人回答哦，去抢沙发</span></div></center>
+
+</empty>
 <!--S 回答循环渲染页面  -->
-<volist name="answer_info" id="answer_info"  empty="此问题还没有人回答哦，来写下你的答案吧">
+<volist name="answer_info" id="answer_info"  >
     
   <!-- 回答问题内容开始 -->
 <div class="index-sss">
@@ -41,9 +45,9 @@
 
 <span class="upvote answer-upvote">
 <if condition="$answer_info['vote_value'] eq 1 ">
-<a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><{$answer_info.upvote_count}></i></a>
+<a href="javascript:void(0);" style="color:#666666;">已赞 </a> <i class="answer-upvote-count" style="color:#666666"><{$answer_info.upvote_count}></i>
 <else/>
-<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><{$answer_info.upvote_count}></i></a>
+<a href="javascript:void(0);" >赞同</a> <i class="answer-upvote-count"><{$answer_info.upvote_count}></i>
 </if>
 
 </span>
