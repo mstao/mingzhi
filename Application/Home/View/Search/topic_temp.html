@@ -5,7 +5,12 @@
 
 <volist name="record_info" id="record_info">
  <div class="All-on1">
+   <if condition="$record_info['topic_pic'] eq ''">
+   <img alt="" src="__HOME_IMAGES__/default-topic-big.png"> 
+   <else/>
    <img alt="" src="<{$record_info.topic_pic}>"> 
+   </if>
+   
    <div class="topic-info">
    <a href="<{:U('Home/Topic/index',array('tid'=>$record_info['id'],'sel'=>'trends'))}>" class="topic-name"><{$record_info.topic_name}></a>
    <span class="topic-desc"><{$record_info.topic_desc}><span>

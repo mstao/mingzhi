@@ -48,8 +48,13 @@
 					 
 					 <{/*我的回复开始  */}>
 				<div class="othercomment_mycomment">
-				    <div>
-						<img src="<{$headerinfo.avatar_file}>" class="mycommen_touxiang" >
+				    <div> 
+				        <if  condition="$headerinfo['avatar_file'] eq ''">
+				        <img src="__HOME_IMAGES__/default-avatar.png" class="mycommen_touxiang" >
+				        <else/>
+				        <img src="<{$headerinfo.avatar_file}>" class="mycommen_touxiang" >
+				        </if>
+						
 						<{/* 回复内容 */}>
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>

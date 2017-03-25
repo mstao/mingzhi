@@ -60,8 +60,11 @@
 					 
 					 
 				<div class="othercomment_mycomment">
-				    <div>
-						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" >
+				    <div> 
+				        <?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar.png" class="mycommen_touxiang" >
+				        <?php else: ?>
+				        <img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" ><?php endif; ?>
+						
 						
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>
@@ -196,8 +199,11 @@
 					 
 					 
 				<div class="othercomment_mycomment">
-				    <div>
-						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" >
+				    <div> 
+				        <?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar.png" class="mycommen_touxiang" >
+				        <?php else: ?>
+				        <img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" ><?php endif; ?>
+						
 						
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>

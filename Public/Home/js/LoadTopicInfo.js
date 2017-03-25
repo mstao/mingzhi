@@ -31,7 +31,15 @@ $(function(){
 					//先填充话题信息
 					
 					
-                    var vhtml="<div class='topicinfo'><div class='topicinfomytouxiang'><a href='#'><img src='"+data.content.topic_pic+"' width='40' height='40'/></a></div><div class='topicinforightcontent'><div class='topicinfoname'><a href='"+MODULE+"/Topic/index/tid/"+data.content.topic_id+"/sel/trends'>"+data.content.topic_name+"</a></div><div class='topicinfonameanswer'>"+data.content.topic_desc+"</div></div></div>"
+                    var vhtml="<div class='topicinfo'><div class='topicinfomytouxiang'><a href='#'>" ;
+                    if(data.content.topic_pic == null){
+                    	vhtml+="<img src='"+HOME_IMAGES+"/default-topic.png' />" ;
+                    }else{
+                    	vhtml+="<img src='"+data.content.topic_pic+"' width='40' height='40'/>" ;
+                    }	
+                    
+                    
+                    vhtml+="</a></div><div class='topicinforightcontent'><div class='topicinfoname'><a href='"+MODULE+"/Topic/index/tid/"+data.content.topic_id+"/sel/trends'>"+data.content.topic_name+"</a></div><div class='topicinfonameanswer'>"+data.content.topic_desc+"</div></div></div>";
 					vhtml+="<div class='topicopinfooperation'>问题：<a href='javascript:void(0);' class='topic-question-count'>"+data.content.question_count+"</a> &nbsp;&nbsp;热点：<a href='javascript:void(0);' class='topic-hot-question-count'>"+data.content.hot_question_count+"</a>&nbsp;&nbsp;关注者:<a href='javascript:void(0);' class='topic-foucs-person-count'>"+data.content.topic_focus_count+"</a><a href='javascript:void(0);' class='topicinfoquxiao topic-focus-btn' data-topic-id='"+data.content.topic_id+"'>";
 					
 					//根据当前用户对该话题的关注状态进行渲染

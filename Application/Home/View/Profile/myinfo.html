@@ -1,8 +1,12 @@
 <!-- 个人资料 -->
 <div class="gerenzhiliao">
 <div class="myhonetouxiang">
-
+<if condition="$umsg['avatar_file'] eq ''">
+<img src="__HOME_IMAGES__/default-avatar-big.png"  class="mytouxiangimg" width="100" height="100" />
+<else/>
 <img src="<{$umsg.avatar_file}>"  class="mytouxiangimg" width="100" height="100" />
+</if>
+
 <if condition="$umsg['uid'] eq $umsg['session_id']">
 <div class="mytouxiang_upload_div">
 <form id="myupload" enctype="multipart/form-data" method="post">

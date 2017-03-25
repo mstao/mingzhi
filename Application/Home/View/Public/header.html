@@ -161,7 +161,15 @@
                    <{/*消息内容结束  */}>
                   
 					<li class="myname_li">
-						<a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" title="" class="mymainname"><img src="<{$headerinfo.avatar_file}>" class="mytouxiangimg"><span class="myname_header"><{$headerinfo.username}></span></a>
+						<a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" title="" class="mymainname">
+						<if condition="$headerinfo['avatar_file'] eq ''">
+						<img src="__HOME_IMAGES__/default-avatar-small.png" class="mytouxiangimg">
+						<else/>
+						<img src="<{$headerinfo.avatar_file}>" class="mytouxiangimg">
+						</if>
+						
+						<span class="myname_header"><{$headerinfo.username}></span>
+						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" >我的主页</a></li>
 							<li><a href="__MODULE__/Inbox/index" >私信<img src="__HOME_IMAGES__/yuandian.png"/></a></li>

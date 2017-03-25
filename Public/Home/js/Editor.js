@@ -416,7 +416,7 @@
         
         
         //初始化内容
-        editor.$txt.html('<p style="color:#666666;">写下你的想法...</p>');
+       // editor.$txt.html('<p style="color:#666666;">写下你的想法...</p>');
         
         //编辑器模拟  placeholder 效果
         
@@ -481,7 +481,7 @@ $(function(){
     				data:'qid='+hide_question_id+'&ac='+answer_content+'&in='+is_name,
     				beforeSend:function(){
     					//显示正在加载
-    					layer.load(1);
+    					layer.load(2);
     				},
     				success:function(data){
 

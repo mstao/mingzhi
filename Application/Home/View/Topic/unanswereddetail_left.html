@@ -1,6 +1,11 @@
 <div id="topicleftcontent">
 <div  class="topic_detail_info">
+<if condition="$topic_info['topic_pic'] eq ''">
+<img src="__HOME_IMAGES__/default-topic-big.png" /> 
+<else/>
 <img src="<{$topic_info.topic_pic}>" /> 
+</if>
+
 <span class="topic_detail_info_name"><{$topic_info.topic_name}></span>
 </div>
 

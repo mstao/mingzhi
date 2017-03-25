@@ -281,7 +281,13 @@
                    
                   
 					<li class="myname_li">
-						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname"><img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><span class="myname_header"><?php echo ($headerinfo["username"]); ?></span></a>
+						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname">
+						<?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar-small.png" class="mytouxiangimg">
+						<?php else: ?>
+						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><?php endif; ?>
+						
+						<span class="myname_header"><?php echo ($headerinfo["username"]); ?></span>
+						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" >我的主页</a></li>
 							<li><a href="/mytest/mingzhi/Home/Inbox/index" >私信<img src="/mytest/mingzhi/Public/Home/images/yuandian.png"/></a></li>
@@ -315,8 +321,10 @@
 <!-- 个人资料 -->
 <div class="gerenzhiliao">
 <div class="myhonetouxiang">
+<?php if($umsg['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar-big.png"  class="mytouxiangimg" width="100" height="100" />
+<?php else: ?>
+<img src="<?php echo ($umsg["avatar_file"]); ?>"  class="mytouxiangimg" width="100" height="100" /><?php endif; ?>
 
-<img src="<?php echo ($umsg["avatar_file"]); ?>"  class="mytouxiangimg" width="100" height="100" />
 <?php if($umsg['uid'] == $umsg['session_id']): ?><div class="mytouxiang_upload_div">
 <form id="myupload" enctype="multipart/form-data" method="post">
  <input type="file" name="myavatar" id="myavatar" class="checkmyavatar"> 
@@ -481,8 +489,11 @@ E 我擅长的话题  -->
 					 
 					 
 				<div class="othercomment_mycomment">
-				    <div>
-						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" >
+				    <div> 
+				        <?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar.png" class="mycommen_touxiang" >
+				        <?php else: ?>
+				        <img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" ><?php endif; ?>
+						
 						
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>

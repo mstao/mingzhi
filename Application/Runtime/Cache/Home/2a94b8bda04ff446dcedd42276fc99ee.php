@@ -283,7 +283,13 @@
                    
                   
 					<li class="myname_li">
-						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname"><img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><span class="myname_header"><?php echo ($headerinfo["username"]); ?></span></a>
+						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname">
+						<?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar-small.png" class="mytouxiangimg">
+						<?php else: ?>
+						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><?php endif; ?>
+						
+						<span class="myname_header"><?php echo ($headerinfo["username"]); ?></span>
+						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" >我的主页</a></li>
 							<li><a href="/mytest/mingzhi/Home/Inbox/index" >私信<img src="/mytest/mingzhi/Public/Home/images/yuandian.png"/></a></li>
@@ -378,9 +384,12 @@
 <div class="maincontent">
 
 
-<?php if(is_array($feeds_info)): $i = 0; $__LIST__ = $feeds_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$feeds_info_all): $mod = ($i % 2 );++$i; if($feeds_info_all['feed_flag'] == 'q'): if(is_array($feeds_info_all['question'])): $i = 0; $__LIST__ = $feeds_info_all['question'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$feeds_info_detail): $mod = ($i % 2 );++$i;?><div class="index-sss">
+<?php if(is_array($feeds_info)): $i = 0; $__LIST__ = $feeds_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$feeds_info_all): $mod = ($i % 2 );++$i; if($feeds_info_all['feed_flag'] == 'q'): ?>   
+<?php if(is_array($feeds_info_all['question'])): $i = 0; $__LIST__ = $feeds_info_all['question'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$feeds_info_detail): $mod = ($i % 2 );++$i;?><div class="index-sss">
 <div class="touxiang">
-<?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i;?><img src="<?php echo ($focus_topic_info['topic_pic']); ?>" width="40" height="40"/><?php endforeach; endif; else: echo "" ;endif; ?>
+<?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i; if($focus_topic_info['topic_pic'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-topic.png" />
+<?php else: ?>
+<img src="<?php echo ($focus_topic_info['topic_pic']); ?>" width="40" height="40"/><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 </div>
 <div class="index-rightcontent">
 
@@ -451,7 +460,9 @@
 <?php if(is_array($feeds_info_all['answer'])): $i = 0; $__LIST__ = $feeds_info_all['answer'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$feeds_info_detail): $mod = ($i % 2 );++$i;?>
 <div class="index-sss">
 <div class="touxiang">
-<?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i;?><img src="<?php echo ($focus_topic_info['topic_pic']); ?>" width="40" height="40"/><?php endforeach; endif; else: echo "" ;endif; ?>
+<?php if(is_array($feeds_info_detail['topic'])): $i = 0; $__LIST__ = $feeds_info_detail['topic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$focus_topic_info): $mod = ($i % 2 );++$i; if($focus_topic_info['topic_pic'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-topic.png" />
+<?php else: ?>
+<img src="<?php echo ($focus_topic_info['topic_pic']); ?>" width="40" height="40"/><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 </div>
 <div class="index-rightcontent">
 <div class="where">
@@ -536,7 +547,10 @@
 					 
 				<div class="othercomment_mycomment">
 				    <div>
-						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" >
+				        <?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar.png" class="mycommen_touxiang" >
+				        <?php else: ?>
+				        <img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" ><?php endif; ?>
+						
 						
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>
@@ -689,7 +703,7 @@
                       <!--E 回答者信息  -->
                       
                       <!--S 编辑器 -->              
-                      <div id="editor-container" class="answercontainer"><div id="editor-trigger"></div></div>
+                      <div id="editor-container" class="answercontainer"><div id="editor-trigger" placeholder="写下你的想法..."></div></div>
                       <!--E 编辑器  -->
                       <input type="checkbox" name="isHaveName" id="isHaveName" > <label for="isHaveName">匿名</label>
                       <div class="writeranswer-function">

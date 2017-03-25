@@ -288,7 +288,13 @@
                    
                   
 					<li class="myname_li">
-						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname"><img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><span class="myname_header"><?php echo ($headerinfo["username"]); ?></span></a>
+						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname">
+						<?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar-small.png" class="mytouxiangimg">
+						<?php else: ?>
+						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><?php endif; ?>
+						
+						<span class="myname_header"><?php echo ($headerinfo["username"]); ?></span>
+						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" >我的主页</a></li>
 							<li><a href="/mytest/mingzhi/Home/Inbox/index" >私信<img src="/mytest/mingzhi/Public/Home/images/yuandian.png"/></a></li>
@@ -367,8 +373,9 @@
 <!--评论内容开始-->
 <div class="all-answer-info">
 	
+<?php if(empty($answer_info)): ?><center><div style="margin-top:60px;"><span style="color:#999999;">暂时没有人回答哦，去抢沙发</span></div></center><?php endif; ?>
 <!--S 回答循环渲染页面  -->
-<?php if(is_array($answer_info)): $i = 0; $__LIST__ = $answer_info;if( count($__LIST__)==0 ) : echo "此问题还没有人回答哦，来写下你的答案吧" ;else: foreach($__LIST__ as $key=>$answer_info): $mod = ($i % 2 );++$i;?><!-- 回答问题内容开始 -->
+<?php if(is_array($answer_info)): $i = 0; $__LIST__ = $answer_info;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$answer_info): $mod = ($i % 2 );++$i;?><!-- 回答问题内容开始 -->
 <div class="index-sss">
 <div class="touxiang">
 
@@ -405,9 +412,9 @@
 <input type="hidden" class="hide_answer_id" value="<?php echo ($answer_info["id"]); ?>">
 
 <span class="upvote answer-upvote">
-<?php if($answer_info['vote_value'] == 1 ): ?><a href="javascript:void(0);" style="color:#666666;background:#F6F6F6;"><b>已赞</b> | <i class="answer-upvote-count"><?php echo ($answer_info["upvote_count"]); ?></i></a>
+<?php if($answer_info['vote_value'] == 1 ): ?><a href="javascript:void(0);" style="color:#666666;">已赞 </a> <i class="answer-upvote-count" style="color:#666666"><?php echo ($answer_info["upvote_count"]); ?></i>
 <?php else: ?>
-<a href="javascript:void(0);" ><b>赞同</b> | <i class="answer-upvote-count"><?php echo ($answer_info["upvote_count"]); ?></i></a><?php endif; ?>
+<a href="javascript:void(0);" >赞同</a> <i class="answer-upvote-count"><?php echo ($answer_info["upvote_count"]); ?></i><?php endif; ?>
 
 </span>
 <a href="javascript:void(0);">反对</a>
@@ -437,7 +444,9 @@
 			<!--我的回复开始  -->
 				<div class="othercomment_mycomment">
 				    <div>
-						<img src="<?php echo (session('avatar_file')); ?>" class="mycommen_touxiang" >
+						 <?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar.png" class="mycommen_touxiang" >
+				        <?php else: ?>
+				        <img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mycommen_touxiang" ><?php endif; ?>
 						<!-- 回复内容 -->
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>
@@ -506,7 +515,7 @@
    
 			
 </div>
-</div><?php endforeach; endif; else: echo "此问题还没有人回答哦，来写下你的答案吧" ;endif; ?>
+</div><?php endforeach; endif; else: echo "" ;endif; ?>
 
 			            </div>
 			    <!--其他人评论结束 -->
@@ -524,7 +533,7 @@
 <!--评论内容结束-->
 
 <!--S 点击加载更多 -->
-<div class="js-load-more load-more"><span class="loading_span">加载更多</span><img src="/mytest/mingzhi/Public/Home/images/loading.gif" class="loading_image"/></div>
+<?php if(!empty($answer_info)): ?><div class="js-load-more load-more"><span class="loading_span">加载更多</span><img src="/mytest/mingzhi/Public/Home/images/loading.gif" class="loading_image"/></div><?php endif; ?>
 <!--E 点击加载更多-->
 
 <!-- 我的登录信息显示开始 -->

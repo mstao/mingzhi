@@ -32,7 +32,11 @@
 </div>
 
 <div  class="topic_detail_info topic-selected-div">
+<if condition="$topic_info['topic_pic'] eq ''">
+<img src="__HOME_IMAGES__/default-topic-big.png" /> 
+<else/>
 <img src="<{$topic_info.topic_pic}>" /> 
+</if>
 <a href="<{:U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'trends'))}>" class="topic_detail_info_name"><{$topic_info.topic_name}></a>
 </div>
 

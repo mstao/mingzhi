@@ -8,7 +8,11 @@
 <div class="index-sss">
 <div class="touxiang">
 <volist name="feeds_info_detail['topic']"  id="focus_topic_info">
+<if condition="$focus_topic_info['topic_pic'] eq ''">
+<img src="__HOME_IMAGES__/default-topic.png" />
+<else/>
 <img src="<{$focus_topic_info['topic_pic']}>" width="40" height="40"/>
+</if>
 </volist>
 </div>
 <div class="index-rightcontent">
@@ -93,7 +97,12 @@
 <div class="index-sss">
 <div class="touxiang">
 <volist name="feeds_info_detail['topic']"  id="focus_topic_info">
+<if condition="$focus_topic_info['topic_pic'] eq ''">
+<img src="__HOME_IMAGES__/default-topic.png" />
+<else/>
 <img src="<{$focus_topic_info['topic_pic']}>" width="40" height="40"/>
+</if>
+
 </volist>
 </div>
 <div class="index-rightcontent">
@@ -192,7 +201,12 @@
 					 <{/*我的回复开始  */}>
 				<div class="othercomment_mycomment">
 				    <div>
-						<img src="<{$headerinfo.avatar_file}>" class="mycommen_touxiang" >
+				        <if  condition="$headerinfo['avatar_file'] eq ''">
+				        <img src="__HOME_IMAGES__/default-avatar.png" class="mycommen_touxiang" >
+				        <else/>
+				        <img src="<{$headerinfo.avatar_file}>" class="mycommen_touxiang" >
+				        </if>
+						
 						<{/* 回复内容 */}>
 						<div class="mycomment_input" contenteditable="true"></div>
 					</div>

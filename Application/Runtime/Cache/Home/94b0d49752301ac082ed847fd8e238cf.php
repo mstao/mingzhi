@@ -273,7 +273,13 @@
                    
                   
 					<li class="myname_li">
-						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname"><img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><span class="myname_header"><?php echo ($headerinfo["username"]); ?></span></a>
+						<a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" title="" class="mymainname">
+						<?php if($headerinfo['avatar_file'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-avatar-small.png" class="mytouxiangimg">
+						<?php else: ?>
+						<img src="<?php echo ($headerinfo["avatar_file"]); ?>" class="mytouxiangimg"><?php endif; ?>
+						
+						<span class="myname_header"><?php echo ($headerinfo["username"]); ?></span>
+						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="/mytest/mingzhi/Home/Profile/index/u/<?php echo (session('uid')); ?>" >我的主页</a></li>
 							<li><a href="/mytest/mingzhi/Home/Inbox/index" >私信<img src="/mytest/mingzhi/Public/Home/images/yuandian.png"/></a></li>
@@ -327,7 +333,9 @@
 </div>
 
 <div  class="topic_detail_info topic-selected-div">
-<img src="<?php echo ($topic_info["topic_pic"]); ?>" /> 
+<?php if($topic_info['topic_pic'] == ''): ?><img src="/mytest/mingzhi/Public/Home/images/default-topic-big.png" /> 
+<?php else: ?>
+<img src="<?php echo ($topic_info["topic_pic"]); ?>" /><?php endif; ?>
 <a href="<?php echo U('Home/Topic/index',array('tid'=>$topic_info['topic_id'],'sel'=>'trends'));?>" class="topic_detail_info_name"><?php echo ($topic_info["topic_name"]); ?></a>
 </div>
 
@@ -453,7 +461,7 @@
                       <!--E 回答者信息  -->
                       
                       <!--S 编辑器 -->              
-                      <div id="editor-container" class="answercontainer"><div id="editor-trigger"></div></div>
+                      <div id="editor-container" class="answercontainer"><div id="editor-trigger" placeholder="写下你的想法..."></div></div>
                       <!--E 编辑器  -->
                       <input type="checkbox" name="isHaveName" id="isHaveName" > <label for="isHaveName">匿名</label>
                       <div class="writeranswer-function">

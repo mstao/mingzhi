@@ -291,3 +291,14 @@
 	color:#666666;
 }
 
+
+/*为空时显示 element attribute content*/
+#editor-trigger :empty:before{
+    content: attr(placeholder);   /* element attribute*/
+    /*content: 'this is content';*/
+    color:#666666;
+}
+/*焦点时内容为空*/
+#editor-trigger :focus:before{
+    content:none;
+}

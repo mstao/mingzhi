@@ -291,7 +291,7 @@ class AnswerModel extends Model{
     function  getUpvoteAnswerByUid($uid,$position,$item_per_page){
     	$info=D('answer_vote')
     	        ->alias('av')
-    	        ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))
+    	        ->field(array('u.username','u.tag','u.avatar_file','q.question_name','a.*','av.vote_value','av.add_time','qf.focus_id'=>'q_focus_id','ar.report_id'=>'a_report_id'))
     	        ->join('__ANSWER__ a ON a.id=av.answer_id')
     	        ->join('__QUESTION__ q ON q.id=a.question_id')
     	        ->join('__USER__ u ON u.id=av.vote_uid')

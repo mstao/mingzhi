@@ -4,7 +4,12 @@
 </empty>
 <volist name="record_info" id="record_info"> 
 <div class="user-n1">
+<if condition="$record_info['avatar_file'] eq ''">
+<img alt="" src="__HOME_IMAGES__/default-avatar-big.png" width="60" height="60" style="float:left;">
+<else/>
 <img alt="" src="<{$record_info.avatar_file}>" width="60" height="60" style="float:left;">
+</if>
+
  <div class="user-n1-con">
   <p class="user-n1-user"><{$record_info.username}></p>
   <p class="user-n1-tag"><{$record_info.tag}><p>
