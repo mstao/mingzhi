@@ -24,15 +24,20 @@ class IndexController extends AdminController{
     public function index(){
         //获取管理员的信息
         $admin_info=$this->getAdminUserInfo($this->auid);
-      
-        $this->assign('u_info',$admin_info);
+        //获取统计信息
+        $count=$this->getCount();
+        //获取服务器信息
+        $server_info=$this->getServerInfo();
+        $this->assign('uinfo',$admin_info);
+        $this->assign('server_info',$server_info);
+        $this->assign('count',$count);
         $this->display();
     }
     
     /**
      * 映射welcome页面
      */
-    public function welcome(){
+    /* public function welcome(){
         //获取登录用户信息
         $admin_info=D('AdminUser')->getAdminUserInfo($this->auid);
         
@@ -45,8 +50,11 @@ class IndexController extends AdminController{
         $this->assign('server_info',$server_info);
         $this->assign('count',$count);
         $this->display();
-    }
+    } */
     
+    /**
+     * 用户管理
+     */
     public function userList(){
         //默认从1条开始取数据
         $position=0;
@@ -55,12 +63,9 @@ class IndexController extends AdminController{
         $userinfo=D('AdminUser')->getUserInfo($position,$item_per_page);
        
         $this->assign('userinfo',$userinfo);
-        $this->display('User/user-list');
+        $this->display('Content/userManage');
     }
-    
-    public function userShow(){
-        $this->display('User/user-show');
-    }
+
     
     /**
      * 获取管理员信息

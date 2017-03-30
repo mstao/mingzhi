@@ -26,6 +26,16 @@ class NotificationsController extends HomeController {
         $this->uid=session('uid');
     }
     
+    public function  all(){
+        $position=0;
+        $item_pre_page=10;
+        //获取消息信息
+        $info=D('Notifications')->readNotifications($this->uid,$position,$item_pre_page);
+         
+        $this->assign('notification_content',$info);
+        $this->display("index");
+    }
+    
     /**
      *  获取全部通知信息
      */

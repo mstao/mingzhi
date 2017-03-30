@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+     <!--  引入通用资源-->
+  <include file="Public/common_resources"/>
+</head>
+<body>
+<!-- 引入通用 模块 -->
+
+<include file="Public/common_header"/>
+
+
+<div class="container clearfix">
+   <!-- 引入通用navi -->
+   
+   <include file="Public/common_navi"/>
+    <!--/sidebar-->
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">话题管理</span></div>
+        </div>
+        <div class="search-wrap">
+            <div class="search-content">
+                <form action="#" method="post">
+                    <table class="search-tab">
+                        <tr>
+                            <th width="120">选择分类:</th>
+                            <td>
+                                <select name="search-sort" id="">
+                                    <option value="">全部</option>
+                                    <option value="19">精品界面</option><option value="20">推荐界面</option>
+                                </select>
+                            </td>
+                            <th width="70">关键字:</th>
+                            <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
+                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="insert.html"><i class="icon-font"></i>新增作品</a>
+                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                        <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th >ID</th>
+					        <th >话题名称</th>
+					        <th >话题描述</th>
+					        <th >关注数量</th>
+					        <th >问题数量</th>
+					        <th >浏览数量</th>
+					        <th >创建时间</th>
+					        <th >问题状态</th>
+					        <th >操作</th>
+                        </tr>
+                        <volist  name="topicinfo" id="info">
+                        <tr>
+                        
+                            <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                            
+                             <td><{$info.id}></td>
+       
+					        <td><u style="cursor:pointer" class="text-primary" ><{$info.topic_name}></u></td>
+					        <td><{$info.topic_desc}></td>
+					        <td><{$info.topic_focus_count}></td>
+					        <td><{$info.question_count}></td>
+					        <td ><{$info.view_count}></td>
+					        <td><{$info.topic_createtime|getTime}></td>
+					        <td>
+					        <if condition="$info['status'] eq 0">
+					        <span class="label label-success">已启用</span>
+					        <elseif condition="$info['status'] eq 1"/>
+					        <span class="label label-error">已停用</span>
+					        </if>
+					        </td>
+                            <td>
+                                <a class="link-update" href="#">修改</a>
+                                <a class="link-del" href="#">删除</a>
+                            </td>
+                        </tr>
+                        </volist>
+                       
+                    </table>
+                    <div class="list-page"> 2 条 1/1 页</div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>
