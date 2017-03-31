@@ -12,7 +12,13 @@
                       </div>
                        <!--S 回答者信息  --> 
                       <div class="writeanswer-user">
-                       <img src="<{$headerinfo.avatar_file}>"/> <span><em><{$headerinfo.username}></em>&nbsp; , <{$headerinfo.tag}></span>
+                       <if condition="$headerinfo['avatar_file'] eq ''">
+						<img src="__HOME_IMAGES__/default-avatar-small.png">
+						<else/>
+						<img src="<{$headerinfo.avatar_file}>" >
+						</if>
+                       
+                        <span><em><{$headerinfo.username}></em>&nbsp; , <{$headerinfo.tag}></span>
                       </div>    
                       <!--E 回答者信息  -->
                       

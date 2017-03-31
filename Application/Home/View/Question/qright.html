@@ -14,8 +14,12 @@
 <div class="founder">
 <span>发起人</span>
 <div class="founderinfo">
-
-	<img src="<{$qinfo.avatar_file}>" width="40" height="40" /> <span class="founderinfo_name"><a href="__MODULE__/Profile/index/u/<{$qinfo.uid}>"><{$qinfo.username}></a></span>
+<if condition="$qinfo['avatar_file'] eq ''">
+<img src="__HOME_IMAGES__/default-avatar-small.png" width="40" height="40">
+<else/>
+<img src="<{$qinfo.avatar_file}>" width="40" height="40" />
+</if>
+	 <span class="founderinfo_name"><a href="__MODULE__/Profile/index/u/<{$qinfo.uid}>"><{$qinfo.username}></a></span>
 
 </div>
 </div>
@@ -32,8 +36,11 @@
 		<!--关注者头像展示开始-->
 		<div class="questionstatusconimg">
 		   <volist name="avatarinfo" id="avatarinfo">
-		   
-			<img src="<{$avatarinfo.avatar_file}>" width="35" height="35"/>
+		   <if condition="$avatarinfo['avatar_file'] eq ''">
+<img src="__HOME_IMAGES__/default-avatar-small.png" width="35" height="35">
+<else/>
+<img src="<{$avatarinfo.avatar_file}>" width="35" height="35"/>
+</if>
 		   </volist>
 		</div>
 		<!--关注者头像展示结束-->

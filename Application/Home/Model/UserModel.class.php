@@ -55,14 +55,13 @@ class UserModel extends Model{
       $password=$arr['password'];
       $username=$arr['username'];
       $email=$arr['email'];
-      $defaultavatar=C('PUBLIC_PATH').'Home/images/defaultavatar.jpg';
+      //$defaultavatar=C('PUBLIC_PATH').'Home/images/defaultavatar.jpg';
       $regtime=time();
       $data=array(
           'username' =>$username,
           'email'    =>$email,
           'password' =>md5($password), 
           'reg_time' =>$regtime,
-          'avatar_file'=>$defaultavatar,
           'status'   =>1
       );
       

@@ -45,12 +45,14 @@ class TopicController extends HomeController {
              //获取最近关注的一个话题信息
              $onlyTopic=D('Topic')->getOnlyFocusTopic($this->uid);
              $tid=$onlyTopic[0]['id'];
+             //获取我关注的话题的一个话题的简单信息
+             $onlyTopicInfo=D('Topic')->getTopicSimpleInfoByTid($tid);
+             $this->topic_info=$onlyTopicInfo;
              }else{
                  $tid=$idt;
              }
              
-             //获取我关注的话题的一个话题的简单信息
-             $onlyTopicInfo=D('Topic')->getTopicSimpleInfoByTid($tid);
+             
              //获取  话题 新提出的问题
              $BaseTopicInfo=$this->getBaseTopicInfo($tid);
              $topicinfo=$BaseTopicInfo['topicinfo'];
@@ -68,7 +70,7 @@ class TopicController extends HomeController {
               
              $this->unanswer_question=$unanswer_question;
              $this->page=$p->show();
-             $this->topic_info=$onlyTopicInfo;
+             
              
              $this->assign("hot_topic",$hot_topic);
              $this->assign("focus_topic_count",$focus_topic_count);

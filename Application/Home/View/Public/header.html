@@ -168,7 +168,7 @@
 						<img src="<{$headerinfo.avatar_file}>" class="mytouxiangimg">
 						</if>
 						
-						<span class="myname_header"><{$headerinfo.username}></span>
+						<span class="myname_header"><{$headerinfo.username|msubstr=0,5}></span>
 						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" >我的主页</a></li>

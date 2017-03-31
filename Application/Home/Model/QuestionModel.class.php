@@ -203,10 +203,9 @@ class QuestionModel extends Model{
     function getTopicByQuestion($qid){
         $info=M('topic_relation')
                      ->alias('tr')
-                     ->field('t.topic_name,t.topic_pic,t.id,tf.focus_id')
-                     ->where('tr.item_id='.$qid)
+                     ->field('t.topic_name,t.topic_pic,t.id')
                      ->join('__TOPIC__ t ON t.id=tr.topic_id')
-                     ->join('LEFT JOIN __TOPIC_FOCUS__ tf ON tf.topic_id=t.id')
+                     ->where('tr.item_id='.$qid)
                      ->select();
         return $info;
             

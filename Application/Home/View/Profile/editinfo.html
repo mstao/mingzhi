@@ -10,7 +10,12 @@
 
 <!--我的头像开始  -->
 <div class="myavatar"><span >我的头像</span>
-<div class="myrightimage"><img src="<{$headerinfo.avatar_file}>"  class="mytouxiangimg">
+<div class="myrightimage">
+<if condition="$headerinfo['avatar_file'] eq ''">
+<img src="__HOME_IMAGES__/default-avatar-big.png" class="mytouxiangimg">
+<else/>
+<img src="<{$headerinfo.avatar_file}>"  class="mytouxiangimg">
+</if>
 
 <div class="mytouxiang_upload_div">
 <form id="myupload" enctype="multipart/form-data" method="post">

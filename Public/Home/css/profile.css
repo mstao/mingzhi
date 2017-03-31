@@ -944,15 +944,15 @@ text-decoration:underline;
   color: #ffffff;
   background: #446CB3;
   border: 1px solid;
-  border-radius: 6px;
+  border-radius: 6;
   outline: 0;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  background-image: -webkit-linear-gradient(top, #446CB3, #446CB3);
-  background-image: -moz-linear-gradient(top, #446CB3, #446CB3);
-  background-image: -o-linear-gradient(top, #446CB3, #446CB3);
-  background-image: linear-gradient(to bottom, #446CB3, #446CB3);
+  background-image: -webkit-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: -moz-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: -o-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: linear-gradient(to bottom, #0F88EB, #0F88EB);
 }
 .myright_reset{
 	color:#666666;
@@ -961,7 +961,7 @@ text-decoration:underline;
 }
 .myright_reset:hover{
 	text-decoration: underline;
-	color:#446CB3;
+	color:#0F88EB;
 }
 
 /*编辑span  样式*/

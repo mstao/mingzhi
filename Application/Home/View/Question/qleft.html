@@ -70,7 +70,13 @@
 
 <!-- 我的登录信息显示开始 -->
 <div class="mylogininfo">
-<img src="<{$headerinfo.avatar_file}>" ><span><em><{$headerinfo.username}></em>&nbsp; , <{$headerinfo.tag}></span>
+<if condition="$headerinfo['avatar_file'] eq ''">
+<img src="__HOME_IMAGES__/default-avatar-small.png">
+<else/>
+<img src="<{$headerinfo.avatar_file}>" >
+</if>
+
+<span><em><{$headerinfo.username}></em>&nbsp; , <{$headerinfo.tag}></span>
 </div>
 <!-- 我的登录信息显示结束-->
 
