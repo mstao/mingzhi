@@ -46,8 +46,8 @@ $(function(){
     
 	});
 	 //首页图片灯箱
-    $('.describe .lightBox_a').lightBox();
-	
+   // $('.describe .lightBox_a').lightBox();
+	 $('.describe img').zoomify();
 	/*$(".describe").each(function(){
 		var maxwidth=200;
 		var contenttext=$(this).text();

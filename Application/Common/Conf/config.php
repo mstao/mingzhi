@@ -12,7 +12,7 @@ return array(
     'TMPL_R_DELIM'          =>    '}>',
     //**************设置伪静态************
     'URL_HTML_SUFFIX'       =>   '',              //默认后缀
-    'SHOW_PAGE_TRACE'       =>   true,                //开启页面trace
+    'SHOW_PAGE_TRACE'       =>   false,                //开启页面trace
     //******定义常用css,js,images路径*******
     'TMPL_PARSE_STRING'     =>   array(                //定义常用路径
            __HOME_CSS__     =>   __ROOT__.'/Public/Home/css',
