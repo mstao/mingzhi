@@ -8,12 +8,12 @@ $(function(){
 			if(contenttext.length>maxwidth){
 				var subcontent=contenttext.substring(0,maxwidth)+"...";
 				$(this).prev().find('.summary_text').text(subcontent);
-				$(this).find('img').each(function(){		   
+			/*	$(this).find('img').each(function(){		   
 					//将每个图片用<a></a>包裹起来
 					$(this).wrap(function() {
 						  return '<a href="' + $(this).attr('src') + '"  class="lightBox_a"  target="_blank"></a>';
 					});
-				});
+				});*/
 			   
 			    //取回答的第一张图片为概要图片 去出表情图片
 				var firstimageurl=$(this).find('img[alt]:first').attr('src');

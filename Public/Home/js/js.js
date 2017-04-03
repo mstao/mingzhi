@@ -201,12 +201,12 @@ $(function () {
 	$(".describe").each(function(){
 		var maxwidth=250;
 		var contenttext=$(this).text();
-		$(this).find('img').each(function(){		   
+		/*$(this).find('img').each(function(){		   
 			//将每个图片用<a></a>包裹起来
 			$(this).wrap(function() {
 				  return '<a href="' + $(this).attr('src') + '"  class="lightBox_a"  target="_blank"></a>';
 			});
-		});
+		});*/
 		if(contenttext.length>maxwidth){
 			var subcontent=contenttext.substring(0,maxwidth)+"...";
 			$(this).prev().find('.summary_text').text(subcontent);
