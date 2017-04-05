@@ -742,65 +742,15 @@
 
 /*编辑器显示*/
 
-.Editor-txt p,
-.Editor-txt h1,
-.Editor-txt h2,
-.Editor-txt h3,
-.Editor-txt h4,
-.Editor-txt h5 {
-  margin: 10px 0;
-  line-height: 1.8;
-}
-.Editor-txt p *,
-.Editor-txt h1 *,
-.Editor-txt h2 *,
-.Editor-txt h3 *,
-.Editor-txt h4 *,
-.Editor-txt * {
-  line-height: 1.8;
-}
-.Editor-txt ul,
-.Editor-txt ol {
-  padding-left: 20px;
-}
-.Editor-txt img {
-  cursor: pointer;
-}
-.Editor-txt img.clicked {
-  box-shadow: 1px 1px 10px #999;
-}
-.Editor-txt table.clicked {
-  box-shadow: 1px 1px 10px #999;
-}
-.Editor-txt pre code {
-  line-height: 1.5;
-}
 
-.Editor-txt blockquote {
-  display: block;
-  border-left: 8px solid #d0e5f2;
-  padding: 5px 10px;
-  margin: 10px 0;
-  line-height: 1.4;
-  font-size: 100%;
-  background-color: #f1f1f1;
-}
-.Editor-txt table {
+/*  table {
   border: none;
   border-collapse: collapse;
 }
-.Editor-txt table td,
-.Editor-txt table th {
+ table td,
+ table th {
   border: 1px solid #999;
   padding: 3px 5px;
   min-width: 50px;
   height: 20px;
-}
-.Editor-txt pre {
-  border: 1px solid #ccc;
-  background-color: #f8f8f8;
-  padding: 10px;
-  margin: 5px 0px;
-  font-size: 0.8em;
-  border-radius: 3px;
-}
+} */
