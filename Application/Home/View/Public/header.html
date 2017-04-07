@@ -160,6 +160,20 @@
                    </div> 
                    <{/*消息内容结束  */}>
                   
+                  <if condition="$Think.session.uid eq ''">
+                  
+                <ul class="menu-loginreg">
+					<li>
+						<a href="" title="" class="login-btn" >登录</a>                                    
+					</li>
+					<li>
+						<a href="" title="" class="reg-btn" >注册</a> 
+					</li>
+					
+				</ul>
+                  
+                  <else/>
+                  
 					<li class="myname_li">
 						<a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" title="" class="mymainname">
 						<if condition="$headerinfo['avatar_file'] eq ''">
@@ -181,6 +195,8 @@
 					<li>
 						<a href="javascript:void(0);"  class="publish_btn_open">提问</a>
 					</li>
+					
+					</if>
 				</ul>	
 				
 			</div>

@@ -24,7 +24,7 @@ class ExploreController extends HomeController{
     public function _initialize(){
         parent::_initialize();
         $this->uid=session('uid');
-    
+    　　　　　
     }
     
     

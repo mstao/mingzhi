@@ -23,42 +23,42 @@ class UserController extends Controller{
         $user=new  \Home\Model\UserModel();
         if(!empty($_POST)){
                     
-                    $v=I('post.verify',''); //获取$_POST['verify']
-                    // 检查验证码
-                    if(!check_verify($v)){
-                        $data['status']  = 2;
-                        $data['content'] = '验证码错误';
+            $v=I('post.verify',''); //获取$_POST['verify']
+            // 检查验证码
+            if(!check_verify($v)){
+                $data['status']  = 2;
+                $data['content'] = '验证码错误';
+                $this->ajaxReturn($data);
+                exit;
+            }else{
+                // echo "验证码正确";
+                //验证Model 定义的表单判断                      
+                   
+                    $name=I('post.username','');
+                    $pw=I('post.password','');
+                    //判断用户名和密码是否正确
+                    $rst=$user->CheckNamePw($name,$pw);
+                    if($rst==false){                               
+                        $data['status']  = 0;
+                        $data['content'] = '用户名或密码错误';
                         $this->ajaxReturn($data);
                         exit;
                     }else{
-                        // echo "验证码正确";
-                        //验证Model 定义的表单判断                      
-                           
-                            $name=I('post.username','');
-                            $pw=I('post.password','');
-                            //判断用户名和密码是否正确
-                            $rst=$user->CheckNamePw($name,$pw);
-                            if($rst==false){                               
-                                $data['status']  = 0;
-                                $data['content'] = '用户名或密码错误';
-                                $this->ajaxReturn($data);
-                                exit;
-                            }else{
-                                //用户验证正确
-                                //将登陆信息保存在session中
-                                session('username',$rst['username']);
-                                $uid=$rst['id'];
-                                session('uid',$uid);
-                                
-                                $data['status']  = 1;
-                                $data['content'] = '登录成功';
-                                $this->ajaxReturn($data);
-                                exit();
-                                //跳转
-                                //$this->redirect('Index/index');
-                            }
-                
-                        }                   
+                        //用户验证正确
+                        //将登陆信息保存在session中
+                        session('username',$rst['username']);
+                        $uid=$rst['id'];
+                        session('uid',$uid);
+                        
+                        $data['status']  = 1;
+                        $data['content'] = '登录成功';
+                        $this->ajaxReturn($data);
+                        exit();
+                        //跳转
+                        //$this->redirect('Index/index');
+                    }
+        
+                }                   
                              
         }else{
             $this->display();
