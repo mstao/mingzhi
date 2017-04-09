@@ -19,12 +19,12 @@
 namespace Home\Controller;
 
 use \Common\Controller\HomeController;
+
 class ExploreController extends HomeController{
-    public  $uid;
-    public function _initialize(){
-        parent::_initialize();
+    protected  $uid;
+    
+    public function  _initialize(){
         $this->uid=session('uid');
-    　　　　　
     }
     
     

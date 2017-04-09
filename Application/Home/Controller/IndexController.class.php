@@ -25,7 +25,9 @@ class IndexController extends HomeController {
 
     }
     
-
+    /**
+     * 首页渲染
+     */
     public function index(){  
        
        //获取最新首页feed流

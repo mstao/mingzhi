@@ -1,4 +1,21 @@
 <?php
+/**
+ +----------------------------------------------------------------------
+ |  MINGZHI
+ +----------------------------------------------------------------------
+ | Copyright (c) 2017 mingzhi All rights reserved.
+ +----------------------------------------------------------------------
+ | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+ +----------------------------------------------------------------------
+ | Author: mingshan <499445428@qq.com>
+ +----------------------------------------------------------------------
+
+ +----------------------------------
+ * Home父控制器
+ +----------------------------------
+ */
+
+
 namespace Common\Controller;
 use Common\Controller\BaseController;
 
@@ -14,7 +31,7 @@ class HomeController extends BaseController{
             //$this->error('没有权限访问！',U("User/login"),0);
         }
         
-        //分配公共信息，包含头像，用户名
+         //分配公共信息，包含头像，用户名
 
          $user=new  \Home\Model\UserModel();
          $uinfo=$user->getPersonInfo($uid);

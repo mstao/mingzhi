@@ -19,6 +19,6 @@ namespace Home\Controller;
 use Think\Controller;
 class EmptyController extends Controller{    
     function _empty(){
-        echo 'xzxx';
+        echo '到了知识未到达的地方^_^';
     }
 }

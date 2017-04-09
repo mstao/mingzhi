@@ -93,6 +93,9 @@
 				<ul class="menu-share">
                  <li><a href="<{:U('Home/Explore/index')}>">发现</a></li>
                 <li><a href="__MODULE__/Topic/index">话题</a></li>
+                
+                  <if condition="$headerinfo['username'] neq ''">
+                  
                   <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue"><{$headerinfo.no_count}></span></a>
                   </li>
                    <{/*消息内容开始  */}>
@@ -159,20 +162,8 @@
 						</div>
                    </div> 
                    <{/*消息内容结束  */}>
-                  
-                  <if condition="$Think.session.uid eq ''">
-                  
-                <ul class="menu-loginreg">
-					<li>
-						<a href="" title="" class="login-btn" >登录</a>                                    
-					</li>
-					<li>
-						<a href="" title="" class="reg-btn" >注册</a> 
-					</li>
-					
-				</ul>
-                  
-                  <else/>
+                   
+                 
                   
 					<li class="myname_li">
 						<a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" title="" class="mymainname">
@@ -195,7 +186,16 @@
 					<li>
 						<a href="javascript:void(0);"  class="publish_btn_open">提问</a>
 					</li>
+					<else/>
 					
+					
+						<div class="menu-loginreg">
+						
+						    <button class="login-btn">登录</button>
+						    <button class="reg-btn">注册</button>
+			
+						</div>
+				 
 					</if>
 				</ul>	
 				

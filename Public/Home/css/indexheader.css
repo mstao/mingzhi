@@ -1057,29 +1057,15 @@ body {
 }
 /*登录，注册*/
 .menu-loginreg{
-	display:block;
-	float:right;
-}
-.login-btn{
-	height: 35px;
-    padding-left:0px;
-	margin-left:10px;
-	line-height:40px;
-	margin-top:10px;
+	display:inline-block;
+	margin-left:85px;
 }
 
-.reg-btn{
-	height: 35px ;
-    padding-left:0px;
-	line-height:40px;
-	margin-top:10px;
-	margin-left:15px;
-}
-.login-btn >a{
+.login-btn{
 	
 
     height: 35px;
-    width: 50px;
+    width: 80px;
 	background: #ffffff;
 	border: 1px solid #0F88EB;
 	border-radius: 3px;
@@ -1090,23 +1076,27 @@ body {
     text-align: center;  
 	
 }
-.login-btn >a:hover{
+.login-btn:hover{
+	cursor:pointer;
 	color:#0F88EB;
 	background:#eff0f4;
 }
 
- .reg-btn>a{
+ .reg-btn{
+ 	margin-left:10px;
+ 	width: 80px;
     height: 35px ;
 	background: #FFFFFF;
 	border: 1px solid #0F88EB;
 	border-radius: 3px;
 	color: #0F88EB;
-	text-decoration: none;
 	display: table-cell;
     vertical-align: middle;
-    text-align: center;  
+    text-align: center;
+ 	
 }
- .reg-btn>a:hover{
+ .reg-btn:hover{
+ 	cursor:pointer;  
 	color:#0F88EB;
 	background:#eff0f4;
  }
