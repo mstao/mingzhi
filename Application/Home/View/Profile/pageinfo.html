@@ -1,6 +1,11 @@
 
 <!-- 我的主页信息 -->
 <div class="mything">
+<if condition="$umsg['uid'] neq $umsg['session_id']">
+<div class="focus-inbox-btn">
+<button>关注</button> <button>私信</button>
+</div>
+</if>
 <div class="allguanzhu"><div class="guanzhule">关注了:<a href="#"><{$umsg.focus_person}>人</a></div><div class="beiguanzhu">粉丝量:<a href="#"><{$umsg.fans_count}>人</a></div></div>
 
 <div class="guanzhutopic">关注了<a href="<{:U('Home/Topic/index')}>"><{$umsg.focus_topic_count}></a>个话题</div>

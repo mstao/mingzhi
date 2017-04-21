@@ -145,9 +145,9 @@ class NotificationsModel extends Model{
                $q_info=D('Question')->getSimpleQuestionInfo($item_id);
                //获取超简单用户信息
                $u_info=D('User')->getSimpleUserInfo($suid);
-               $a_info[0]['u_info']=$u_info;
+               $q_info[0]['u_info']=$u_info;
                $arr['content']=$q_info;
-
+   
                $arr['flag']='aq';
                $big_arr[]=$arr;
             }else if($type_flag=='rq'){
@@ -156,13 +156,13 @@ class NotificationsModel extends Model{
                 $q_info=D('Question')->getSimpleQuestionInfo($item_id);
                 //获取超简单用户信息
                 $u_info=D('User')->getSimpleUserInfo($suid);
-                $a_info[0]['u_info']=$u_info;
+                $q_info[0]['u_info']=$u_info;
                 $arr['content']=$q_info;
                 $arr['flag']='rq';
                 $big_arr[]=$arr;
             }else if($type_flag=='ra'){
                //代表举报答案
-                //代表赞同答案
+        
                 $a_info=D('Answer')->getSimpleAnswerInfo($item_id);
                 //获取超简单用户信息
                 $u_info=D('User')->getSimpleUserInfo($suid);

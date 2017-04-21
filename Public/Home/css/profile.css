@@ -218,11 +218,13 @@
 .allguanzhu{
 	border-bottom:1px double #CCC;
 	height:40px;
+	margin-top:20px;
 }
 .guanzhule{
 	display:inline;
 	height:40px;
 	padding-right:18px;
+	
 	
 }
 .beiguanzhu{
@@ -1039,7 +1041,7 @@ text-decoration:underline;
 	border-radius:6px 6px 0px 0px;
     line-height: 45px;
     text-indent: 15px;
-    background: #446CB3;
+    background: #0F88EB;
 }
 .checkimage-dialog .checkimage-dialog-cont{
     padding:38px 20px;
@@ -1547,4 +1549,28 @@ text-decoration:underline;
   font-size: 0.8em;
   border-radius: 3px;
 }
+.focus-inbox-btn{
+	padding-bottom:10px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.focus-inbox-btn button{
 
+ 	width: 80px;
+    height: 35px ;
+	background: #FFFFFF;
+	border: 1px solid #0F88EB;
+	border-radius: 3px;
+	color: #0F88EB;
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.focus-inbox-btn button:hover{
+	cursor:pointer;  
+	color:#0F88EB;
+	background:#eff0f4;
+}
+
+.focus-inbox-btn button:not(:first-child){
+	float:right;
+}
