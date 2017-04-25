@@ -1556,21 +1556,39 @@ text-decoration:underline;
 .focus-inbox-btn button{
 
  	width: 80px;
-    height: 35px ;
-	background: #FFFFFF;
-	border: 1px solid #0F88EB;
-	border-radius: 3px;
-	color: #0F88EB;
-	display: table-cell;
-    vertical-align: middle;
-    text-align: center;
+  height: 29px;
+  line-height: 27px;
+  font-size: 15px;
+  cursor:pointer;
+  display: block;
+  color: #ffffff;
+  background: #0F88EB;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  background-image: -webkit-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: -moz-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: -o-linear-gradient(top, #0F88EB, #0F88EB);
+  background-image: linear-gradient(to bottom, #0F88EB, #0F88EB);
 }
+
 .focus-inbox-btn button:hover{
 	cursor:pointer;  
 	color:#0F88EB;
 	background:#eff0f4;
 }
 
+.focus-user-yi{
+	color:#666666 !important;
+    background:#EEEEEE !important;
+	border:1px solid #666666 !important;
+}
+
+
 .focus-inbox-btn button:not(:first-child){
 	float:right;
+	margin-top:-31px;
 }

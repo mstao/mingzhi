@@ -3,7 +3,14 @@
 <div class="mything">
 <if condition="$umsg['uid'] neq $umsg['session_id']">
 <div class="focus-inbox-btn">
-<button>关注</button> <button>私信</button>
+ <if condition="$umsg['focus_status'] eq 0">
+ <button class="user-focus" data-uid="<{$umsg.id}>">关注</button>
+ <else/>
+  <button class="user-focus" style="background:#EEEEEE;color:#666666;">取消关注</button>
+ </if>
+
+
+ <button class="user-inbox" data-uid="<{$umsg.id}>">私信</button>
 </div>
 </if>
 <div class="allguanzhu"><div class="guanzhule">关注了:<a href="#"><{$umsg.focus_person}>人</a></div><div class="beiguanzhu">粉丝量:<a href="#"><{$umsg.fans_count}>人</a></div></div>

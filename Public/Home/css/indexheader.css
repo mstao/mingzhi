@@ -511,6 +511,8 @@ body {
 	padding-top:4px;
 	border-radius:6px;
 	background-color: #0F88EB;
+	border:1px solid;
+	cursor: pointer;
 	
 }
 .close {

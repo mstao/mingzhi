@@ -204,6 +204,9 @@ class ProfileController extends HomeController {
          $job=$user->getJob($uid);
          $focus_person_count=$user->getFollowCountByUser($uid);//关注了多少人
          $focus_topic_count=D('User')->getFocusTopicCountByUser($uid);//关注的话题数量
+         //获取当前用户对访问用户关注状态
+         $focus_status=D('User')->getFocusUserStatus(session('uid'),$uid);
+         
          $data['session_id']=session('uid');
          $data['uid']=$uinfo[0]['id'];
          $data['username']=$uinfo[0]['username'];
@@ -218,6 +221,7 @@ class ProfileController extends HomeController {
          $data['u_view_count']=$uinfo[0]['u_view_count'];
          $data['focus_person']=$focus_person_count;
          $data['focus_topic_count']=$focus_topic_count;
+         $data['focus_status']=$focus_status;
          return $data;
      }
      //获取所有的职业信息

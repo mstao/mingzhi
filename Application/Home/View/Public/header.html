@@ -94,7 +94,7 @@
                  <li><a href="<{:U('Home/Explore/index')}>">发现</a></li>
                 <li><a href="__MODULE__/Topic/index">话题</a></li>
                 
-                  <if condition="$headerinfo['username'] neq ''">
+                  <if condition="$Think.session.uid neq ''">
                   
                   <li><a href="javascript:void(0);" class="notifications">消息<span class="nav-counter nav-counter-blue"><{$headerinfo.no_count}></span></a>
                   </li>
@@ -173,7 +173,7 @@
 						<img src="<{$headerinfo.avatar_file}>" class="mytouxiangimg">
 						</if>
 						
-						<span class="myname_header"><{$headerinfo.username|msubstr=0,5}></span>
+						<span class="myname_header"><{$Think.session.username|msubstr=0,5}></span>
 						</a>
 						<ul class="dropdown-menu follow">
 							<li><a href="__MODULE__/Profile/index/u/<{$Think.session.uid}>" >我的主页</a></li>

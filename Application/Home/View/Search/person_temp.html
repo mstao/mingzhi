@@ -11,7 +11,7 @@
 </if>
 
  <div class="user-n1-con">
-  <p class="user-n1-user"><{$record_info.username}></p>
+  <p class="user-n1-user"><a href="__MODULE__/Profile/index/u/<{$record_info.id}>"><{$record_info.username}></a></p>
   <p class="user-n1-tag"><{$record_info.tag}><p>
  </div>
  <div class="user-n2">
@@ -21,9 +21,9 @@
  <li><a href=""><{$record_info.fans_count}><br>关注者</a></li>
  </ul>
  <if condition="$record_info['follow_id'] eq ''">
- <button class="focus-btn">关注</button>
+ <button class="focus-btn user-focus" data-uid="<{$record_info.id}>">关注</button>
  <else/>
-  <button class="focus-btn" style="background:#EEEEEE;color:#666666;">取消关注</button>
+  <button class="focus-btn user-focus" style="background:#EEEEEE;color:#666666;" data-uid="<{$record_info.id}>">取消关注</button>
  </if>
  </div>
  

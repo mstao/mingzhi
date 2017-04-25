@@ -17,11 +17,10 @@
  */
 
 namespace Home\Controller;
-
 use \Common\Controller\HomeController;
 
 class ExploreController extends HomeController{
-    protected  $uid;
+    public  $uid;
     
     public function  _initialize(){
         $this->uid=session('uid');

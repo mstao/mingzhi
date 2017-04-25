@@ -312,5 +312,18 @@ class UserController extends Controller{
           
           echo $image_path;
     }
- 
+    
+    //关注  取消关注用户
+    
+    function focusUser(){
+        if(IS_AJAX){
+            //被关注人id
+            $friend_uid=$_POST['friend_uid'];
+            $flag=D('Topic')->dealFocusTopic($this->uid,$friend_uid);
+            $data['status']  = 1;
+            $data['content'] = $flag;
+            $this->ajaxReturn($data);
+            exit();
+        }
+    }
 }

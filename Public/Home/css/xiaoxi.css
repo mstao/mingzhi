@@ -105,3 +105,13 @@
 	
 	line-height:inherit;
 }
+
+.newactivity{
+	
+}
+.newactivity .no-list-li a{
+	font-size:18px;
+   text-decoration:none;
+	margin-right:10px;
+	margin-left:10px;
+}

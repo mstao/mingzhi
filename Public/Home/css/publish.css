@@ -61,14 +61,18 @@
 	margin-top:20px;
 	margin-right:10px;
 	margin-bottom:20px;
+	font-size:18px;
 }
 .publish-submit input[type=submit]{
 	color:#FFF;
 	height:40px;
 	width:100px;
-	padding-top:4px;
+	padding-top:2px;
 	border-radius:6px;
-	background-color: #446CB3;
+	background-color: #0F88EB;
+	border:1px solid;
+	cursor: pointer;
+	
 }
 .publish-question-content:focus,.publish-question-topic:focus{
 	border-color: #30A5FF;

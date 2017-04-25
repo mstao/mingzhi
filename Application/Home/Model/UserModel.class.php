@@ -581,5 +581,56 @@ class UserModel extends Model{
         return $count;
     }
     
+    /**
+     * 关注  用户
+     * @param unknown $fans_uid
+     * @param unknown $friend_uid
+     */
+    function  foucsUser($fans_uid,$friend_uid){
+        //获取用户关注状态
+        $flag=$this->getFocusUserStatus($fans_uid, $friend_uid);
+        
+        //flag为1，代表此时用户已关注此话题，进行取消关注操作
+        
+        if($flag==1){
+            $where=array(
+                'fans_uid'  =>$fans_uid,
+                'friend_uid'=>$friend_uid
+            );
+            M('user_follow')->where($where)->delete();
+            $return=0;
+       
+       //flag为0时，代表此时用户未关注话题，进行关注操作
+        }else if($flag==0){
+            $time=time();
+            $data=array(
+     			'fans_uid'=>$fans_uid,
+                'friend_uid'=>$friend_uid,
+     			'add_time'=>$time
+            );
+            M('user_follow')->data($data)->add();
+            $return=1;
+        }
+        return $return;
+    }
+    
+    /**
+     * 获取用户关注状态
+     * @param unknown $fans_uid
+     * @param unknown $friend_uid
+     */
+    function  getFocusUserStatus($fans_uid,$friend_uid){
+        $where=array(
+            'fans_uid'=>$fans_uid,
+            'friend_uid'=>$friend_uid
+        );
+        $IS_FOCUS=M('user_follow')->where($where)->select();
+        if(empty($IS_FOCUS)){
+            $focus_status='0';
+        }else{
+            $focus_status='1';
+        }
+        return $focus_status;
+    }
 }
 ?>

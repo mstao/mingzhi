@@ -5,7 +5,8 @@
 <div class="publish-content">
 
 <span>问题标题:</span>
-<div class="publish-question-content" contenteditable="true"></div>
+
+<input type="text" class="publish-question-content"  placeholder="请输入问题的标题">
 <span>问题描述,详细信息:</span>
 <!--评论框开始  -->
 <div id="editor-container" class="commentcontainer">
@@ -14,16 +15,12 @@
 <!--评论框结束  -->
 
 <span>添加或搜索话题:</span>
-<div class="publish-question-topic" contenteditable="true"></div>
+<!-- S 搜素问题结果 -->
+<div class="question-searchresult-div"></div>
+<input type="text" class="publish-question-topic openModal-question-topic" placeholder="请输入话题名称"/>
 
-
-<div class="publish-submit">
-	<form action="">
-			<input type="hidden" name="questioncontent">
-			<input type="hidden" name="questiondesc">
-			<input type="hidden" name="questiontopic">
+<div class="publish-submit">	
 			<input type="submit" value="发起">
-	</form>
 </div>
 
 
