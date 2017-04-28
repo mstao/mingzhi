@@ -19,20 +19,14 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">问题管理</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">回答管理</span></div>
         </div>
         <div class="search-wrap">
             <div class="search-content">
                 <form action="#" method="post">
                     <table class="search-tab">
                         <tr>
-                            <th width="120">选择分类:</th>
-                            <td>
-                                <select name="search-sort" id="">
-                                    <option value="">全部</option>
-                                    <option value="19">精品界面</option><option value="20">推荐界面</option>
-                                </select>
-                            </td>
+                          
                             <th width="70">关键字:</th>
                             <td><input class="common-text" placeholder="关键字" name="keywords" value="" id="" type="text"></td>
                             <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
@@ -45,7 +39,7 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="insert.html"><i class="icon-font"></i>新增作品</a>
+                        <!-- <a href="insert.html"><i class="icon-font"></i>新增作品</a> -->
                         <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
                         <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
@@ -61,10 +55,10 @@
                             <th >反对数量</th>
 					        <th >被举报次数</th>
 					        <th >发起时间</th>
-					        <th >回答状态</th>
+					    
 					        <th >操作</th>
                         </tr>
-                        <volist  name="questioninfo" id="info">
+                        <volist  name="info" id="info">
                         <tr>
                         
                             <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
@@ -72,18 +66,13 @@
                              <td><{$info.id}></td>
        
 					        <td><u style="cursor:pointer" class="text-primary" ><{$info.question_name}></u></td>
-					        <td><{$info.question_desc}></td>
-					        <td><{$info.answer_count}></td>
+					        <td ><{$info.answer_content|getTextUnits|msubstr=0,100}></td>
+					        <td><{$info.upvote_count}></td>
+					        <td><{$info.downvote_count}></td>
 					        <td><{$info.report_count}></td>
-					        <td ><{$info.focus_count}></td>
 					        <td><{$info.create_time|getTime}></td>
-					        <td>
-					        <if condition="$info['status'] eq 0">
-					        <span class="label label-success">已启用</span>
-					        <elseif condition="$info['status'] eq 1"/>
-					        <span class="label label-error">已停用</span>
-					        </if>
-					        </td>
+				
+					      
                             <td>
                                 <a class="link-update" href="#">修改</a>
                                 <a class="link-del" href="#">删除</a>
@@ -92,7 +81,7 @@
                         </volist>
                        
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="pagelist list-page"><{$page}></div> 
                 </div>
             </form>
         </div>

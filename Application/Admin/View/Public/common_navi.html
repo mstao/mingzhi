@@ -1,3 +1,41 @@
+
+<script type="text/javascript">
+$(function(){
+
+
+/**********清除缓存***********/
+$('.cleanCache').bind('click',function(){
+		layer.confirm('确认要清除缓存？', {
+			  btn: ['确定','取消'] 
+			}, function(){
+				$.post('__MODULE__/Cache/cleanAll',function(data){
+					
+                    layer.msg("清楚缓存成功<br/>文件夹总数为:"+data.totalFile+"--总大小:"+data.totalSize+"--时间:"+data.reqtime);
+                });
+			}, function(){
+			  
+		});
+});
+
+
+/************备份数据库***********/
+$(".databei").bind("click",function(){
+	
+	layer.confirm('确认要备份数据库？', {
+		  btn: ['确定','取消'] 
+		}, function(){
+			$.post('__MODULE__/DataBase/exportDatabase',function(data){
+				layer.msg(data);
+            
+          });
+		}, function(){
+		  
+	});
+	
+});
+
+});
+</script>
 <div class="sidebar-wrap">
         <div class="sidebar-title">
             <h1>菜单</h1>
@@ -9,28 +47,28 @@
                     <ul class="sub-menu">
                         <li><a href="__MODULE__/UserManage/userList"><i class="icon-font">&#xe008;</i>用户管理</a></li>
                         <li><a href="__MODULE__/TopicManage/topicList"><i class="icon-font">&#xe005;</i>话题管理</a></li>
-                        <li><a href="design.html"><i class="icon-font">&#xe006;</i>回答管理</a></li>
-                        <li><a href="design.html"><i class="icon-font">&#xe004;</i>评论管理</a></li>
+                        <li><a href="__MODULE__/AnswerManage/answerList"><i class="icon-font">&#xe006;</i>回答管理</a></li>
+                        <li><a href="__MODULE__/CommentManage/commentList"><i class="icon-font">&#xe004;</i>评论管理</a></li>
                         
                         <li><a href="__MODULE__/QuestionManage/questionList"><i class="icon-font">&#xe052;</i>问题管理</a></li>
-                        <li><a href="design.html"><i class="icon-font">&#xe033;</i>广告管理</a></li>
+                        <li><a href="#"><i class="icon-font">&#xe033;</i>广告管理</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
                     <ul class="sub-menu">
-                        <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>
+                       <!--  <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li> -->
+                        <li><a href="javascript:void(0);" class="cleanCache"><i class="icon-font">&#xe037;</i>清理缓存</a></li>
+                        <li><a href="javascript:void(0);" class="databei"><i class="icon-font">&#xe046;</i>数据备份</a></li>
+                        <li><a href="#"><i class="icon-font">&#xe045;</i>数据还原</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="icon-font">&#xe018;</i>其他配置</a>
                     <ul class="sub-menu">
-                        <li><a href="system.html"><i class="icon-font">&#xe017;</i>第三方登录</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe006;</i>优化推广</a></li>
-                        <li><a href="system.html"><i class="icon-font">&#xe004;</i>邮箱设置</a></li>
+                        <li><a href="#"><i class="icon-font">&#xe017;</i>第三方登录</a></li>
+                        <li><a href="#"><i class="icon-font">&#xe006;</i>优化推广</a></li>
+                        <li><a href="#"><i class="icon-font">&#xe004;</i>邮箱设置</a></li>
                     </ul>
                 </li>
             </ul>

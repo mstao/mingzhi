@@ -49,11 +49,20 @@ class AdminUserModel extends Model{
      * 获取系统注册用户信息
      * @return mixed|boolean|string|NULL|unknown|object
      */
-    function getUserInfo($position,$item_per_page){
+    function getUserInfo(){
         $info=D('User')
                     ->field('id,username,sex,email,mobile,city,forbidden')
                     ->order('reg_time desc')
                     ->select();
+        return $info;
+    }
+    
+    /**
+     * 获取用户总数
+     * @return unknown
+     */
+    function getUserCount(){
+        $info=D('User')->count();
         return $info;
     }
    

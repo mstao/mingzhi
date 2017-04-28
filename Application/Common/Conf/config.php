@@ -12,7 +12,7 @@ return array(
     'TMPL_R_DELIM'          =>    '}>',
     //**************设置伪静态************
     'URL_HTML_SUFFIX'       =>   '',              //默认后缀
-    'SHOW_PAGE_TRACE'       =>   false,                //开启页面trace
+    'SHOW_PAGE_TRACE'       =>   true,                //开启页面trace
     //******定义常用css,js,images路径*******
     'TMPL_PARSE_STRING'     =>   array(                //定义常用路径
            __HOME_CSS__     =>   __ROOT__.'/Public/Home/css',
@@ -38,5 +38,13 @@ return array(
        'use_only_cookies'   =>  0,                            //是否只开启基于cookies的session的会话方式
     ),
     
+    ///****************配置CACHE****************
+    'LAYOUT_ON'        => false,
+    'HTML_CACHE_ON'    => strpos($_SERVER['HTTP_HOST'], '.') !== false, // 开启静态缓存 默认为 true 本地不开启
+    'HTML_CACHE_TIME'  => 3600, // 全局静态缓存有效期（秒）
+    'HTML_FILE_SUFFIX' => '.shtml', // 设置静态缓存文件后缀
+    'HTML_CACHE_RULES' => array(
+        '*' => array('{:module}/{:controller}/{:action}/{$_SERVER.REQUEST_URI|md5}', 3600, 'trimSW'),
+    )
     
 );

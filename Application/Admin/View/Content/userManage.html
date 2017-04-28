@@ -40,7 +40,7 @@
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="insert.html"><i class="icon-font"></i>新增用户</a>
+                        <!-- <a href="insert.html"><i class="icon-font"></i>新增用户</a> -->
                         <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
                         <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
                     </div>
@@ -87,7 +87,8 @@
                         </volist>
                        
                     </table>
-                    <div class="list-page"> 2 条 1/1 页</div>
+                    <div class="pagelist list-page"><{$page}></div> 
+    
                 </div>
             </form>
         </div>

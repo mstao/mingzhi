@@ -1,7 +1,4 @@
 <?php
-namespace Admin\Controller;
-
-use Common\Controller\AdminController;
 
 /**
  +-----------------------------------------------------
@@ -10,6 +7,10 @@ use Common\Controller\AdminController;
  *
  +-----------------------------------------------------
  */
+
+namespace Admin\Controller;
+
+use Common\Controller\AdminController;
 class IndexController extends AdminController{
     protected   $auid;
     public function _initialize(){
@@ -24,34 +25,16 @@ class IndexController extends AdminController{
     public function index(){
         //获取管理员的信息
         $admin_info=$this->getAdminUserInfo($this->auid);
-        //获取统计信息
-        $count=$this->getCount();
+       
         //获取服务器信息
         $server_info=$this->getServerInfo();
         $this->assign('uinfo',$admin_info);
         $this->assign('server_info',$server_info);
-        $this->assign('count',$count);
+      
         $this->display();
     }
     
-    /**
-     * 映射welcome页面
-     */
-    /* public function welcome(){
-        //获取登录用户信息
-        $admin_info=D('AdminUser')->getAdminUserInfo($this->auid);
-        
-        //获取统计信息
-        $count=$this->getCount();
-        
-        //获取服务器信息
-        $server_info=$this->getServerInfo();
-        $this->assign('uinfo',$admin_info);
-        $this->assign('server_info',$server_info);
-        $this->assign('count',$count);
-        $this->display();
-    } */
-    
+
     /**
      * 用户管理
      */
@@ -114,19 +97,5 @@ class IndexController extends AdminController{
     }
     
     
-    public function getCount(){
-        /* //获取问题总量
-        $all_question_count=D('Question')->getQuestionCount();
-        //获取话题数量
-        $all_topic_count=D('Topic')->getTopicCount();
-        //获取回答数量
-        $all_answer_count=D('Answer')->getAnswerCount();
-        
-        $big_array=array(
-            'all_question_count'  =>$all_question_count,
-            'all_topic_count'     =>$all_topic_count,
-            'all_answer_count'    =>$all_answer_count
-        );
-        return $big_array; */
-    }
+
 }

@@ -43,8 +43,8 @@ function check_verify($code, $id = ''){
  * @param $oldtime
  * @return string
  */
-function time2Units ($oldtime)
-{   $nowtime=time();
+function time2Units ($oldtime){   
+    $nowtime=time();
     $time=$nowtime-$oldtime;
     
     $year   = floor($time / 60 / 60 / 24 / 365);
@@ -147,3 +147,17 @@ function getTextUnits($str,$sublen="12")
     
 }
 
+/**
+ * 去除 空格 和非\w 字符串，用于cache 配置
+ * @param unknown $str
+ * @param string $emptyValue
+ * @return string|mixed
+ */
+function trimSW($str, $emptyValue = '_empty_'){
+    $str = preg_replace('/([^\w\/]+)/', '-', $str);
+    if (empty($str)) {
+        $str = $emptyValue;
+    }
+
+    return $str;
+}

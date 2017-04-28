@@ -1,3 +1,4 @@
+<css file="__HOME_CSS__/fenye.css" />
 <div class="topbar-wrap white">
     <div class="topbar-inner clearfix">
         <div class="topbar-logo-wrap clearfix">
@@ -9,12 +10,29 @@
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">
-                <li><a href="#">管理员<{$u_info.admin_name}></a></li>
+                <li><a href="#">管理员<{$Think.session.ausername}></a></li>
                 <li><a href="#">修改密码</a></li>
-                <li><a href="#">退出</a></li>
+                <li><a href="javascript:void(0);" class="logout">退出</a></li>
             </ul>
         </div>
     </div>
 </div>
+<js file="__PUBLIC__/static/js/jquery-1.10.2.min.js" />
+<js file="__PUBLIC__/static/layer-2.4/layer.js" />
+<script type="text/javascript">
 
+$(function(){
+	//退出系统处理
+	$('.logout').bind('click',function(){
+		layer.confirm('是否退出后台管理？', {
+			  btn: ['退出','取消'] 
+			}, function(){
+				window.location.href="__MODULE__/AdminUser/logOut";
+			}, function(){
+			  
+			});
+	});
+});
+
+</script>
     

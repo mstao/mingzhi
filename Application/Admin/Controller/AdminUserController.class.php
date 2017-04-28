@@ -29,9 +29,10 @@ class AdminUserController extends Controller{
             }else{
                 //用户验证正确
                 //将登陆信息保存在session中
-                session('username',$rst['username']);
+                session('ausername',$rst['username']);
                 $uid=$rst['id'];
                 session('auid',$uid);
+        
                 $uinfo=$user->getAdminUserInfo($uid);
                 $data['status']  = 1;
                 $data['content'] = '登录成功';
@@ -49,8 +50,9 @@ class AdminUserController extends Controller{
      *退出后台系统 
      */
     
-    public function loginOut(){
+    public function logOut(){
         unset($_SESSION['auid']);
+        unset($_SESSION['ausername']);
         $this->redirect("AdminUser/Login");
     }
 }
